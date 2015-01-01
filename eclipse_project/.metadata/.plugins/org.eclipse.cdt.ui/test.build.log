@@ -1,0 +1,12 @@
+
+**** Build of configuration Release for project test ****
+
+cs-make all 
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley test.elf
+   text	   data	    bss	    dec	    hex	filename
+    680	     36	     28	    744	    2e8	test.elf
+'Finished building: test.siz'
+' '
+
+**** Build Finished ****

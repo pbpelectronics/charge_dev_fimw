@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="252" key="DIALOG_Y_ORIGIN"/>
+		<item value="849" key="DIALOG_X_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="wrap"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="ADC_DeInit" key="selection"/>
+		<list key="findhistory">
+			<item value="diff"/>
+			<item value="differential"/>
+			<item value="WIDTH_DIGITAL_IMAGE"/>
+			<item value="digitals"/>
+			<item value="yPosition"/>
+			<item value="TIM1"/>
+			<item value=".number"/>
+			<item value="led."/>
+		</list>
+		<list key="replacehistory">
+			<item value="ADDITIONAL_MENU_DIGITS_WIDTH"/>
+			<item value="additionalMenuDigitals"/>
+			<item value="ADDITIONAL_MENU_DIGITS_TOP_MARGIN"/>
+			<item value="ADDITIONAL_MENU_LEFT_ANIMATION_TOP_MARGINADDITIONAL_MENU_LEFT_ANIMATION_TOP_MARGIN"/>
+			<item value="TIM2"/>
+			<item value=""/>
+			<item value="0"/>
+			<item value="const unsigned char"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="405" key="DIALOG_Y_ORIGIN"/>
+		<item value="729" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

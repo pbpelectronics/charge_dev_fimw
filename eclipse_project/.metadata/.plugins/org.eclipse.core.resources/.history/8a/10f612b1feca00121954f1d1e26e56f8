@@ -1,0 +1,657 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f10x_wwdg.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.WWDG_DeInit,"ax",%progbits
+  19              		.align	2
+  20              		.global	WWDG_DeInit
+  21              		.thumb
+  22              		.thumb_func
+  24              	WWDG_DeInit:
+  25              	.LFB29:
+  26              		.file 1 "../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c"
+   1:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+   2:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   ******************************************************************************
+   3:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @file    stm32f10x_wwdg.c
+   4:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @author  MCD Application Team
+   5:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @version V3.5.0
+   6:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @date    11-March-2011
+   7:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief   This file provides all the WWDG firmware functions.
+   8:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   ******************************************************************************
+   9:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @attention
+  10:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *
+  11:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  14:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *
+  18:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+  19:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   ******************************************************************************
+  20:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  21:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  22:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* Includes ------------------------------------------------------------------*/
+  23:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #include "stm32f10x_wwdg.h"
+  24:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #include "stm32f10x_rcc.h"
+  25:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  26:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @addtogroup STM32F10x_StdPeriph_Driver
+  27:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  28:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  29:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  30:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG 
+  31:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief WWDG driver modules
+  32:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  33:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  34:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  35:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_TypesDefinitions
+  36:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  37:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  38:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  39:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  40:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @}
+  41:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  42:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  43:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_Defines
+  44:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  45:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  46:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  47:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* ----------- WWDG registers bit address in the alias region ----------- */
+  48:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define WWDG_OFFSET       (WWDG_BASE - PERIPH_BASE)
+  49:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  50:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* Alias word address of EWI bit */
+  51:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define CFR_OFFSET        (WWDG_OFFSET + 0x04)
+  52:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define EWI_BitNumber     0x09
+  53:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define CFR_EWI_BB        (PERIPH_BB_BASE + (CFR_OFFSET * 32) + (EWI_BitNumber * 4))
+  54:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  55:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* --------------------- WWDG registers bit mask ------------------------ */
+  56:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  57:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* CR register bit mask */
+  58:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define CR_WDGA_Set       ((uint32_t)0x00000080)
+  59:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  60:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /* CFR register bit mask */
+  61:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define CFR_WDGTB_Mask    ((uint32_t)0xFFFFFE7F)
+  62:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define CFR_W_Mask        ((uint32_t)0xFFFFFF80)
+  63:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** #define BIT_Mask          ((uint8_t)0x7F)
+  64:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  65:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  66:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @}
+  67:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  68:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  69:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_Macros
+  70:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  71:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  72:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  73:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  74:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @}
+  75:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  76:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  77:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_Variables
+  78:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  79:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  80:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  81:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  82:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @}
+  83:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  84:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  85:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_FunctionPrototypes
+  86:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  87:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  88:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  89:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  90:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @}
+  91:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  92:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  93:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /** @defgroup WWDG_Private_Functions
+  94:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @{
+  95:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+  96:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+  97:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+  98:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Deinitializes the WWDG peripheral registers to their default reset values.
+  99:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  None
+ 100:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 101:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 102:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_DeInit(void)
+ 103:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+  27              		.loc 1 103 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+ 104:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   RCC_APB1PeriphResetCmd(RCC_APB1Periph_WWDG, ENABLE);
+  39              		.loc 1 104 0
+  40 0004 4FF40060 		mov	r0, #2048
+  41 0008 4FF00101 		mov	r1, #1
+  42 000c FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 105:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   RCC_APB1PeriphResetCmd(RCC_APB1Periph_WWDG, DISABLE);
+  43              		.loc 1 105 0
+  44 0010 4FF40060 		mov	r0, #2048
+  45 0014 4FF00001 		mov	r1, #0
+  46 0018 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 106:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+  47              		.loc 1 106 0
+  48 001c 80BD     		pop	{r7, pc}
+  49              		.cfi_endproc
+  50              	.LFE29:
+  52 001e 00BF     		.section	.text.WWDG_SetPrescaler,"ax",%progbits
+  53              		.align	2
+  54              		.global	WWDG_SetPrescaler
+  55              		.thumb
+  56              		.thumb_func
+  58              	WWDG_SetPrescaler:
+  59              	.LFB30:
+ 107:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 108:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 109:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Sets the WWDG Prescaler.
+ 110:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  WWDG_Prescaler: specifies the WWDG Prescaler.
+ 111:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *   This parameter can be one of the following values:
+ 112:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *     @arg WWDG_Prescaler_1: WWDG counter clock = (PCLK1/4096)/1
+ 113:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *     @arg WWDG_Prescaler_2: WWDG counter clock = (PCLK1/4096)/2
+ 114:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *     @arg WWDG_Prescaler_4: WWDG counter clock = (PCLK1/4096)/4
+ 115:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *     @arg WWDG_Prescaler_8: WWDG counter clock = (PCLK1/4096)/8
+ 116:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 117:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 118:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_SetPrescaler(uint32_t WWDG_Prescaler)
+ 119:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+  60              		.loc 1 119 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 16
+  63              		@ frame_needed = 1, uses_anonymous_args = 0
+  64 0000 80B5     		push	{r7, lr}
+  65              	.LCFI2:
+  66              		.cfi_def_cfa_offset 8
+  67              		.cfi_offset 7, -8
+  68              		.cfi_offset 14, -4
+  69 0002 84B0     		sub	sp, sp, #16
+  70              	.LCFI3:
+  71              		.cfi_def_cfa_offset 24
+  72 0004 00AF     		add	r7, sp, #0
+  73              	.LCFI4:
+  74              		.cfi_def_cfa_register 7
+  75 0006 7860     		str	r0, [r7, #4]
+ 120:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   uint32_t tmpreg = 0;
+  76              		.loc 1 120 0
+  77 0008 4FF00003 		mov	r3, #0
+  78 000c FB60     		str	r3, [r7, #12]
+ 121:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Check the parameters */
+ 122:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   assert_param(IS_WWDG_PRESCALER(WWDG_Prescaler));
+  79              		.loc 1 122 0
+  80 000e 7B68     		ldr	r3, [r7, #4]
+  81 0010 002B     		cmp	r3, #0
+  82 0012 0AD0     		beq	.L3
+  83              		.loc 1 122 0 is_stmt 0 discriminator 2
+  84 0014 7B68     		ldr	r3, [r7, #4]
+  85 0016 802B     		cmp	r3, #128
+  86 0018 07D0     		beq	.L3
+  87              		.loc 1 122 0 discriminator 1
+  88 001a 7B68     		ldr	r3, [r7, #4]
+  89 001c B3F5807F 		cmp	r3, #256
+  90 0020 03D0     		beq	.L3
+  91              		.loc 1 122 0 discriminator 2
+  92 0022 7B68     		ldr	r3, [r7, #4]
+  93 0024 B3F5C07F 		cmp	r3, #384
+  94 0028 02D1     		bne	.L4
+  95              	.L3:
+  96              		.loc 1 122 0 discriminator 1
+  97 002a 4FF00103 		mov	r3, #1
+  98 002e 01E0     		b	.L5
+  99              	.L4:
+ 100              		.loc 1 122 0 discriminator 3
+ 101 0030 4FF00003 		mov	r3, #0
+ 102              	.L5:
+ 103              		.loc 1 122 0 discriminator 4
+ 104 0034 1846     		mov	r0, r3
+ 105 0036 FFF7FEFF 		bl	assert_param
+ 123:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Clear WDGTB[1:0] bits */
+ 124:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   tmpreg = WWDG->CFR & CFR_WDGTB_Mask;
+ 106              		.loc 1 124 0 is_stmt 1 discriminator 4
+ 107 003a 084B     		ldr	r3, .L6
+ 108 003c 5B68     		ldr	r3, [r3, #4]
+ 109 003e 23F4C073 		bic	r3, r3, #384
+ 110 0042 FB60     		str	r3, [r7, #12]
+ 125:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Set WDGTB[1:0] bits according to WWDG_Prescaler value */
+ 126:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   tmpreg |= WWDG_Prescaler;
+ 111              		.loc 1 126 0 discriminator 4
+ 112 0044 FA68     		ldr	r2, [r7, #12]
+ 113 0046 7B68     		ldr	r3, [r7, #4]
+ 114 0048 1343     		orrs	r3, r3, r2
+ 115 004a FB60     		str	r3, [r7, #12]
+ 127:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Store the new value */
+ 128:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   WWDG->CFR = tmpreg;
+ 116              		.loc 1 128 0 discriminator 4
+ 117 004c 034B     		ldr	r3, .L6
+ 118 004e FA68     		ldr	r2, [r7, #12]
+ 119 0050 5A60     		str	r2, [r3, #4]
+ 129:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 120              		.loc 1 129 0 discriminator 4
+ 121 0052 07F11007 		add	r7, r7, #16
+ 122 0056 BD46     		mov	sp, r7
+ 123 0058 80BD     		pop	{r7, pc}
+ 124              	.L7:
+ 125 005a 00BF     		.align	2
+ 126              	.L6:
+ 127 005c 002C0040 		.word	1073753088
+ 128              		.cfi_endproc
+ 129              	.LFE30:
+ 131              		.section	.text.WWDG_SetWindowValue,"ax",%progbits
+ 132              		.align	2
+ 133              		.global	WWDG_SetWindowValue
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	WWDG_SetWindowValue:
+ 138              	.LFB31:
+ 130:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 131:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 132:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Sets the WWDG window value.
+ 133:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  WindowValue: specifies the window value to be compared to the downcounter.
+ 134:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *   This parameter value must be lower than 0x80.
+ 135:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 136:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 137:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_SetWindowValue(uint8_t WindowValue)
+ 138:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 139              		.loc 1 138 0
+ 140              		.cfi_startproc
+ 141              		@ args = 0, pretend = 0, frame = 16
+ 142              		@ frame_needed = 1, uses_anonymous_args = 0
+ 143 0000 80B5     		push	{r7, lr}
+ 144              	.LCFI5:
+ 145              		.cfi_def_cfa_offset 8
+ 146              		.cfi_offset 7, -8
+ 147              		.cfi_offset 14, -4
+ 148 0002 84B0     		sub	sp, sp, #16
+ 149              	.LCFI6:
+ 150              		.cfi_def_cfa_offset 24
+ 151 0004 00AF     		add	r7, sp, #0
+ 152              	.LCFI7:
+ 153              		.cfi_def_cfa_register 7
+ 154 0006 0346     		mov	r3, r0
+ 155 0008 FB71     		strb	r3, [r7, #7]
+ 139:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   __IO uint32_t tmpreg = 0;
+ 156              		.loc 1 139 0
+ 157 000a 4FF00003 		mov	r3, #0
+ 158 000e FB60     		str	r3, [r7, #12]
+ 140:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 141:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Check the parameters */
+ 142:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   assert_param(IS_WWDG_WINDOW_VALUE(WindowValue));
+ 159              		.loc 1 142 0
+ 160 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 161 0012 6FEA0303 		mvn	r3, r3
+ 162 0016 DBB2     		uxtb	r3, r3
+ 163 0018 4FEAD313 		lsr	r3, r3, #7
+ 164 001c DBB2     		uxtb	r3, r3
+ 165 001e 1846     		mov	r0, r3
+ 166 0020 FFF7FEFF 		bl	assert_param
+ 143:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Clear W[6:0] bits */
+ 144:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 145:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   tmpreg = WWDG->CFR & CFR_W_Mask;
+ 167              		.loc 1 145 0
+ 168 0024 084B     		ldr	r3, .L9
+ 169 0026 5B68     		ldr	r3, [r3, #4]
+ 170 0028 23F07F03 		bic	r3, r3, #127
+ 171 002c FB60     		str	r3, [r7, #12]
+ 146:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 147:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Set W[6:0] bits according to WindowValue value */
+ 148:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   tmpreg |= WindowValue & (uint32_t) BIT_Mask;
+ 172              		.loc 1 148 0
+ 173 002e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 174 0030 03F07F02 		and	r2, r3, #127
+ 175 0034 FB68     		ldr	r3, [r7, #12]
+ 176 0036 1343     		orrs	r3, r3, r2
+ 177 0038 FB60     		str	r3, [r7, #12]
+ 149:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 150:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Store the new value */
+ 151:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   WWDG->CFR = tmpreg;
+ 178              		.loc 1 151 0
+ 179 003a 034B     		ldr	r3, .L9
+ 180 003c FA68     		ldr	r2, [r7, #12]
+ 181 003e 5A60     		str	r2, [r3, #4]
+ 152:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 182              		.loc 1 152 0
+ 183 0040 07F11007 		add	r7, r7, #16
+ 184 0044 BD46     		mov	sp, r7
+ 185 0046 80BD     		pop	{r7, pc}
+ 186              	.L10:
+ 187              		.align	2
+ 188              	.L9:
+ 189 0048 002C0040 		.word	1073753088
+ 190              		.cfi_endproc
+ 191              	.LFE31:
+ 193              		.section	.text.WWDG_EnableIT,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	WWDG_EnableIT
+ 196              		.thumb
+ 197              		.thumb_func
+ 199              	WWDG_EnableIT:
+ 200              	.LFB32:
+ 153:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 154:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 155:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Enables the WWDG Early Wakeup interrupt(EWI).
+ 156:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  None
+ 157:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 158:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 159:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_EnableIT(void)
+ 160:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 201              		.loc 1 160 0
+ 202              		.cfi_startproc
+ 203              		@ args = 0, pretend = 0, frame = 0
+ 204              		@ frame_needed = 1, uses_anonymous_args = 0
+ 205              		@ link register save eliminated.
+ 206 0000 80B4     		push	{r7}
+ 207              	.LCFI8:
+ 208              		.cfi_def_cfa_offset 4
+ 209              		.cfi_offset 7, -4
+ 210 0002 00AF     		add	r7, sp, #0
+ 211              	.LCFI9:
+ 212              		.cfi_def_cfa_register 7
+ 161:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *(__IO uint32_t *) CFR_EWI_BB = (uint32_t)ENABLE;
+ 213              		.loc 1 161 0
+ 214 0004 034B     		ldr	r3, .L12
+ 215 0006 4FF00102 		mov	r2, #1
+ 216 000a 1A60     		str	r2, [r3, #0]
+ 162:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 217              		.loc 1 162 0
+ 218 000c BD46     		mov	sp, r7
+ 219 000e 80BC     		pop	{r7}
+ 220 0010 7047     		bx	lr
+ 221              	.L13:
+ 222 0012 00BF     		.align	2
+ 223              	.L12:
+ 224 0014 A4800542 		.word	1107656868
+ 225              		.cfi_endproc
+ 226              	.LFE32:
+ 228              		.section	.text.WWDG_SetCounter,"ax",%progbits
+ 229              		.align	2
+ 230              		.global	WWDG_SetCounter
+ 231              		.thumb
+ 232              		.thumb_func
+ 234              	WWDG_SetCounter:
+ 235              	.LFB33:
+ 163:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 164:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 165:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Sets the WWDG counter value.
+ 166:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  Counter: specifies the watchdog counter value.
+ 167:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *   This parameter must be a number between 0x40 and 0x7F.
+ 168:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 169:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 170:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_SetCounter(uint8_t Counter)
+ 171:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 236              		.loc 1 171 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 8
+ 239              		@ frame_needed = 1, uses_anonymous_args = 0
+ 240 0000 80B5     		push	{r7, lr}
+ 241              	.LCFI10:
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 7, -8
+ 244              		.cfi_offset 14, -4
+ 245 0002 82B0     		sub	sp, sp, #8
+ 246              	.LCFI11:
+ 247              		.cfi_def_cfa_offset 16
+ 248 0004 00AF     		add	r7, sp, #0
+ 249              	.LCFI12:
+ 250              		.cfi_def_cfa_register 7
+ 251 0006 0346     		mov	r3, r0
+ 252 0008 FB71     		strb	r3, [r7, #7]
+ 172:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Check the parameters */
+ 173:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   assert_param(IS_WWDG_COUNTER(Counter));
+ 253              		.loc 1 173 0
+ 254 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 255 000c 3F2B     		cmp	r3, #63
+ 256 000e 06D9     		bls	.L15
+ 257              		.loc 1 173 0 is_stmt 0 discriminator 1
+ 258 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 259 0012 5BB2     		sxtb	r3, r3
+ 260 0014 002B     		cmp	r3, #0
+ 261 0016 02DB     		blt	.L15
+ 262              		.loc 1 173 0 discriminator 3
+ 263 0018 4FF00103 		mov	r3, #1
+ 264 001c 01E0     		b	.L16
+ 265              	.L15:
+ 266              		.loc 1 173 0 discriminator 2
+ 267 001e 4FF00003 		mov	r3, #0
+ 268              	.L16:
+ 269              		.loc 1 173 0 discriminator 4
+ 270 0022 1846     		mov	r0, r3
+ 271 0024 FFF7FEFF 		bl	assert_param
+ 174:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Write to T[6:0] bits to configure the counter value, no need to do
+ 175:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****      a read-modify-write; writing a 0 to WDGA bit does nothing */
+ 176:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   WWDG->CR = Counter & BIT_Mask;
+ 272              		.loc 1 176 0 is_stmt 1 discriminator 4
+ 273 0028 044B     		ldr	r3, .L17
+ 274 002a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 275 002c 02F07F02 		and	r2, r2, #127
+ 276 0030 1A60     		str	r2, [r3, #0]
+ 177:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 277              		.loc 1 177 0 discriminator 4
+ 278 0032 07F10807 		add	r7, r7, #8
+ 279 0036 BD46     		mov	sp, r7
+ 280 0038 80BD     		pop	{r7, pc}
+ 281              	.L18:
+ 282 003a 00BF     		.align	2
+ 283              	.L17:
+ 284 003c 002C0040 		.word	1073753088
+ 285              		.cfi_endproc
+ 286              	.LFE33:
+ 288              		.section	.text.WWDG_Enable,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	WWDG_Enable
+ 291              		.thumb
+ 292              		.thumb_func
+ 294              	WWDG_Enable:
+ 295              	.LFB34:
+ 178:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 179:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 180:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Enables WWDG and load the counter value.                  
+ 181:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  Counter: specifies the watchdog counter value.
+ 182:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   *   This parameter must be a number between 0x40 and 0x7F.
+ 183:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 184:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 185:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_Enable(uint8_t Counter)
+ 186:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 296              		.loc 1 186 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 8
+ 299              		@ frame_needed = 1, uses_anonymous_args = 0
+ 300 0000 80B5     		push	{r7, lr}
+ 301              	.LCFI13:
+ 302              		.cfi_def_cfa_offset 8
+ 303              		.cfi_offset 7, -8
+ 304              		.cfi_offset 14, -4
+ 305 0002 82B0     		sub	sp, sp, #8
+ 306              	.LCFI14:
+ 307              		.cfi_def_cfa_offset 16
+ 308 0004 00AF     		add	r7, sp, #0
+ 309              	.LCFI15:
+ 310              		.cfi_def_cfa_register 7
+ 311 0006 0346     		mov	r3, r0
+ 312 0008 FB71     		strb	r3, [r7, #7]
+ 187:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   /* Check the parameters */
+ 188:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   assert_param(IS_WWDG_COUNTER(Counter));
+ 313              		.loc 1 188 0
+ 314 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 315 000c 3F2B     		cmp	r3, #63
+ 316 000e 06D9     		bls	.L20
+ 317              		.loc 1 188 0 is_stmt 0 discriminator 1
+ 318 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 319 0012 5BB2     		sxtb	r3, r3
+ 320 0014 002B     		cmp	r3, #0
+ 321 0016 02DB     		blt	.L20
+ 322              		.loc 1 188 0 discriminator 3
+ 323 0018 4FF00103 		mov	r3, #1
+ 324 001c 01E0     		b	.L21
+ 325              	.L20:
+ 326              		.loc 1 188 0 discriminator 2
+ 327 001e 4FF00003 		mov	r3, #0
+ 328              	.L21:
+ 329              		.loc 1 188 0 discriminator 4
+ 330 0022 1846     		mov	r0, r3
+ 331 0024 FFF7FEFF 		bl	assert_param
+ 189:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   WWDG->CR = CR_WDGA_Set | Counter;
+ 332              		.loc 1 189 0 is_stmt 1 discriminator 4
+ 333 0028 044B     		ldr	r3, .L22
+ 334 002a FA79     		ldrb	r2, [r7, #7]
+ 335 002c 62F07F02 		orn	r2, r2, #127
+ 336 0030 D2B2     		uxtb	r2, r2
+ 337 0032 1A60     		str	r2, [r3, #0]
+ 190:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 338              		.loc 1 190 0 discriminator 4
+ 339 0034 07F10807 		add	r7, r7, #8
+ 340 0038 BD46     		mov	sp, r7
+ 341 003a 80BD     		pop	{r7, pc}
+ 342              	.L23:
+ 343              		.align	2
+ 344              	.L22:
+ 345 003c 002C0040 		.word	1073753088
+ 346              		.cfi_endproc
+ 347              	.LFE34:
+ 349              		.section	.text.WWDG_GetFlagStatus,"ax",%progbits
+ 350              		.align	2
+ 351              		.global	WWDG_GetFlagStatus
+ 352              		.thumb
+ 353              		.thumb_func
+ 355              	WWDG_GetFlagStatus:
+ 356              	.LFB35:
+ 191:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 192:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 193:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Checks whether the Early Wakeup interrupt flag is set or not.
+ 194:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  None
+ 195:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval The new state of the Early Wakeup interrupt flag (SET or RESET)
+ 196:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 197:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** FlagStatus WWDG_GetFlagStatus(void)
+ 198:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 357              		.loc 1 198 0
+ 358              		.cfi_startproc
+ 359              		@ args = 0, pretend = 0, frame = 0
+ 360              		@ frame_needed = 1, uses_anonymous_args = 0
+ 361              		@ link register save eliminated.
+ 362 0000 80B4     		push	{r7}
+ 363              	.LCFI16:
+ 364              		.cfi_def_cfa_offset 4
+ 365              		.cfi_offset 7, -4
+ 366 0002 00AF     		add	r7, sp, #0
+ 367              	.LCFI17:
+ 368              		.cfi_def_cfa_register 7
+ 199:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   return (FlagStatus)(WWDG->SR);
+ 369              		.loc 1 199 0
+ 370 0004 034B     		ldr	r3, .L26
+ 371 0006 9B68     		ldr	r3, [r3, #8]
+ 372 0008 DBB2     		uxtb	r3, r3
+ 200:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 373              		.loc 1 200 0
+ 374 000a 1846     		mov	r0, r3
+ 375 000c BD46     		mov	sp, r7
+ 376 000e 80BC     		pop	{r7}
+ 377 0010 7047     		bx	lr
+ 378              	.L27:
+ 379 0012 00BF     		.align	2
+ 380              	.L26:
+ 381 0014 002C0040 		.word	1073753088
+ 382              		.cfi_endproc
+ 383              	.LFE35:
+ 385              		.section	.text.WWDG_ClearFlag,"ax",%progbits
+ 386              		.align	2
+ 387              		.global	WWDG_ClearFlag
+ 388              		.thumb
+ 389              		.thumb_func
+ 391              	WWDG_ClearFlag:
+ 392              	.LFB36:
+ 201:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** 
+ 202:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** /**
+ 203:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @brief  Clears Early Wakeup interrupt flag.
+ 204:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @param  None
+ 205:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   * @retval None
+ 206:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   */
+ 207:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** void WWDG_ClearFlag(void)
+ 208:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** {
+ 393              		.loc 1 208 0
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 1, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 398 0000 80B4     		push	{r7}
+ 399              	.LCFI18:
+ 400              		.cfi_def_cfa_offset 4
+ 401              		.cfi_offset 7, -4
+ 402 0002 00AF     		add	r7, sp, #0
+ 403              	.LCFI19:
+ 404              		.cfi_def_cfa_register 7
+ 209:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c ****   WWDG->SR = (uint32_t)RESET;
+ 405              		.loc 1 209 0
+ 406 0004 034B     		ldr	r3, .L29
+ 407 0006 4FF00002 		mov	r2, #0
+ 408 000a 9A60     		str	r2, [r3, #8]
+ 210:../libs/StdPeripheralDriver/src/stm32f10x_wwdg.c **** }
+ 409              		.loc 1 210 0
+ 410 000c BD46     		mov	sp, r7
+ 411 000e 80BC     		pop	{r7}
+ 412 0010 7047     		bx	lr
+ 413              	.L30:
+ 414 0012 00BF     		.align	2
+ 415              	.L29:
+ 416 0014 002C0040 		.word	1073753088
+ 417              		.cfi_endproc
+ 418              	.LFE36:
+ 420              		.text
+ 421              	.Letext0:
+ 422              		.file 2 "d:\\programs\\stm programs\\codebench\\bin\\../lib/gcc/arm-none-eabi/4.7.3/../../../../ar
+ 423              		.file 3 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/stm32f10x.h"
+ 424              		.file 4 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/core_cm3.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_wwdg.c
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:19     .text.WWDG_DeInit:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:24     .text.WWDG_DeInit:00000000 WWDG_DeInit
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:53     .text.WWDG_SetPrescaler:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:58     .text.WWDG_SetPrescaler:00000000 WWDG_SetPrescaler
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:127    .text.WWDG_SetPrescaler:0000005c $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:132    .text.WWDG_SetWindowValue:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:137    .text.WWDG_SetWindowValue:00000000 WWDG_SetWindowValue
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:189    .text.WWDG_SetWindowValue:00000048 $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:194    .text.WWDG_EnableIT:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:199    .text.WWDG_EnableIT:00000000 WWDG_EnableIT
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:224    .text.WWDG_EnableIT:00000014 $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:229    .text.WWDG_SetCounter:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:234    .text.WWDG_SetCounter:00000000 WWDG_SetCounter
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:284    .text.WWDG_SetCounter:0000003c $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:289    .text.WWDG_Enable:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:294    .text.WWDG_Enable:00000000 WWDG_Enable
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:345    .text.WWDG_Enable:0000003c $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:350    .text.WWDG_GetFlagStatus:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:355    .text.WWDG_GetFlagStatus:00000000 WWDG_GetFlagStatus
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:381    .text.WWDG_GetFlagStatus:00000014 $d
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:386    .text.WWDG_ClearFlag:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:391    .text.WWDG_ClearFlag:00000000 WWDG_ClearFlag
+C:\Users\6262~1\AppData\Local\Temp\ccDv0pZX.s:416    .text.WWDG_ClearFlag:00000014 $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.a89c7a2b9e0955e95368adfe2cbc52f6
+                           .group:00000000 wm4.stm32f10x.h.51.b859cb68ed44ee02c916b41cb8c68f1c
+                           .group:00000000 wm4.core_cm3.h.25.d35e9a9b04ec4aaebae9bf79fff061f9
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cm3.h.113.b286929a54d33b4c8909a7132437b244
+                           .group:00000000 wm4.stm32f10x.h.522.a925aafc848b1f088438cf0e9b167b78
+                           .group:00000000 wm4.stm32f10x.h.8304.f7d8ad90959e99679b3257267c3aadfe
+                           .group:00000000 wm4.stm32f10x_wwdg.h.58.4688eee61a2709866472b4b4c07d9275
+                           .group:00000000 wm4.stm32f10x_rcc.h.25.fe8897e7491f2eb0cff54551d08eb765
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphResetCmd
+assert_param

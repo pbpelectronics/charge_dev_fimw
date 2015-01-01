@@ -1,0 +1,2118 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"adc.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.__NOP,"ax",%progbits
+  19              		.align	2
+  20              		.thumb
+  21              		.thumb_func
+  23              	__NOP:
+  24              	.LFB4:
+  25              		.file 1 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/core_cm3.h"
+   1:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**************************************************************************//**
+   2:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @file     core_cm3.h
+   3:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief    CMSIS Cortex-M3 Core Peripheral Access Layer Header File
+   4:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @version  V1.30
+   5:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @date     30. October 2009
+   6:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+   7:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @note
+   8:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Copyright (C) 2009 ARM Limited. All rights reserved.
+   9:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+  10:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @par
+  11:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * ARM Limited (ARM) is supplying this software for use with Cortex-M 
+  12:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * processor based microcontrollers.  This file can be freely distributed 
+  13:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * within development tools that are supporting such ARM based processors. 
+  14:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+  15:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @par
+  16:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+  17:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+  18:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+  19:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
+  20:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+  21:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+  22:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  ******************************************************************************/
+  23:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  24:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #ifndef __CM3_CORE_H__
+  25:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CM3_CORE_H__
+  26:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  27:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_core_LintCinfiguration CMSIS CM3 Core Lint Configuration
+  28:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+  29:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * List of Lint messages which will be suppressed and not shown:
+  30:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 10: \n
+  31:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     register uint32_t __regBasePri         __asm("basepri"); \n
+  32:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Error 10: Expecting ';'
+  33:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  34:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 530: \n
+  35:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     return(__regBasePri); \n
+  36:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Warning 530: Symbol '__regBasePri' (line 264) not initialized
+  37:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * . 
+  38:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 550: \n
+  39:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     __regBasePri = (basePri & 0x1ff); \n
+  40:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Warning 550: Symbol '__regBasePri' (line 271) not accessed
+  41:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  42:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 754: \n
+  43:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     uint32_t RESERVED0[24]; \n
+  44:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Info 754: local structure member '<some, not used in the HAL>' (line 109, file ./cm3_core.h)
+  45:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  46:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 750: \n
+  47:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     #define __CM3_CORE_H__ \n
+  48:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Info 750: local macro '__CM3_CORE_H__' (line 43, file./cm3_core.h) not referenced
+  49:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  50:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 528: \n
+  51:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     static __INLINE void NVIC_DisableIRQ(uint32_t IRQn) \n
+  52:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Warning 528: Symbol 'NVIC_DisableIRQ(unsigned int)' (line 419, file ./cm3_core.h) not refere
+  53:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  54:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *   - Error 751: \n
+  55:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     } InterruptType_Type; \n
+  56:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *     Info 751: local typedef 'InterruptType_Type' (line 170, file ./cm3_core.h) not referenced
+  57:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * .
+  58:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Note:  To re-enable a Message, insert a space before 'lint' *
+  59:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+  60:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+  61:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  62:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -save */
+  63:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e10  */
+  64:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e530 */
+  65:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e550 */
+  66:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e754 */
+  67:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e750 */
+  68:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e528 */
+  69:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*lint -e751 */
+  70:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  71:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  72:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_core_definitions CM3 Core Definitions
+  73:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   This file defines all structures and symbols for CMSIS core:
+  74:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     - CMSIS version number
+  75:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     - Cortex-M core registers and bitfields
+  76:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     - Cortex-M core peripheral base address
+  77:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+  78:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+  79:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  80:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #ifdef __cplusplus
+  81:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  extern "C" {
+  82:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif 
+  83:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  84:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CM3_CMSIS_VERSION_MAIN  (0x01)                                                       /*!<
+  85:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CM3_CMSIS_VERSION_SUB   (0x30)                                                       /*!<
+  86:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CM3_CMSIS_VERSION       ((__CM3_CMSIS_VERSION_MAIN << 16) | __CM3_CMSIS_VERSION_SUB) /*!<
+  87:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  88:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CORTEX_M                (0x03)                                                       /*!<
+  89:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  90:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #include <stdint.h>                           /* Include standard types */
+  91:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  92:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if defined (__ICCARM__)
+  93:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #include <intrinsics.h>                     /* IAR Intrinsics   */
+  94:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+  95:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  96:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+  97:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #ifndef __NVIC_PRIO_BITS
+  98:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __NVIC_PRIO_BITS    4               /*!< standard definition for NVIC Priority Bits */
+  99:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 100:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 101:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 102:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 103:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 104:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 105:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * IO definitions
+ 106:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 107:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * define access restrictions to peripheral registers
+ 108:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 109:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 110:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #ifdef __cplusplus
+ 111:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define     __I     volatile                /*!< defines 'read only' permissions      */
+ 112:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #else
+ 113:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define     __I     volatile const          /*!< defines 'read only' permissions      */
+ 114:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 115:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define     __O     volatile                  /*!< defines 'write only' permissions     */
+ 116:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define     __IO    volatile                  /*!< defines 'read / write' permissions   */
+ 117:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 118:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 119:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 120:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*******************************************************************************
+ 121:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *                 Register Abstraction
+ 122:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  ******************************************************************************/
+ 123:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_core_register CMSIS CM3 Core Register
+ 124:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  @{
+ 125:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** */
+ 126:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 127:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 128:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_NVIC CMSIS CM3 NVIC
+ 129:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for Nested Vectored Interrupt Controller (NVIC)
+ 130:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 131:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 132:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 133:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 134:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ISER[8];                      /*!< Offset: 0x000  Interrupt Set Enable Register    
+ 135:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED0[24];                                   
+ 136:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ICER[8];                      /*!< Offset: 0x080  Interrupt Clear Enable Register  
+ 137:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RSERVED1[24];                                    
+ 138:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ISPR[8];                      /*!< Offset: 0x100  Interrupt Set Pending Register   
+ 139:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED2[24];                                   
+ 140:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ICPR[8];                      /*!< Offset: 0x180  Interrupt Clear Pending Register 
+ 141:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED3[24];                                   
+ 142:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t IABR[8];                      /*!< Offset: 0x200  Interrupt Active bit Register    
+ 143:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED4[56];                                   
+ 144:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint8_t  IP[240];                      /*!< Offset: 0x300  Interrupt Priority Register (8Bit
+ 145:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED5[644];                                  
+ 146:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __O  uint32_t STIR;                         /*!< Offset: 0xE00  Software Trigger Interrupt Regist
+ 147:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }  NVIC_Type;                                               
+ 148:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_NVIC */
+ 149:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 150:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 151:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_SCB CMSIS CM3 SCB
+ 152:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for System Control Block (SCB)
+ 153:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 154:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 155:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 156:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 157:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CPUID;                        /*!< Offset: 0x00  CPU ID Base Register              
+ 158:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ICSR;                         /*!< Offset: 0x04  Interrupt Control State Register  
+ 159:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t VTOR;                         /*!< Offset: 0x08  Vector Table Offset Register      
+ 160:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t AIRCR;                        /*!< Offset: 0x0C  Application Interrupt / Reset Cont
+ 161:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t SCR;                          /*!< Offset: 0x10  System Control Register           
+ 162:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t CCR;                          /*!< Offset: 0x14  Configuration Control Register    
+ 163:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint8_t  SHP[12];                      /*!< Offset: 0x18  System Handlers Priority Registers
+ 164:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t SHCSR;                        /*!< Offset: 0x24  System Handler Control and State R
+ 165:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t CFSR;                         /*!< Offset: 0x28  Configurable Fault Status Register
+ 166:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t HFSR;                         /*!< Offset: 0x2C  Hard Fault Status Register        
+ 167:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t DFSR;                         /*!< Offset: 0x30  Debug Fault Status Register       
+ 168:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t MMFAR;                        /*!< Offset: 0x34  Mem Manage Address Register       
+ 169:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t BFAR;                         /*!< Offset: 0x38  Bus Fault Address Register        
+ 170:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t AFSR;                         /*!< Offset: 0x3C  Auxiliary Fault Status Register   
+ 171:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PFR[2];                       /*!< Offset: 0x40  Processor Feature Register        
+ 172:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t DFR;                          /*!< Offset: 0x48  Debug Feature Register            
+ 173:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t ADR;                          /*!< Offset: 0x4C  Auxiliary Feature Register        
+ 174:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t MMFR[4];                      /*!< Offset: 0x50  Memory Model Feature Register     
+ 175:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t ISAR[5];                      /*!< Offset: 0x60  ISA Feature Register              
+ 176:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } SCB_Type;                                                
+ 177:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 178:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB CPUID Register Definitions */
+ 179:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_IMPLEMENTER_Pos          24                                             /*!< SCB 
+ 180:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_IMPLEMENTER_Msk          (0xFFul << SCB_CPUID_IMPLEMENTER_Pos)          /*!< SCB 
+ 181:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 182:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_VARIANT_Pos              20                                             /*!< SCB 
+ 183:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_VARIANT_Msk              (0xFul << SCB_CPUID_VARIANT_Pos)               /*!< SCB 
+ 184:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 185:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_PARTNO_Pos                4                                             /*!< SCB 
+ 186:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFul << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
+ 187:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 188:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_REVISION_Pos              0                                             /*!< SCB 
+ 189:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CPUID_REVISION_Msk             (0xFul << SCB_CPUID_REVISION_Pos)              /*!< SCB 
+ 190:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 191:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Interrupt Control State Register Definitions */
+ 192:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_NMIPENDSET_Pos            31                                             /*!< SCB 
+ 193:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_NMIPENDSET_Msk            (1ul << SCB_ICSR_NMIPENDSET_Pos)               /*!< SCB 
+ 194:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 195:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSVSET_Pos             28                                             /*!< SCB 
+ 196:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSVSET_Msk             (1ul << SCB_ICSR_PENDSVSET_Pos)                /*!< SCB 
+ 197:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 198:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSVCLR_Pos             27                                             /*!< SCB 
+ 199:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSVCLR_Msk             (1ul << SCB_ICSR_PENDSVCLR_Pos)                /*!< SCB 
+ 200:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 201:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSTSET_Pos             26                                             /*!< SCB 
+ 202:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSTSET_Msk             (1ul << SCB_ICSR_PENDSTSET_Pos)                /*!< SCB 
+ 203:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 204:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSTCLR_Pos             25                                             /*!< SCB 
+ 205:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_PENDSTCLR_Msk             (1ul << SCB_ICSR_PENDSTCLR_Pos)                /*!< SCB 
+ 206:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 207:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_ISRPREEMPT_Pos            23                                             /*!< SCB 
+ 208:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_ISRPREEMPT_Msk            (1ul << SCB_ICSR_ISRPREEMPT_Pos)               /*!< SCB 
+ 209:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 210:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_ISRPENDING_Pos            22                                             /*!< SCB 
+ 211:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_ISRPENDING_Msk            (1ul << SCB_ICSR_ISRPENDING_Pos)               /*!< SCB 
+ 212:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 213:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_VECTPENDING_Pos           12                                             /*!< SCB 
+ 214:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_VECTPENDING_Msk           (0x1FFul << SCB_ICSR_VECTPENDING_Pos)          /*!< SCB 
+ 215:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 216:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_RETTOBASE_Pos             11                                             /*!< SCB 
+ 217:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_RETTOBASE_Msk             (1ul << SCB_ICSR_RETTOBASE_Pos)                /*!< SCB 
+ 218:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 219:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_VECTACTIVE_Pos             0                                             /*!< SCB 
+ 220:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_ICSR_VECTACTIVE_Msk            (0x1FFul << SCB_ICSR_VECTACTIVE_Pos)           /*!< SCB 
+ 221:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 222:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Interrupt Control State Register Definitions */
+ 223:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_VTOR_TBLBASE_Pos               29                                             /*!< SCB 
+ 224:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_VTOR_TBLBASE_Msk               (0x1FFul << SCB_VTOR_TBLBASE_Pos)              /*!< SCB 
+ 225:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 226:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_VTOR_TBLOFF_Pos                 7                                             /*!< SCB 
+ 227:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_VTOR_TBLOFF_Msk                (0x3FFFFFul << SCB_VTOR_TBLOFF_Pos)            /*!< SCB 
+ 228:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 229:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Application Interrupt and Reset Control Register Definitions */
+ 230:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTKEY_Pos              16                                             /*!< SCB 
+ 231:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTKEY_Msk              (0xFFFFul << SCB_AIRCR_VECTKEY_Pos)            /*!< SCB 
+ 232:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 233:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTKEYSTAT_Pos          16                                             /*!< SCB 
+ 234:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTKEYSTAT_Msk          (0xFFFFul << SCB_AIRCR_VECTKEYSTAT_Pos)        /*!< SCB 
+ 235:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 236:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_ENDIANESS_Pos            15                                             /*!< SCB 
+ 237:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_ENDIANESS_Msk            (1ul << SCB_AIRCR_ENDIANESS_Pos)               /*!< SCB 
+ 238:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 239:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_PRIGROUP_Pos              8                                             /*!< SCB 
+ 240:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_PRIGROUP_Msk             (7ul << SCB_AIRCR_PRIGROUP_Pos)                /*!< SCB 
+ 241:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 242:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_SYSRESETREQ_Pos           2                                             /*!< SCB 
+ 243:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_SYSRESETREQ_Msk          (1ul << SCB_AIRCR_SYSRESETREQ_Pos)             /*!< SCB 
+ 244:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 245:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTCLRACTIVE_Pos         1                                             /*!< SCB 
+ 246:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTCLRACTIVE_Msk        (1ul << SCB_AIRCR_VECTCLRACTIVE_Pos)           /*!< SCB 
+ 247:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 248:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTRESET_Pos             0                                             /*!< SCB 
+ 249:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_AIRCR_VECTRESET_Msk            (1ul << SCB_AIRCR_VECTRESET_Pos)               /*!< SCB 
+ 250:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 251:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB System Control Register Definitions */
+ 252:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SEVONPEND_Pos               4                                             /*!< SCB 
+ 253:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SEVONPEND_Msk              (1ul << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
+ 254:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 255:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SLEEPDEEP_Pos               2                                             /*!< SCB 
+ 256:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1ul << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
+ 257:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 258:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SLEEPONEXIT_Pos             1                                             /*!< SCB 
+ 259:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SCR_SLEEPONEXIT_Msk            (1ul << SCB_SCR_SLEEPONEXIT_Pos)               /*!< SCB 
+ 260:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 261:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Configuration Control Register Definitions */
+ 262:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_STKALIGN_Pos                9                                             /*!< SCB 
+ 263:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_STKALIGN_Msk               (1ul << SCB_CCR_STKALIGN_Pos)                  /*!< SCB 
+ 264:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 265:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_BFHFNMIGN_Pos               8                                             /*!< SCB 
+ 266:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_BFHFNMIGN_Msk              (1ul << SCB_CCR_BFHFNMIGN_Pos)                 /*!< SCB 
+ 267:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 268:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_DIV_0_TRP_Pos               4                                             /*!< SCB 
+ 269:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_DIV_0_TRP_Msk              (1ul << SCB_CCR_DIV_0_TRP_Pos)                 /*!< SCB 
+ 270:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 271:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_UNALIGN_TRP_Pos             3                                             /*!< SCB 
+ 272:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_UNALIGN_TRP_Msk            (1ul << SCB_CCR_UNALIGN_TRP_Pos)               /*!< SCB 
+ 273:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 274:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_USERSETMPEND_Pos            1                                             /*!< SCB 
+ 275:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_USERSETMPEND_Msk           (1ul << SCB_CCR_USERSETMPEND_Pos)              /*!< SCB 
+ 276:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 277:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_NONBASETHRDENA_Pos          0                                             /*!< SCB 
+ 278:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CCR_NONBASETHRDENA_Msk         (1ul << SCB_CCR_NONBASETHRDENA_Pos)            /*!< SCB 
+ 279:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 280:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB System Handler Control and State Register Definitions */
+ 281:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTENA_Pos          18                                             /*!< SCB 
+ 282:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTENA_Msk          (1ul << SCB_SHCSR_USGFAULTENA_Pos)             /*!< SCB 
+ 283:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 284:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTENA_Pos          17                                             /*!< SCB 
+ 285:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTENA_Msk          (1ul << SCB_SHCSR_BUSFAULTENA_Pos)             /*!< SCB 
+ 286:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 287:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTENA_Pos          16                                             /*!< SCB 
+ 288:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTENA_Msk          (1ul << SCB_SHCSR_MEMFAULTENA_Pos)             /*!< SCB 
+ 289:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 290:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SVCALLPENDED_Pos         15                                             /*!< SCB 
+ 291:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SVCALLPENDED_Msk         (1ul << SCB_SHCSR_SVCALLPENDED_Pos)            /*!< SCB 
+ 292:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 293:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTPENDED_Pos       14                                             /*!< SCB 
+ 294:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTPENDED_Msk       (1ul << SCB_SHCSR_BUSFAULTPENDED_Pos)          /*!< SCB 
+ 295:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 296:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTPENDED_Pos       13                                             /*!< SCB 
+ 297:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTPENDED_Msk       (1ul << SCB_SHCSR_MEMFAULTPENDED_Pos)          /*!< SCB 
+ 298:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 299:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTPENDED_Pos       12                                             /*!< SCB 
+ 300:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTPENDED_Msk       (1ul << SCB_SHCSR_USGFAULTPENDED_Pos)          /*!< SCB 
+ 301:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 302:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SYSTICKACT_Pos           11                                             /*!< SCB 
+ 303:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SYSTICKACT_Msk           (1ul << SCB_SHCSR_SYSTICKACT_Pos)              /*!< SCB 
+ 304:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 305:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_PENDSVACT_Pos            10                                             /*!< SCB 
+ 306:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_PENDSVACT_Msk            (1ul << SCB_SHCSR_PENDSVACT_Pos)               /*!< SCB 
+ 307:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 308:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MONITORACT_Pos            8                                             /*!< SCB 
+ 309:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MONITORACT_Msk           (1ul << SCB_SHCSR_MONITORACT_Pos)              /*!< SCB 
+ 310:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 311:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SVCALLACT_Pos             7                                             /*!< SCB 
+ 312:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_SVCALLACT_Msk            (1ul << SCB_SHCSR_SVCALLACT_Pos)               /*!< SCB 
+ 313:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****                                      
+ 314:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTACT_Pos           3                                             /*!< SCB 
+ 315:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_USGFAULTACT_Msk          (1ul << SCB_SHCSR_USGFAULTACT_Pos)             /*!< SCB 
+ 316:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 317:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTACT_Pos           1                                             /*!< SCB 
+ 318:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_BUSFAULTACT_Msk          (1ul << SCB_SHCSR_BUSFAULTACT_Pos)             /*!< SCB 
+ 319:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 320:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTACT_Pos           0                                             /*!< SCB 
+ 321:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_SHCSR_MEMFAULTACT_Msk          (1ul << SCB_SHCSR_MEMFAULTACT_Pos)             /*!< SCB 
+ 322:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 323:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Configurable Fault Status Registers Definitions */
+ 324:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_USGFAULTSR_Pos            16                                             /*!< SCB 
+ 325:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_USGFAULTSR_Msk            (0xFFFFul << SCB_CFSR_USGFAULTSR_Pos)          /*!< SCB 
+ 326:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 327:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_BUSFAULTSR_Pos             8                                             /*!< SCB 
+ 328:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_BUSFAULTSR_Msk            (0xFFul << SCB_CFSR_BUSFAULTSR_Pos)            /*!< SCB 
+ 329:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 330:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_MEMFAULTSR_Pos             0                                             /*!< SCB 
+ 331:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_CFSR_MEMFAULTSR_Msk            (0xFFul << SCB_CFSR_MEMFAULTSR_Pos)            /*!< SCB 
+ 332:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 333:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Hard Fault Status Registers Definitions */
+ 334:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_DEBUGEVT_Pos              31                                             /*!< SCB 
+ 335:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_DEBUGEVT_Msk              (1ul << SCB_HFSR_DEBUGEVT_Pos)                 /*!< SCB 
+ 336:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 337:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_FORCED_Pos                30                                             /*!< SCB 
+ 338:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_FORCED_Msk                (1ul << SCB_HFSR_FORCED_Pos)                   /*!< SCB 
+ 339:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 340:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_VECTTBL_Pos                1                                             /*!< SCB 
+ 341:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_HFSR_VECTTBL_Msk               (1ul << SCB_HFSR_VECTTBL_Pos)                  /*!< SCB 
+ 342:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 343:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SCB Debug Fault Status Register Definitions */
+ 344:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_EXTERNAL_Pos               4                                             /*!< SCB 
+ 345:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_EXTERNAL_Msk              (1ul << SCB_DFSR_EXTERNAL_Pos)                 /*!< SCB 
+ 346:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 347:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_VCATCH_Pos                 3                                             /*!< SCB 
+ 348:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_VCATCH_Msk                (1ul << SCB_DFSR_VCATCH_Pos)                   /*!< SCB 
+ 349:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 350:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_DWTTRAP_Pos                2                                             /*!< SCB 
+ 351:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_DWTTRAP_Msk               (1ul << SCB_DFSR_DWTTRAP_Pos)                  /*!< SCB 
+ 352:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 353:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_BKPT_Pos                   1                                             /*!< SCB 
+ 354:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_BKPT_Msk                  (1ul << SCB_DFSR_BKPT_Pos)                     /*!< SCB 
+ 355:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 356:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_HALTED_Pos                 0                                             /*!< SCB 
+ 357:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_DFSR_HALTED_Msk                (1ul << SCB_DFSR_HALTED_Pos)                   /*!< SCB 
+ 358:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_SCB */
+ 359:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 360:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 361:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_SysTick CMSIS CM3 SysTick
+ 362:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for SysTick
+ 363:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 364:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 365:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 366:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 367:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t CTRL;                         /*!< Offset: 0x00  SysTick Control and Status Registe
+ 368:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t LOAD;                         /*!< Offset: 0x04  SysTick Reload Value Register     
+ 369:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t VAL;                          /*!< Offset: 0x08  SysTick Current Value Register    
+ 370:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CALIB;                        /*!< Offset: 0x0C  SysTick Calibration Register      
+ 371:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } SysTick_Type;
+ 372:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 373:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SysTick Control / Status Register Definitions */
+ 374:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_COUNTFLAG_Pos         16                                             /*!< SysT
+ 375:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_COUNTFLAG_Msk         (1ul << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysT
+ 376:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 377:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_CLKSOURCE_Pos          2                                             /*!< SysT
+ 378:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_CLKSOURCE_Msk         (1ul << SysTick_CTRL_CLKSOURCE_Pos)            /*!< SysT
+ 379:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 380:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_TICKINT_Pos            1                                             /*!< SysT
+ 381:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_TICKINT_Msk           (1ul << SysTick_CTRL_TICKINT_Pos)              /*!< SysT
+ 382:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 383:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_ENABLE_Pos             0                                             /*!< SysT
+ 384:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CTRL_ENABLE_Msk            (1ul << SysTick_CTRL_ENABLE_Pos)               /*!< SysT
+ 385:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 386:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SysTick Reload Register Definitions */
+ 387:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_LOAD_RELOAD_Pos             0                                             /*!< SysT
+ 388:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_LOAD_RELOAD_Msk            (0xFFFFFFul << SysTick_LOAD_RELOAD_Pos)        /*!< SysT
+ 389:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 390:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SysTick Current Register Definitions */
+ 391:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_VAL_CURRENT_Pos             0                                             /*!< SysT
+ 392:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFul << SysTick_VAL_CURRENT_Pos)        /*!< SysT
+ 393:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 394:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* SysTick Calibration Register Definitions */
+ 395:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_NOREF_Pos            31                                             /*!< SysT
+ 396:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_NOREF_Msk            (1ul << SysTick_CALIB_NOREF_Pos)               /*!< SysT
+ 397:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 398:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_SKEW_Pos             30                                             /*!< SysT
+ 399:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_SKEW_Msk             (1ul << SysTick_CALIB_SKEW_Pos)                /*!< SysT
+ 400:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 401:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_TENMS_Pos             0                                             /*!< SysT
+ 402:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_CALIB_TENMS_Msk            (0xFFFFFFul << SysTick_VAL_CURRENT_Pos)        /*!< SysT
+ 403:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_SysTick */
+ 404:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 405:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 406:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_ITM CMSIS CM3 ITM
+ 407:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for Instrumentation Trace Macrocell (ITM)
+ 408:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 409:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 410:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 411:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 412:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __O  union  
+ 413:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   {
+ 414:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     __O  uint8_t    u8;                       /*!< Offset:       ITM Stimulus Port 8-bit           
+ 415:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     __O  uint16_t   u16;                      /*!< Offset:       ITM Stimulus Port 16-bit          
+ 416:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****     __O  uint32_t   u32;                      /*!< Offset:       ITM Stimulus Port 32-bit          
+ 417:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   }  PORT [32];                               /*!< Offset: 0x00  ITM Stimulus Port Registers       
+ 418:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED0[864];                                 
+ 419:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t TER;                          /*!< Offset:       ITM Trace Enable Register         
+ 420:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED1[15];                                  
+ 421:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t TPR;                          /*!< Offset:       ITM Trace Privilege Register      
+ 422:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED2[15];                                  
+ 423:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t TCR;                          /*!< Offset:       ITM Trace Control Register        
+ 424:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED3[29];                                  
+ 425:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t IWR;                          /*!< Offset:       ITM Integration Write Register    
+ 426:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t IRR;                          /*!< Offset:       ITM Integration Read Register     
+ 427:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t IMCR;                         /*!< Offset:       ITM Integration Mode Control Regis
+ 428:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED4[43];                                  
+ 429:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t LAR;                          /*!< Offset:       ITM Lock Access Register          
+ 430:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t LSR;                          /*!< Offset:       ITM Lock Status Register          
+ 431:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED5[6];                                   
+ 432:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID4;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 433:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID5;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 434:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID6;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 435:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID7;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 436:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID0;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 437:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID1;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 438:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID2;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 439:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t PID3;                         /*!< Offset:       ITM Peripheral Identification Regi
+ 440:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CID0;                         /*!< Offset:       ITM Component  Identification Regi
+ 441:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CID1;                         /*!< Offset:       ITM Component  Identification Regi
+ 442:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CID2;                         /*!< Offset:       ITM Component  Identification Regi
+ 443:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t CID3;                         /*!< Offset:       ITM Component  Identification Regi
+ 444:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } ITM_Type;                                                
+ 445:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 446:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Trace Privilege Register Definitions */
+ 447:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TPR_PRIVMASK_Pos                0                                             /*!< ITM 
+ 448:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TPR_PRIVMASK_Msk               (0xFul << ITM_TPR_PRIVMASK_Pos)                /*!< ITM 
+ 449:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 450:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Trace Control Register Definitions */
+ 451:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_BUSY_Pos                   23                                             /*!< ITM 
+ 452:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_BUSY_Msk                   (1ul << ITM_TCR_BUSY_Pos)                      /*!< ITM 
+ 453:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 454:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_ATBID_Pos                  16                                             /*!< ITM 
+ 455:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_ATBID_Msk                  (0x7Ful << ITM_TCR_ATBID_Pos)                  /*!< ITM 
+ 456:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 457:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_TSPrescale_Pos              8                                             /*!< ITM 
+ 458:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_TSPrescale_Msk             (3ul << ITM_TCR_TSPrescale_Pos)                /*!< ITM 
+ 459:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 460:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_SWOENA_Pos                  4                                             /*!< ITM 
+ 461:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_SWOENA_Msk                 (1ul << ITM_TCR_SWOENA_Pos)                    /*!< ITM 
+ 462:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 463:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_DWTENA_Pos                  3                                             /*!< ITM 
+ 464:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_DWTENA_Msk                 (1ul << ITM_TCR_DWTENA_Pos)                    /*!< ITM 
+ 465:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 466:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_SYNCENA_Pos                 2                                             /*!< ITM 
+ 467:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_SYNCENA_Msk                (1ul << ITM_TCR_SYNCENA_Pos)                   /*!< ITM 
+ 468:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 469:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_TSENA_Pos                   1                                             /*!< ITM 
+ 470:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_TSENA_Msk                  (1ul << ITM_TCR_TSENA_Pos)                     /*!< ITM 
+ 471:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 472:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_ITMENA_Pos                  0                                             /*!< ITM 
+ 473:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_TCR_ITMENA_Msk                 (1ul << ITM_TCR_ITMENA_Pos)                    /*!< ITM 
+ 474:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 475:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Integration Write Register Definitions */
+ 476:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IWR_ATVALIDM_Pos                0                                             /*!< ITM 
+ 477:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IWR_ATVALIDM_Msk               (1ul << ITM_IWR_ATVALIDM_Pos)                  /*!< ITM 
+ 478:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 479:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Integration Read Register Definitions */
+ 480:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IRR_ATREADYM_Pos                0                                             /*!< ITM 
+ 481:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IRR_ATREADYM_Msk               (1ul << ITM_IRR_ATREADYM_Pos)                  /*!< ITM 
+ 482:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 483:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Integration Mode Control Register Definitions */
+ 484:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IMCR_INTEGRATION_Pos            0                                             /*!< ITM 
+ 485:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_IMCR_INTEGRATION_Msk           (1ul << ITM_IMCR_INTEGRATION_Pos)              /*!< ITM 
+ 486:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 487:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ITM Lock Status Register Definitions */
+ 488:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_ByteAcc_Pos                 2                                             /*!< ITM 
+ 489:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_ByteAcc_Msk                (1ul << ITM_LSR_ByteAcc_Pos)                   /*!< ITM 
+ 490:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 491:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_Access_Pos                  1                                             /*!< ITM 
+ 492:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_Access_Msk                 (1ul << ITM_LSR_Access_Pos)                    /*!< ITM 
+ 493:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 494:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_Present_Pos                 0                                             /*!< ITM 
+ 495:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_LSR_Present_Msk                (1ul << ITM_LSR_Present_Pos)                   /*!< ITM 
+ 496:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_ITM */
+ 497:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 498:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 499:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_InterruptType CMSIS CM3 Interrupt Type
+ 500:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for Interrupt Type
+ 501:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 502:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 503:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 504:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 505:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED0;
+ 506:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t ICTR;                         /*!< Offset: 0x04  Interrupt Control Type Register */
+ 507:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if ((defined __CM3_REV) && (__CM3_REV >= 0x200))
+ 508:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t ACTLR;                        /*!< Offset: 0x08  Auxiliary Control Register      */
+ 509:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #else
+ 510:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****        uint32_t RESERVED1;
+ 511:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 512:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } InterruptType_Type;
+ 513:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 514:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Interrupt Controller Type Register Definitions */
+ 515:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ICTR_INTLINESNUM_Pos  0                                             /*!< Inte
+ 516:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ICTR_INTLINESNUM_Msk (0x1Ful << InterruptType_ICTR_INTLINESNUM_Pos) /*!< Inte
+ 517:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 518:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Auxiliary Control Register Definitions */
+ 519:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISFOLD_Pos     2                                             /*!< Inte
+ 520:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISFOLD_Msk    (1ul << InterruptType_ACTLR_DISFOLD_Pos)       /*!< Inte
+ 521:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 522:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISDEFWBUF_Pos  1                                             /*!< Inte
+ 523:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISDEFWBUF_Msk (1ul << InterruptType_ACTLR_DISDEFWBUF_Pos)    /*!< Inte
+ 524:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 525:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISMCYCINT_Pos  0                                             /*!< Inte
+ 526:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType_ACTLR_DISMCYCINT_Msk (1ul << InterruptType_ACTLR_DISMCYCINT_Pos)    /*!< Inte
+ 527:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_InterruptType */
+ 528:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 529:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 530:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1)
+ 531:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_MPU CMSIS CM3 MPU
+ 532:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for Memory Protection Unit (MPU)
+ 533:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 534:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 535:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 536:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 537:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __I  uint32_t TYPE;                         /*!< Offset: 0x00  MPU Type Register                 
+ 538:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t CTRL;                         /*!< Offset: 0x04  MPU Control Register              
+ 539:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RNR;                          /*!< Offset: 0x08  MPU Region RNRber Register        
+ 540:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RBAR;                         /*!< Offset: 0x0C  MPU Region Base Address Register  
+ 541:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RASR;                         /*!< Offset: 0x10  MPU Region Attribute and Size Regi
+ 542:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RBAR_A1;                      /*!< Offset: 0x14  MPU Alias 1 Region Base Address Re
+ 543:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RASR_A1;                      /*!< Offset: 0x18  MPU Alias 1 Region Attribute and S
+ 544:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RBAR_A2;                      /*!< Offset: 0x1C  MPU Alias 2 Region Base Address Re
+ 545:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RASR_A2;                      /*!< Offset: 0x20  MPU Alias 2 Region Attribute and S
+ 546:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RBAR_A3;                      /*!< Offset: 0x24  MPU Alias 3 Region Base Address Re
+ 547:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t RASR_A3;                      /*!< Offset: 0x28  MPU Alias 3 Region Attribute and S
+ 548:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } MPU_Type;                                                
+ 549:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 550:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* MPU Type Register */
+ 551:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_IREGION_Pos               16                                             /*!< MPU 
+ 552:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_IREGION_Msk               (0xFFul << MPU_TYPE_IREGION_Pos)               /*!< MPU 
+ 553:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 554:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_DREGION_Pos                8                                             /*!< MPU 
+ 555:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_DREGION_Msk               (0xFFul << MPU_TYPE_DREGION_Pos)               /*!< MPU 
+ 556:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 557:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_SEPARATE_Pos               0                                             /*!< MPU 
+ 558:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_TYPE_SEPARATE_Msk              (1ul << MPU_TYPE_SEPARATE_Pos)                 /*!< MPU 
+ 559:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 560:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* MPU Control Register */
+ 561:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_PRIVDEFENA_Pos             2                                             /*!< MPU 
+ 562:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_PRIVDEFENA_Msk            (1ul << MPU_CTRL_PRIVDEFENA_Pos)               /*!< MPU 
+ 563:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 564:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_HFNMIENA_Pos               1                                             /*!< MPU 
+ 565:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_HFNMIENA_Msk              (1ul << MPU_CTRL_HFNMIENA_Pos)                 /*!< MPU 
+ 566:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 567:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_ENABLE_Pos                 0                                             /*!< MPU 
+ 568:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_CTRL_ENABLE_Msk                (1ul << MPU_CTRL_ENABLE_Pos)                   /*!< MPU 
+ 569:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 570:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* MPU Region Number Register */
+ 571:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RNR_REGION_Pos                  0                                             /*!< MPU 
+ 572:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RNR_REGION_Msk                 (0xFFul << MPU_RNR_REGION_Pos)                 /*!< MPU 
+ 573:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 574:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* MPU Region Base Address Register */
+ 575:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_ADDR_Pos                   5                                             /*!< MPU 
+ 576:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_ADDR_Msk                  (0x7FFFFFFul << MPU_RBAR_ADDR_Pos)             /*!< MPU 
+ 577:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 578:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_VALID_Pos                  4                                             /*!< MPU 
+ 579:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_VALID_Msk                 (1ul << MPU_RBAR_VALID_Pos)                    /*!< MPU 
+ 580:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 581:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_REGION_Pos                 0                                             /*!< MPU 
+ 582:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RBAR_REGION_Msk                (0xFul << MPU_RBAR_REGION_Pos)                 /*!< MPU 
+ 583:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 584:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* MPU Region Attribute and Size Register */
+ 585:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_XN_Pos                    28                                             /*!< MPU 
+ 586:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_XN_Msk                    (1ul << MPU_RASR_XN_Pos)                       /*!< MPU 
+ 587:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 588:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_AP_Pos                    24                                             /*!< MPU 
+ 589:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_AP_Msk                    (7ul << MPU_RASR_AP_Pos)                       /*!< MPU 
+ 590:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 591:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_TEX_Pos                   19                                             /*!< MPU 
+ 592:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_TEX_Msk                   (7ul << MPU_RASR_TEX_Pos)                      /*!< MPU 
+ 593:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 594:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_S_Pos                     18                                             /*!< MPU 
+ 595:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_S_Msk                     (1ul << MPU_RASR_S_Pos)                        /*!< MPU 
+ 596:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 597:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_C_Pos                     17                                             /*!< MPU 
+ 598:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_C_Msk                     (1ul << MPU_RASR_C_Pos)                        /*!< MPU 
+ 599:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 600:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_B_Pos                     16                                             /*!< MPU 
+ 601:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_B_Msk                     (1ul << MPU_RASR_B_Pos)                        /*!< MPU 
+ 602:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 603:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_SRD_Pos                    8                                             /*!< MPU 
+ 604:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_SRD_Msk                   (0xFFul << MPU_RASR_SRD_Pos)                   /*!< MPU 
+ 605:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 606:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_SIZE_Pos                   1                                             /*!< MPU 
+ 607:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_SIZE_Msk                  (0x1Ful << MPU_RASR_SIZE_Pos)                  /*!< MPU 
+ 608:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 609:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_ENA_Pos                     0                                            /*!< MPU 
+ 610:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define MPU_RASR_ENA_Msk                    (0x1Ful << MPU_RASR_ENA_Pos)                  /*!< MPU 
+ 611:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 612:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_MPU */
+ 613:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 614:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 615:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 616:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /** @addtogroup CMSIS_CM3_CoreDebug CMSIS CM3 Core Debug
+ 617:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   memory mapped structure for Core Debug Register
+ 618:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   @{
+ 619:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 620:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** typedef struct
+ 621:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 622:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t DHCSR;                        /*!< Offset: 0x00  Debug Halting Control and Status R
+ 623:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __O  uint32_t DCRSR;                        /*!< Offset: 0x04  Debug Core Register Selector Regis
+ 624:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t DCRDR;                        /*!< Offset: 0x08  Debug Core Register Data Register 
+ 625:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __IO uint32_t DEMCR;                        /*!< Offset: 0x0C  Debug Exception and Monitor Contro
+ 626:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** } CoreDebug_Type;
+ 627:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 628:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Debug Halting Control and Status Register */
+ 629:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_DBGKEY_Pos         16                                             /*!< Core
+ 630:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_DBGKEY_Msk         (0xFFFFul << CoreDebug_DHCSR_DBGKEY_Pos)       /*!< Core
+ 631:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 632:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_RESET_ST_Pos     25                                             /*!< Core
+ 633:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_RESET_ST_Msk     (1ul << CoreDebug_DHCSR_S_RESET_ST_Pos)        /*!< Core
+ 634:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 635:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Pos    24                                             /*!< Core
+ 636:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_RETIRE_ST_Msk    (1ul << CoreDebug_DHCSR_S_RETIRE_ST_Pos)       /*!< Core
+ 637:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 638:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_LOCKUP_Pos       19                                             /*!< Core
+ 639:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_LOCKUP_Msk       (1ul << CoreDebug_DHCSR_S_LOCKUP_Pos)          /*!< Core
+ 640:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 641:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_SLEEP_Pos        18                                             /*!< Core
+ 642:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_SLEEP_Msk        (1ul << CoreDebug_DHCSR_S_SLEEP_Pos)           /*!< Core
+ 643:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 644:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_HALT_Pos         17                                             /*!< Core
+ 645:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_HALT_Msk         (1ul << CoreDebug_DHCSR_S_HALT_Pos)            /*!< Core
+ 646:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 647:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_REGRDY_Pos       16                                             /*!< Core
+ 648:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_S_REGRDY_Msk       (1ul << CoreDebug_DHCSR_S_REGRDY_Pos)          /*!< Core
+ 649:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 650:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_SNAPSTALL_Pos     5                                             /*!< Core
+ 651:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_SNAPSTALL_Msk    (1ul << CoreDebug_DHCSR_C_SNAPSTALL_Pos)       /*!< Core
+ 652:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 653:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_MASKINTS_Pos      3                                             /*!< Core
+ 654:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_MASKINTS_Msk     (1ul << CoreDebug_DHCSR_C_MASKINTS_Pos)        /*!< Core
+ 655:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 656:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_STEP_Pos          2                                             /*!< Core
+ 657:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_STEP_Msk         (1ul << CoreDebug_DHCSR_C_STEP_Pos)            /*!< Core
+ 658:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 659:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_HALT_Pos          1                                             /*!< Core
+ 660:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_HALT_Msk         (1ul << CoreDebug_DHCSR_C_HALT_Pos)            /*!< Core
+ 661:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 662:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_DEBUGEN_Pos       0                                             /*!< Core
+ 663:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DHCSR_C_DEBUGEN_Msk      (1ul << CoreDebug_DHCSR_C_DEBUGEN_Pos)         /*!< Core
+ 664:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 665:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Debug Core Register Selector Register */
+ 666:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DCRSR_REGWnR_Pos         16                                             /*!< Core
+ 667:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DCRSR_REGWnR_Msk         (1ul << CoreDebug_DCRSR_REGWnR_Pos)            /*!< Core
+ 668:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 669:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DCRSR_REGSEL_Pos          0                                             /*!< Core
+ 670:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DCRSR_REGSEL_Msk         (0x1Ful << CoreDebug_DCRSR_REGSEL_Pos)         /*!< Core
+ 671:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 672:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Debug Exception and Monitor Control Register */
+ 673:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_TRCENA_Pos         24                                             /*!< Core
+ 674:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_TRCENA_Msk         (1ul << CoreDebug_DEMCR_TRCENA_Pos)            /*!< Core
+ 675:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 676:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_REQ_Pos        19                                             /*!< Core
+ 677:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_REQ_Msk        (1ul << CoreDebug_DEMCR_MON_REQ_Pos)           /*!< Core
+ 678:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 679:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_STEP_Pos       18                                             /*!< Core
+ 680:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_STEP_Msk       (1ul << CoreDebug_DEMCR_MON_STEP_Pos)          /*!< Core
+ 681:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 682:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_PEND_Pos       17                                             /*!< Core
+ 683:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_PEND_Msk       (1ul << CoreDebug_DEMCR_MON_PEND_Pos)          /*!< Core
+ 684:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 685:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_EN_Pos         16                                             /*!< Core
+ 686:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_MON_EN_Msk         (1ul << CoreDebug_DEMCR_MON_EN_Pos)            /*!< Core
+ 687:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 688:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_HARDERR_Pos     10                                             /*!< Core
+ 689:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_HARDERR_Msk     (1ul << CoreDebug_DEMCR_VC_HARDERR_Pos)        /*!< Core
+ 690:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 691:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_INTERR_Pos       9                                             /*!< Core
+ 692:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_INTERR_Msk      (1ul << CoreDebug_DEMCR_VC_INTERR_Pos)         /*!< Core
+ 693:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 694:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_BUSERR_Pos       8                                             /*!< Core
+ 695:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_BUSERR_Msk      (1ul << CoreDebug_DEMCR_VC_BUSERR_Pos)         /*!< Core
+ 696:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 697:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_STATERR_Pos      7                                             /*!< Core
+ 698:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_STATERR_Msk     (1ul << CoreDebug_DEMCR_VC_STATERR_Pos)        /*!< Core
+ 699:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 700:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_CHKERR_Pos       6                                             /*!< Core
+ 701:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_CHKERR_Msk      (1ul << CoreDebug_DEMCR_VC_CHKERR_Pos)         /*!< Core
+ 702:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 703:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_NOCPERR_Pos      5                                             /*!< Core
+ 704:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_NOCPERR_Msk     (1ul << CoreDebug_DEMCR_VC_NOCPERR_Pos)        /*!< Core
+ 705:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 706:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_MMERR_Pos        4                                             /*!< Core
+ 707:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_MMERR_Msk       (1ul << CoreDebug_DEMCR_VC_MMERR_Pos)          /*!< Core
+ 708:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 709:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_CORERESET_Pos    0                                             /*!< Core
+ 710:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_DEMCR_VC_CORERESET_Msk   (1ul << CoreDebug_DEMCR_VC_CORERESET_Pos)      /*!< Core
+ 711:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_CoreDebug */
+ 712:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 713:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 714:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* Memory mapping of Cortex-M3 Hardware */
+ 715:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCS_BASE            (0xE000E000)                              /*!< System Control Space Bas
+ 716:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM_BASE            (0xE0000000)                              /*!< ITM Base Address        
+ 717:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug_BASE      (0xE000EDF0)                              /*!< Core Debug Base Address 
+ 718:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick_BASE        (SCS_BASE +  0x0010)                      /*!< SysTick Base Address    
+ 719:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define NVIC_BASE           (SCS_BASE +  0x0100)                      /*!< NVIC Base Address       
+ 720:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB_BASE            (SCS_BASE +  0x0D00)                      /*!< System Control Block Bas
+ 721:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 722:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define InterruptType       ((InterruptType_Type *) SCS_BASE)         /*!< Interrupt Type Register 
+ 723:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SCB                 ((SCB_Type *)           SCB_BASE)         /*!< SCB configuration struct
+ 724:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define SysTick             ((SysTick_Type *)       SysTick_BASE)     /*!< SysTick configuration st
+ 725:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define NVIC                ((NVIC_Type *)          NVIC_BASE)        /*!< NVIC configuration struc
+ 726:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define ITM                 ((ITM_Type *)           ITM_BASE)         /*!< ITM configuration struct
+ 727:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define CoreDebug           ((CoreDebug_Type *)     CoreDebug_BASE)   /*!< Core Debug configuration
+ 728:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 729:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1)
+ 730:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define MPU_BASE          (SCS_BASE +  0x0D90)                      /*!< Memory Protection Unit  
+ 731:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define MPU               ((MPU_Type*)            MPU_BASE)         /*!< Memory Protection Unit  
+ 732:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 733:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 734:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*@}*/ /* end of group CMSIS_CM3_core_register */
+ 735:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 736:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 737:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /*******************************************************************************
+ 738:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *                Hardware Abstraction Layer
+ 739:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  ******************************************************************************/
+ 740:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 741:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if defined ( __CC_ARM   )
+ 742:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __ASM            __asm                                      /*!< asm keyword for ARM Comp
+ 743:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __INLINE         __inline                                   /*!< inline keyword for ARM C
+ 744:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 745:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #elif defined ( __ICCARM__ )
+ 746:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __ASM           __asm                                       /*!< asm keyword for IAR Comp
+ 747:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __INLINE        inline                                      /*!< inline keyword for IAR C
+ 748:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 749:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #elif defined   (  __GNUC__  )
+ 750:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __ASM            __asm                                      /*!< asm keyword for GNU Comp
+ 751:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __INLINE         inline                                     /*!< inline keyword for GNU C
+ 752:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 753:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #elif defined   (  __TASKING__  )
+ 754:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __ASM            __asm                                      /*!< asm keyword for TASKING 
+ 755:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   #define __INLINE         inline                                     /*!< inline keyword for TASKI
+ 756:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 757:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif
+ 758:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 759:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 760:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ###################  Compiler specific Intrinsics  ########################### */
+ 761:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 762:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if defined ( __CC_ARM   ) /*------------------RealView Compiler -----------------*/
+ 763:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* ARM armcc specific functions */
+ 764:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 765:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __enable_fault_irq                __enable_fiq
+ 766:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __disable_fault_irq               __disable_fiq
+ 767:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 768:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __NOP                             __nop
+ 769:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __WFI                             __wfi
+ 770:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __WFE                             __wfe
+ 771:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __SEV                             __sev
+ 772:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __ISB()                           __isb(0)
+ 773:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __DSB()                           __dsb(0)
+ 774:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __DMB()                           __dmb(0)
+ 775:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __REV                             __rev
+ 776:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __RBIT                            __rbit
+ 777:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __LDREXB(ptr)                     ((unsigned char ) __ldrex(ptr))
+ 778:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __LDREXH(ptr)                     ((unsigned short) __ldrex(ptr))
+ 779:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __LDREXW(ptr)                     ((unsigned int  ) __ldrex(ptr))
+ 780:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __STREXB(value, ptr)              __strex(value, ptr)
+ 781:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __STREXH(value, ptr)              __strex(value, ptr)
+ 782:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __STREXW(value, ptr)              __strex(value, ptr)
+ 783:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 784:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 785:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic unsigned long long __ldrexd(volatile void *ptr) */
+ 786:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic int __strexd(unsigned long long val, volatile void *ptr) */
+ 787:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __enable_irq();     */
+ 788:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __disable_irq();    */
+ 789:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 790:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 791:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 792:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Process Stack Pointer
+ 793:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 794:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return ProcessStackPointer
+ 795:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 796:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the actual process stack pointer
+ 797:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 798:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_PSP(void);
+ 799:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 800:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 801:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Process Stack Pointer
+ 802:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 803:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  topOfProcStack  Process Stack Pointer
+ 804:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 805:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Assign the value ProcessStackPointer to the MSP 
+ 806:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * (process stack pointer) Cortex processor register
+ 807:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 808:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_PSP(uint32_t topOfProcStack);
+ 809:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 810:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 811:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Main Stack Pointer
+ 812:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 813:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return Main Stack Pointer
+ 814:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 815:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the current value of the MSP (main stack pointer)
+ 816:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Cortex processor register
+ 817:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 818:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_MSP(void);
+ 819:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 820:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 821:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Main Stack Pointer
+ 822:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 823:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  topOfMainStack  Main Stack Pointer
+ 824:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 825:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Assign the value mainStackPointer to the MSP 
+ 826:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * (main stack pointer) Cortex processor register
+ 827:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 828:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_MSP(uint32_t topOfMainStack);
+ 829:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 830:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 831:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Reverse byte order in unsigned short value
+ 832:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 833:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param   value  value to reverse
+ 834:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return         reversed value
+ 835:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 836:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Reverse byte order in unsigned short value
+ 837:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 838:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __REV16(uint16_t value);
+ 839:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 840:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 841:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Reverse byte order in signed short value with sign extension to integer
+ 842:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 843:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param   value  value to reverse
+ 844:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return         reversed value
+ 845:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 846:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Reverse byte order in signed short value with sign extension to integer
+ 847:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 848:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern int32_t __REVSH(int16_t value);
+ 849:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 850:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 851:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #if (__ARMCC_VERSION < 400000)
+ 852:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 853:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 854:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Remove the exclusive lock created by ldrex
+ 855:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 856:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Removes the exclusive lock which is created by ldrex.
+ 857:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 858:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __CLREX(void);
+ 859:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 860:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 861:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Base Priority value
+ 862:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 863:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return BasePriority
+ 864:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 865:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the base priority register
+ 866:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 867:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_BASEPRI(void);
+ 868:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 869:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 870:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Base Priority value
+ 871:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 872:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  basePri  BasePriority
+ 873:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 874:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the base priority register
+ 875:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 876:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_BASEPRI(uint32_t basePri);
+ 877:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 878:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 879:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Priority Mask value
+ 880:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 881:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return PriMask
+ 882:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 883:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return state of the priority mask bit from the priority mask register
+ 884:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 885:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_PRIMASK(void);
+ 886:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 887:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 888:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Priority Mask value
+ 889:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 890:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param   priMask  PriMask
+ 891:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 892:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the priority mask bit in the priority mask register
+ 893:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 894:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_PRIMASK(uint32_t priMask);
+ 895:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 896:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 897:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Fault Mask value
+ 898:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 899:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return FaultMask
+ 900:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 901:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the fault mask register
+ 902:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 903:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_FAULTMASK(void);
+ 904:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 905:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 906:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Fault Mask value
+ 907:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 908:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  faultMask faultMask value
+ 909:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 910:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the fault mask register
+ 911:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 912:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_FAULTMASK(uint32_t faultMask);
+ 913:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 914:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 915:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Control Register value
+ 916:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * 
+ 917:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return Control value
+ 918:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 919:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the control register
+ 920:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 921:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_CONTROL(void);
+ 922:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 923:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 924:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Control Register value
+ 925:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 926:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  control  Control value
+ 927:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 928:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the control register
+ 929:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 930:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_CONTROL(uint32_t control);
+ 931:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 932:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #else  /* (__ARMCC_VERSION >= 400000)  */
+ 933:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 934:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 935:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Remove the exclusive lock created by ldrex
+ 936:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 937:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Removes the exclusive lock which is created by ldrex.
+ 938:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 939:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __CLREX                           __clrex
+ 940:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 941:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 942:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Base Priority value
+ 943:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 944:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return BasePriority
+ 945:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 946:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the base priority register
+ 947:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 948:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE uint32_t  __get_BASEPRI(void)
+ 949:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 950:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regBasePri         __ASM("basepri");
+ 951:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   return(__regBasePri);
+ 952:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+ 953:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 954:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 955:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Base Priority value
+ 956:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 957:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  basePri  BasePriority
+ 958:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 959:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the base priority register
+ 960:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 961:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __set_BASEPRI(uint32_t basePri)
+ 962:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 963:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regBasePri         __ASM("basepri");
+ 964:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __regBasePri = (basePri & 0xff);
+ 965:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+ 966:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 967:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 968:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Priority Mask value
+ 969:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 970:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return PriMask
+ 971:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 972:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return state of the priority mask bit from the priority mask register
+ 973:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 974:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE uint32_t __get_PRIMASK(void)
+ 975:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 976:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regPriMask         __ASM("primask");
+ 977:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   return(__regPriMask);
+ 978:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+ 979:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 980:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 981:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Priority Mask value
+ 982:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 983:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  priMask  PriMask
+ 984:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 985:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the priority mask bit in the priority mask register
+ 986:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+ 987:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __set_PRIMASK(uint32_t priMask)
+ 988:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+ 989:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regPriMask         __ASM("primask");
+ 990:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __regPriMask = (priMask);
+ 991:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+ 992:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+ 993:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+ 994:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Fault Mask value
+ 995:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 996:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return FaultMask
+ 997:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+ 998:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the fault mask register
+ 999:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1000:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE uint32_t __get_FAULTMASK(void)
+1001:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+1002:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regFaultMask       __ASM("faultmask");
+1003:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   return(__regFaultMask);
+1004:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+1005:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1006:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1007:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Fault Mask value
+1008:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1009:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  faultMask  faultMask value
+1010:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1011:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the fault mask register
+1012:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1013:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __set_FAULTMASK(uint32_t faultMask)
+1014:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+1015:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regFaultMask       __ASM("faultmask");
+1016:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __regFaultMask = (faultMask & 1);
+1017:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+1018:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1019:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1020:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Control Register value
+1021:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * 
+1022:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return Control value
+1023:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1024:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the content of the control register
+1025:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1026:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE uint32_t __get_CONTROL(void)
+1027:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+1028:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regControl         __ASM("control");
+1029:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   return(__regControl);
+1030:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+1031:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1032:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1033:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Control Register value
+1034:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1035:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  control  Control value
+1036:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1037:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Set the control register
+1038:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1039:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __set_CONTROL(uint32_t control)
+1040:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** {
+1041:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   register uint32_t __regControl         __ASM("control");
+1042:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****   __regControl = control;
+1043:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** }
+1044:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1045:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #endif /* __ARMCC_VERSION  */ 
+1046:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1047:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1048:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1049:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #elif (defined (__ICCARM__)) /*------------------ ICC Compiler -------------------*/
+1050:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* IAR iccarm specific functions */
+1051:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1052:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __enable_irq                              __enable_interrupt        /*!< global Interrupt e
+1053:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __disable_irq                             __disable_interrupt       /*!< global Interrupt d
+1054:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1055:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __enable_fault_irq()         { __ASM ("cpsie f"); }
+1056:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __disable_fault_irq()        { __ASM ("cpsid f"); }
+1057:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1058:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #define __NOP                                     __no_operation            /*!< no operation intri
+1059:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE  void __WFI()                     { __ASM ("wfi"); }
+1060:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE  void __WFE()                     { __ASM ("wfe"); }
+1061:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE  void __SEV()                     { __ASM ("sev"); }
+1062:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE  void __CLREX()                   { __ASM ("clrex"); }
+1063:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1064:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __ISB(void)                                     */
+1065:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __DSB(void)                                     */
+1066:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __DMB(void)                                     */
+1067:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __set_PRIMASK();                                */
+1068:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __get_PRIMASK();                                */
+1069:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __set_FAULTMASK();                              */
+1070:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic void __get_FAULTMASK();                              */
+1071:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic uint32_t __REV(uint32_t value);                      */
+1072:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic uint32_t __REVSH(uint32_t value);                    */
+1073:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic unsigned long __STREX(unsigned long, unsigned long); */
+1074:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* intrinsic unsigned long __LDREX(unsigned long *);              */
+1075:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1076:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1077:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1078:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Process Stack Pointer
+1079:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1080:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return ProcessStackPointer
+1081:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1082:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the actual process stack pointer
+1083:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1084:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_PSP(void);
+1085:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1086:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1087:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Process Stack Pointer
+1088:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1089:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  topOfProcStack  Process Stack Pointer
+1090:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1091:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Assign the value ProcessStackPointer to the MSP 
+1092:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * (process stack pointer) Cortex processor register
+1093:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1094:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_PSP(uint32_t topOfProcStack);
+1095:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1096:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1097:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Return the Main Stack Pointer
+1098:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1099:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return Main Stack Pointer
+1100:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1101:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Return the current value of the MSP (main stack pointer)
+1102:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Cortex processor register
+1103:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1104:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __get_MSP(void);
+1105:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1106:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1107:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Set the Main Stack Pointer
+1108:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1109:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  topOfMainStack  Main Stack Pointer
+1110:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1111:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Assign the value mainStackPointer to the MSP 
+1112:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * (main stack pointer) Cortex processor register
+1113:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1114:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern void __set_MSP(uint32_t topOfMainStack);
+1115:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1116:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1117:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Reverse byte order in unsigned short value
+1118:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1119:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  value  value to reverse
+1120:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        reversed value
+1121:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1122:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Reverse byte order in unsigned short value
+1123:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1124:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __REV16(uint16_t value);
+1125:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1126:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1127:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  Reverse bit order of value
+1128:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1129:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  value  value to reverse
+1130:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        reversed value
+1131:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1132:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Reverse bit order of value
+1133:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1134:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __RBIT(uint32_t value);
+1135:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1136:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1137:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  LDR Exclusive (8 bit)
+1138:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1139:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1140:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        value of (*address)
+1141:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1142:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive LDR command for 8 bit values)
+1143:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1144:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint8_t __LDREXB(uint8_t *addr);
+1145:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1146:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1147:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  LDR Exclusive (16 bit)
+1148:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1149:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1150:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        value of (*address)
+1151:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1152:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive LDR command for 16 bit values
+1153:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1154:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint16_t __LDREXH(uint16_t *addr);
+1155:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1156:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1157:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  LDR Exclusive (32 bit)
+1158:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1159:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1160:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        value of (*address)
+1161:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1162:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive LDR command for 32 bit values
+1163:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1164:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __LDREXW(uint32_t *addr);
+1165:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1166:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1167:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  STR Exclusive (8 bit)
+1168:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1169:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  value  value to store
+1170:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1171:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        successful / failed
+1172:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1173:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive STR command for 8 bit values
+1174:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1175:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __STREXB(uint8_t value, uint8_t *addr);
+1176:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1177:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1178:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  STR Exclusive (16 bit)
+1179:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1180:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  value  value to store
+1181:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1182:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        successful / failed
+1183:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1184:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive STR command for 16 bit values
+1185:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1186:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __STREXH(uint16_t value, uint16_t *addr);
+1187:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1188:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /**
+1189:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @brief  STR Exclusive (32 bit)
+1190:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1191:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  value  value to store
+1192:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @param  *addr  address pointer
+1193:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * @return        successful / failed
+1194:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  *
+1195:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  * Exclusive STR command for 32 bit values
+1196:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h ****  */
+1197:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** extern uint32_t __STREXW(uint32_t value, uint32_t *addr);
+1198:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1199:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1200:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1201:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** #elif (defined (__GNUC__)) /*------------------ GNU Compiler ---------------------*/
+1202:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** /* GNU gcc specific functions */
+1203:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1204:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __enable_irq()               { __ASM volatile ("cpsie i"); }
+1205:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __disable_irq()              { __ASM volatile ("cpsid i"); }
+1206:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1207:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __enable_fault_irq()         { __ASM volatile ("cpsie f"); }
+1208:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __disable_fault_irq()        { __ASM volatile ("cpsid f"); }
+1209:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** 
+1210:D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS\core_cm3.h **** static __INLINE void __NOP()                      { __ASM volatile ("nop"); }
+  26              		.loc 1 1210 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 1, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31 0000 80B4     		push	{r7}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              	.LCFI1:
+  37              		.cfi_def_cfa_register 7
+  38              		.loc 1 1210 0
+  39              	@ 1210 "D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS/core_cm3.h" 1
+  40 0004 00BF     		nop
+  41              	@ 0 "" 2
+  42              		.thumb
+  43 0006 BD46     		mov	sp, r7
+  44 0008 80BC     		pop	{r7}
+  45 000a 7047     		bx	lr
+  46              		.cfi_endproc
+  47              	.LFE4:
+  49              		.comm	time_ms,8,8
+  50              		.comm	batteryPower,1,1
+  51              		.comm	isBattaryConnected,1,1
+  52              		.comm	currentMeasureNumber,4,4
+  53              		.comm	uFromBattery,8,8
+  54              		.comm	uToBattery,8,8
+  55              		.comm	amperage,8,8
+  56              		.comm	systemTemperature,8,8
+  57              		.comm	uFromBatteryBuffer,8,4
+  58              		.comm	uToBatteryBuffer,8,4
+  59              		.comm	amperageBuffer,4,4
+  60              		.comm	systemTemperatureBuffer,4,4
+  61              		.global	__aeabi_ui2d
+  62              		.global	__aeabi_dmul
+  63              		.global	__aeabi_ddiv
+  64              		.section	.text.convertADCBufferToAmperageValue,"ax",%progbits
+  65              		.align	2
+  66              		.global	convertADCBufferToAmperageValue
+  67              		.thumb
+  68              		.thumb_func
+  70              	convertADCBufferToAmperageValue:
+  71              	.LFB29:
+  72              		.file 2 "../src/adc/adc.c"
+   1:../src/adc/adc.c **** /*
+   2:../src/adc/adc.c ****  * adc.c
+   3:../src/adc/adc.c ****  *
+   4:../src/adc/adc.c ****  *  Created on: 3 жовт. 2013
+   5:../src/adc/adc.c ****  *      Author: Олексій
+   6:../src/adc/adc.c ****  */
+   7:../src/adc/adc.c **** 
+   8:../src/adc/adc.c **** #include "stm32f10x_adc.h"
+   9:../src/adc/adc.c **** #include "stm32f10x_rcc.h"
+  10:../src/adc/adc.c **** #include "stm32f10x_gpio.h"
+  11:../src/adc/adc.c **** #include "misc.h"
+  12:../src/adc/adc.c **** #include "../common/common.h"
+  13:../src/adc/adc.c **** #include "adc.h"
+  14:../src/adc/adc.c **** 
+  15:../src/adc/adc.c **** double convertADCBufferToAmperageValue(uint32_t adcBufferVal) {
+  73              		.loc 2 15 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 8
+  76              		@ frame_needed = 1, uses_anonymous_args = 0
+  77 0000 80B5     		push	{r7, lr}
+  78              	.LCFI2:
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 7, -8
+  81              		.cfi_offset 14, -4
+  82 0002 82B0     		sub	sp, sp, #8
+  83              	.LCFI3:
+  84              		.cfi_def_cfa_offset 16
+  85 0004 00AF     		add	r7, sp, #0
+  86              	.LCFI4:
+  87              		.cfi_def_cfa_register 7
+  88 0006 7860     		str	r0, [r7, #4]
+  16:../src/adc/adc.c **** 	return adcBufferVal * AMPERAGE_ADC_CONVERSATION_COEFFICIENT / MEASURES_NUMBER;
+  89              		.loc 2 16 0
+  90 0008 7868     		ldr	r0, [r7, #4]
+  91 000a FFF7FEFF 		bl	__aeabi_ui2d
+  92 000e 0246     		mov	r2, r0
+  93 0010 0B46     		mov	r3, r1
+  94 0012 1046     		mov	r0, r2
+  95 0014 1946     		mov	r1, r3
+  96 0016 0CA3     		adr	r3, .L4
+  97 0018 D3E90023 		ldrd	r2, [r3]
+  98 001c FFF7FEFF 		bl	__aeabi_dmul
+  99 0020 0246     		mov	r2, r0
+ 100 0022 0B46     		mov	r3, r1
+ 101 0024 1046     		mov	r0, r2
+ 102 0026 1946     		mov	r1, r3
+ 103 0028 09A3     		adr	r3, .L4+8
+ 104 002a D3E90023 		ldrd	r2, [r3]
+ 105 002e FFF7FEFF 		bl	__aeabi_ddiv
+ 106 0032 0246     		mov	r2, r0
+ 107 0034 0B46     		mov	r3, r1
+  17:../src/adc/adc.c **** }
+ 108              		.loc 2 17 0
+ 109 0036 1046     		mov	r0, r2
+ 110 0038 1946     		mov	r1, r3
+ 111 003a 07F10807 		add	r7, r7, #8
+ 112 003e BD46     		mov	sp, r7
+ 113 0040 80BD     		pop	{r7, pc}
+ 114              	.L5:
+ 115 0042 00BFAFF3 		.align	3
+ 115      0080
+ 116              	.L4:
+ 117 0048 7993DFA2 		.word	-1562406023
+ 118 004c 93A5663F 		.word	1063691667
+ 119 0050 00000000 		.word	0
+ 120 0054 0088B340 		.word	1085507584
+ 121              		.cfi_endproc
+ 122              	.LFE29:
+ 124              		.section	.text.convertADCBufferToVoltageValue,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	convertADCBufferToVoltageValue
+ 127              		.thumb
+ 128              		.thumb_func
+ 130              	convertADCBufferToVoltageValue:
+ 131              	.LFB30:
+  18:../src/adc/adc.c **** 
+  19:../src/adc/adc.c **** double convertADCBufferToVoltageValue(uint32_t adcBufferVal, uint32_t measuresCount) {
+ 132              		.loc 2 19 0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 8
+ 135              		@ frame_needed = 1, uses_anonymous_args = 0
+ 136 0000 B0B5     		push	{r4, r5, r7, lr}
+ 137              	.LCFI5:
+ 138              		.cfi_def_cfa_offset 16
+ 139              		.cfi_offset 4, -16
+ 140              		.cfi_offset 5, -12
+ 141              		.cfi_offset 7, -8
+ 142              		.cfi_offset 14, -4
+ 143 0002 82B0     		sub	sp, sp, #8
+ 144              	.LCFI6:
+ 145              		.cfi_def_cfa_offset 24
+ 146 0004 00AF     		add	r7, sp, #0
+ 147              	.LCFI7:
+ 148              		.cfi_def_cfa_register 7
+ 149 0006 7860     		str	r0, [r7, #4]
+ 150 0008 3960     		str	r1, [r7, #0]
+  20:../src/adc/adc.c **** 	return adcBufferVal * VOLTAGE_ADC_CONVERSATION_COEFFICIENT / measuresCount;
+ 151              		.loc 2 20 0
+ 152 000a 7868     		ldr	r0, [r7, #4]
+ 153 000c FFF7FEFF 		bl	__aeabi_ui2d
+ 154 0010 0246     		mov	r2, r0
+ 155 0012 0B46     		mov	r3, r1
+ 156 0014 1046     		mov	r0, r2
+ 157 0016 1946     		mov	r1, r3
+ 158 0018 0DA3     		adr	r3, .L8
+ 159 001a D3E90023 		ldrd	r2, [r3]
+ 160 001e FFF7FEFF 		bl	__aeabi_dmul
+ 161 0022 0246     		mov	r2, r0
+ 162 0024 0B46     		mov	r3, r1
+ 163 0026 1446     		mov	r4, r2
+ 164 0028 1D46     		mov	r5, r3
+ 165 002a 3868     		ldr	r0, [r7, #0]
+ 166 002c FFF7FEFF 		bl	__aeabi_ui2d
+ 167 0030 0246     		mov	r2, r0
+ 168 0032 0B46     		mov	r3, r1
+ 169 0034 2046     		mov	r0, r4
+ 170 0036 2946     		mov	r1, r5
+ 171 0038 FFF7FEFF 		bl	__aeabi_ddiv
+ 172 003c 0246     		mov	r2, r0
+ 173 003e 0B46     		mov	r3, r1
+  21:../src/adc/adc.c **** }
+ 174              		.loc 2 21 0
+ 175 0040 1046     		mov	r0, r2
+ 176 0042 1946     		mov	r1, r3
+ 177 0044 07F10807 		add	r7, r7, #8
+ 178 0048 BD46     		mov	sp, r7
+ 179 004a B0BD     		pop	{r4, r5, r7, pc}
+ 180              	.L9:
+ 181 004c AFF30080 		.align	3
+ 182              	.L8:
+ 183 0050 008C88DE 		.word	-561476608
+ 184 0054 B962843F 		.word	1065640633
+ 185              		.cfi_endproc
+ 186              	.LFE30:
+ 188              		.global	__aeabi_i2d
+ 189              		.global	__aeabi_dadd
+ 190              		.section	.text.convertADCBufferToTemperatureValue,"ax",%progbits
+ 191              		.align	2
+ 192              		.global	convertADCBufferToTemperatureValue
+ 193              		.thumb
+ 194              		.thumb_func
+ 196              	convertADCBufferToTemperatureValue:
+ 197              	.LFB31:
+  22:../src/adc/adc.c **** 
+  23:../src/adc/adc.c **** double convertADCBufferToTemperatureValue(uint32_t adcBufferVal) {
+ 198              		.loc 2 23 0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 16
+ 201              		@ frame_needed = 1, uses_anonymous_args = 0
+ 202 0000 80B5     		push	{r7, lr}
+ 203              	.LCFI8:
+ 204              		.cfi_def_cfa_offset 8
+ 205              		.cfi_offset 7, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 84B0     		sub	sp, sp, #16
+ 208              	.LCFI9:
+ 209              		.cfi_def_cfa_offset 24
+ 210 0004 00AF     		add	r7, sp, #0
+ 211              	.LCFI10:
+ 212              		.cfi_def_cfa_register 7
+ 213 0006 7860     		str	r0, [r7, #4]
+  24:../src/adc/adc.c **** 	long adcBufferVal0 = adcBufferVal / MEASURES_NUMBER;
+ 214              		.loc 2 24 0
+ 215 0008 7A68     		ldr	r2, [r7, #4]
+ 216 000a 174B     		ldr	r3, .L12+8
+ 217 000c A3FB0213 		umull	r1, r3, r3, r2
+ 218 0010 4FEA1333 		lsr	r3, r3, #12
+ 219 0014 FB60     		str	r3, [r7, #12]
+  25:../src/adc/adc.c **** 	return SYS_TEMP0 + (SYS_TEMP_V0 - adcBufferVal0) * 0.203;
+ 220              		.loc 2 25 0
+ 221 0016 FB68     		ldr	r3, [r7, #12]
+ 222 0018 C3F56A73 		rsb	r3, r3, #936
+ 223 001c 03F10203 		add	r3, r3, #2
+ 224 0020 1846     		mov	r0, r3
+ 225 0022 FFF7FEFF 		bl	__aeabi_i2d
+ 226 0026 0246     		mov	r2, r0
+ 227 0028 0B46     		mov	r3, r1
+ 228 002a 1046     		mov	r0, r2
+ 229 002c 1946     		mov	r1, r3
+ 230 002e 0CA3     		adr	r3, .L12
+ 231 0030 D3E90023 		ldrd	r2, [r3]
+ 232 0034 FFF7FEFF 		bl	__aeabi_dmul
+ 233 0038 0246     		mov	r2, r0
+ 234 003a 0B46     		mov	r3, r1
+ 235 003c 1046     		mov	r0, r2
+ 236 003e 1946     		mov	r1, r3
+ 237 0040 4FF00002 		mov	r2, #0
+ 238 0044 094B     		ldr	r3, .L12+12
+ 239 0046 FFF7FEFF 		bl	__aeabi_dadd
+ 240 004a 0246     		mov	r2, r0
+ 241 004c 0B46     		mov	r3, r1
+  26:../src/adc/adc.c **** }
+ 242              		.loc 2 26 0
+ 243 004e 1046     		mov	r0, r2
+ 244 0050 1946     		mov	r1, r3
+ 245 0052 07F11007 		add	r7, r7, #16
+ 246 0056 BD46     		mov	sp, r7
+ 247 0058 80BD     		pop	{r7, pc}
+ 248              	.L13:
+ 249 005a 00BFAFF3 		.align	3
+ 249      0080
+ 250              	.L12:
+ 251 0060 96438B6C 		.word	1821066134
+ 252 0064 E7FBC93F 		.word	1070201831
+ 253 0068 5917B7D1 		.word	-776530087
+ 254 006c 00004240 		.word	1078067200
+ 255              		.cfi_endproc
+ 256              	.LFE31:
+ 258              		.section	.text.clearMeasuringBuffers,"ax",%progbits
+ 259              		.align	2
+ 260              		.global	clearMeasuringBuffers
+ 261              		.thumb
+ 262              		.thumb_func
+ 264              	clearMeasuringBuffers:
+ 265              	.LFB32:
+  27:../src/adc/adc.c **** 
+  28:../src/adc/adc.c **** void clearMeasuringBuffers() {
+ 266              		.loc 2 28 0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 1, uses_anonymous_args = 0
+ 270              		@ link register save eliminated.
+ 271 0000 80B4     		push	{r7}
+ 272              	.LCFI11:
+ 273              		.cfi_def_cfa_offset 4
+ 274              		.cfi_offset 7, -4
+ 275 0002 00AF     		add	r7, sp, #0
+ 276              	.LCFI12:
+ 277              		.cfi_def_cfa_register 7
+  29:../src/adc/adc.c **** 	uFromBatteryBuffer[0] = 0;
+ 278              		.loc 2 29 0
+ 279 0004 0F4B     		ldr	r3, .L15
+ 280 0006 4FF00002 		mov	r2, #0
+ 281 000a 1A60     		str	r2, [r3, #0]
+  30:../src/adc/adc.c **** 	uFromBatteryBuffer[1] = 0;
+ 282              		.loc 2 30 0
+ 283 000c 0D4B     		ldr	r3, .L15
+ 284 000e 4FF00002 		mov	r2, #0
+ 285 0012 5A60     		str	r2, [r3, #4]
+  31:../src/adc/adc.c **** 	uToBatteryBuffer[0] = 0;
+ 286              		.loc 2 31 0
+ 287 0014 0C4B     		ldr	r3, .L15+4
+ 288 0016 4FF00002 		mov	r2, #0
+ 289 001a 1A60     		str	r2, [r3, #0]
+  32:../src/adc/adc.c **** 	uToBatteryBuffer[1] = 0;
+ 290              		.loc 2 32 0
+ 291 001c 0A4B     		ldr	r3, .L15+4
+ 292 001e 4FF00002 		mov	r2, #0
+ 293 0022 5A60     		str	r2, [r3, #4]
+  33:../src/adc/adc.c **** 	amperageBuffer = 0;
+ 294              		.loc 2 33 0
+ 295 0024 094B     		ldr	r3, .L15+8
+ 296 0026 4FF00002 		mov	r2, #0
+ 297 002a 1A60     		str	r2, [r3, #0]
+  34:../src/adc/adc.c **** 	systemTemperatureBuffer = 0;
+ 298              		.loc 2 34 0
+ 299 002c 084B     		ldr	r3, .L15+12
+ 300 002e 4FF00002 		mov	r2, #0
+ 301 0032 1A60     		str	r2, [r3, #0]
+  35:../src/adc/adc.c **** 	currentMeasureNumber = 0;
+ 302              		.loc 2 35 0
+ 303 0034 074B     		ldr	r3, .L15+16
+ 304 0036 4FF00002 		mov	r2, #0
+ 305 003a 1A60     		str	r2, [r3, #0]
+  36:../src/adc/adc.c **** }
+ 306              		.loc 2 36 0
+ 307 003c BD46     		mov	sp, r7
+ 308 003e 80BC     		pop	{r7}
+ 309 0040 7047     		bx	lr
+ 310              	.L16:
+ 311 0042 00BF     		.align	2
+ 312              	.L15:
+ 313 0044 00000000 		.word	uFromBatteryBuffer
+ 314 0048 00000000 		.word	uToBatteryBuffer
+ 315 004c 00000000 		.word	amperageBuffer
+ 316 0050 00000000 		.word	systemTemperatureBuffer
+ 317 0054 00000000 		.word	currentMeasureNumber
+ 318              		.cfi_endproc
+ 319              	.LFE32:
+ 321              		.global	__aeabi_dcmplt
+ 322              		.section	.text.ADC1_IRQHandler,"ax",%progbits
+ 323              		.align	2
+ 324              		.global	ADC1_IRQHandler
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	ADC1_IRQHandler:
+ 329              	.LFB33:
+  37:../src/adc/adc.c **** 
+  38:../src/adc/adc.c **** void ADC1_IRQHandler(void) {
+ 330              		.loc 2 38 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 8
+ 333              		@ frame_needed = 1, uses_anonymous_args = 0
+ 334 0000 80B5     		push	{r7, lr}
+ 335              	.LCFI13:
+ 336              		.cfi_def_cfa_offset 8
+ 337              		.cfi_offset 7, -8
+ 338              		.cfi_offset 14, -4
+ 339 0002 82B0     		sub	sp, sp, #8
+ 340              	.LCFI14:
+ 341              		.cfi_def_cfa_offset 16
+ 342 0004 00AF     		add	r7, sp, #0
+ 343              	.LCFI15:
+ 344              		.cfi_def_cfa_register 7
+  39:../src/adc/adc.c **** 	ADC_ClearITPendingBit(ADC1, ADC_IT_JEOC );
+ 345              		.loc 2 39 0
+ 346 0006 4E48     		ldr	r0, .L25
+ 347 0008 4FF49061 		mov	r1, #1152
+ 348 000c FFF7FEFF 		bl	ADC_ClearITPendingBit
+  40:../src/adc/adc.c **** 	ADC_SoftwareStartInjectedConvCmd(ADC1, ENABLE);
+ 349              		.loc 2 40 0
+ 350 0010 4B48     		ldr	r0, .L25
+ 351 0012 4FF00101 		mov	r1, #1
+ 352 0016 FFF7FEFF 		bl	ADC_SoftwareStartInjectedConvCmd
+  41:../src/adc/adc.c **** 	int currentVoltage = ADC_GetInjectedConversionValue(ADC1, VOLTAGE_INJECTED_CHANNEL );
+ 353              		.loc 2 41 0
+ 354 001a 4948     		ldr	r0, .L25
+ 355 001c 4FF01401 		mov	r1, #20
+ 356 0020 FFF7FEFF 		bl	ADC_GetInjectedConversionValue
+ 357 0024 0346     		mov	r3, r0
+ 358 0026 7B60     		str	r3, [r7, #4]
+  42:../src/adc/adc.c **** 	if (currentVoltage > THRESHOLD_VOLTAGE) {
+ 359              		.loc 2 42 0
+ 360 0028 7B68     		ldr	r3, [r7, #4]
+ 361 002a B3F57A7F 		cmp	r3, #1000
+ 362 002e 0CDD     		ble	.L18
+  43:../src/adc/adc.c **** 		uToBatteryBuffer[0] += currentVoltage;
+ 363              		.loc 2 43 0
+ 364 0030 444B     		ldr	r3, .L25+4
+ 365 0032 1A68     		ldr	r2, [r3, #0]
+ 366 0034 7B68     		ldr	r3, [r7, #4]
+ 367 0036 D218     		adds	r2, r2, r3
+ 368 0038 424B     		ldr	r3, .L25+4
+ 369 003a 1A60     		str	r2, [r3, #0]
+  44:../src/adc/adc.c **** 		uToBatteryBuffer[1]++;
+ 370              		.loc 2 44 0
+ 371 003c 414B     		ldr	r3, .L25+4
+ 372 003e 5B68     		ldr	r3, [r3, #4]
+ 373 0040 03F10102 		add	r2, r3, #1
+ 374 0044 3F4B     		ldr	r3, .L25+4
+ 375 0046 5A60     		str	r2, [r3, #4]
+ 376 0048 0BE0     		b	.L19
+ 377              	.L18:
+  45:../src/adc/adc.c **** 	} else {
+  46:../src/adc/adc.c **** 		uFromBatteryBuffer[0] += currentVoltage;
+ 378              		.loc 2 46 0
+ 379 004a 3F4B     		ldr	r3, .L25+8
+ 380 004c 1A68     		ldr	r2, [r3, #0]
+ 381 004e 7B68     		ldr	r3, [r7, #4]
+ 382 0050 D218     		adds	r2, r2, r3
+ 383 0052 3D4B     		ldr	r3, .L25+8
+ 384 0054 1A60     		str	r2, [r3, #0]
+  47:../src/adc/adc.c **** 		uFromBatteryBuffer[1]++;
+ 385              		.loc 2 47 0
+ 386 0056 3C4B     		ldr	r3, .L25+8
+ 387 0058 5B68     		ldr	r3, [r3, #4]
+ 388 005a 03F10102 		add	r2, r3, #1
+ 389 005e 3A4B     		ldr	r3, .L25+8
+ 390 0060 5A60     		str	r2, [r3, #4]
+ 391              	.L19:
+  48:../src/adc/adc.c **** 	}
+  49:../src/adc/adc.c **** 
+  50:../src/adc/adc.c **** 	amperageBuffer += ADC_GetInjectedConversionValue(ADC1, AMPERAGE_INJECTED_CHANNEL );
+ 392              		.loc 2 50 0
+ 393 0062 3748     		ldr	r0, .L25
+ 394 0064 4FF01801 		mov	r1, #24
+ 395 0068 FFF7FEFF 		bl	ADC_GetInjectedConversionValue
+ 396 006c 0346     		mov	r3, r0
+ 397 006e 1A46     		mov	r2, r3
+ 398 0070 364B     		ldr	r3, .L25+12
+ 399 0072 1B68     		ldr	r3, [r3, #0]
+ 400 0074 D218     		adds	r2, r2, r3
+ 401 0076 354B     		ldr	r3, .L25+12
+ 402 0078 1A60     		str	r2, [r3, #0]
+  51:../src/adc/adc.c **** 	systemTemperatureBuffer += ADC_GetInjectedConversionValue(ADC1, TEMPERATURE_INJECTED_CHANNEL );
+ 403              		.loc 2 51 0
+ 404 007a 3148     		ldr	r0, .L25
+ 405 007c 4FF01C01 		mov	r1, #28
+ 406 0080 FFF7FEFF 		bl	ADC_GetInjectedConversionValue
+ 407 0084 0346     		mov	r3, r0
+ 408 0086 1A46     		mov	r2, r3
+ 409 0088 314B     		ldr	r3, .L25+16
+ 410 008a 1B68     		ldr	r3, [r3, #0]
+ 411 008c D218     		adds	r2, r2, r3
+ 412 008e 304B     		ldr	r3, .L25+16
+ 413 0090 1A60     		str	r2, [r3, #0]
+  52:../src/adc/adc.c **** 
+  53:../src/adc/adc.c **** 	if ((++currentMeasureNumber) > MEASURES_NUMBER) {
+ 414              		.loc 2 53 0
+ 415 0092 304B     		ldr	r3, .L25+20
+ 416 0094 1B68     		ldr	r3, [r3, #0]
+ 417 0096 03F10102 		add	r2, r3, #1
+ 418 009a 2E4B     		ldr	r3, .L25+20
+ 419 009c 1A60     		str	r2, [r3, #0]
+ 420 009e 2D4B     		ldr	r3, .L25+20
+ 421 00a0 1A68     		ldr	r2, [r3, #0]
+ 422 00a2 41F28833 		movw	r3, #5000
+ 423 00a6 9A42     		cmp	r2, r3
+ 424 00a8 45DD     		ble	.L17
+  54:../src/adc/adc.c **** 		uFromBattery = convertADCBufferToVoltageValue(uFromBatteryBuffer[0], uFromBatteryBuffer[1]);
+ 425              		.loc 2 54 0
+ 426 00aa 274B     		ldr	r3, .L25+8
+ 427 00ac 1A68     		ldr	r2, [r3, #0]
+ 428 00ae 264B     		ldr	r3, .L25+8
+ 429 00b0 5B68     		ldr	r3, [r3, #4]
+ 430 00b2 1046     		mov	r0, r2
+ 431 00b4 1946     		mov	r1, r3
+ 432 00b6 FFF7FEFF 		bl	convertADCBufferToVoltageValue
+ 433 00ba 0246     		mov	r2, r0
+ 434 00bc 0B46     		mov	r3, r1
+ 435 00be 2649     		ldr	r1, .L25+24
+ 436 00c0 C1E90023 		strd	r2, [r1]
+  55:../src/adc/adc.c **** 
+  56:../src/adc/adc.c **** 		uToBattery = convertADCBufferToVoltageValue(uToBatteryBuffer[0], uToBatteryBuffer[1]);
+ 437              		.loc 2 56 0
+ 438 00c4 1F4B     		ldr	r3, .L25+4
+ 439 00c6 1A68     		ldr	r2, [r3, #0]
+ 440 00c8 1E4B     		ldr	r3, .L25+4
+ 441 00ca 5B68     		ldr	r3, [r3, #4]
+ 442 00cc 1046     		mov	r0, r2
+ 443 00ce 1946     		mov	r1, r3
+ 444 00d0 FFF7FEFF 		bl	convertADCBufferToVoltageValue
+ 445 00d4 0246     		mov	r2, r0
+ 446 00d6 0B46     		mov	r3, r1
+ 447 00d8 2049     		ldr	r1, .L25+28
+ 448 00da C1E90023 		strd	r2, [r1]
+  57:../src/adc/adc.c **** 		amperage = convertADCBufferToAmperageValue(amperageBuffer);
+ 449              		.loc 2 57 0
+ 450 00de 1B4B     		ldr	r3, .L25+12
+ 451 00e0 1B68     		ldr	r3, [r3, #0]
+ 452 00e2 1846     		mov	r0, r3
+ 453 00e4 FFF7FEFF 		bl	convertADCBufferToAmperageValue
+ 454 00e8 0246     		mov	r2, r0
+ 455 00ea 0B46     		mov	r3, r1
+ 456 00ec 1C49     		ldr	r1, .L25+32
+ 457 00ee C1E90023 		strd	r2, [r1]
+  58:../src/adc/adc.c **** 		systemTemperature = convertADCBufferToTemperatureValue(systemTemperatureBuffer);
+ 458              		.loc 2 58 0
+ 459 00f2 174B     		ldr	r3, .L25+16
+ 460 00f4 1B68     		ldr	r3, [r3, #0]
+ 461 00f6 1846     		mov	r0, r3
+ 462 00f8 FFF7FEFF 		bl	convertADCBufferToTemperatureValue
+ 463 00fc 0246     		mov	r2, r0
+ 464 00fe 0B46     		mov	r3, r1
+ 465 0100 1849     		ldr	r1, .L25+36
+ 466 0102 C1E90023 		strd	r2, [r1]
+  59:../src/adc/adc.c **** 		clearMeasuringBuffers();
+ 467              		.loc 2 59 0
+ 468 0106 FFF7FEFF 		bl	clearMeasuringBuffers
+  60:../src/adc/adc.c **** //		checkAmperage();
+  61:../src/adc/adc.c **** 		if (uFromBattery<MIN_BATTERY_VOLTAGE){
+ 469              		.loc 2 61 0
+ 470 010a 134B     		ldr	r3, .L25+24
+ 471 010c D3E90023 		ldrd	r2, [r3]
+ 472 0110 1046     		mov	r0, r2
+ 473 0112 1946     		mov	r1, r3
+ 474 0114 4FF00002 		mov	r2, #0
+ 475 0118 134B     		ldr	r3, .L25+40
+ 476 011a FFF7FEFF 		bl	__aeabi_dcmplt
+ 477 011e 0346     		mov	r3, r0
+ 478 0120 002B     		cmp	r3, #0
+ 479 0122 04D0     		beq	.L24
+ 480              	.L23:
+  62:../src/adc/adc.c **** 			isBattaryConnected=false;
+ 481              		.loc 2 62 0
+ 482 0124 114B     		ldr	r3, .L25+44
+ 483 0126 4FF00002 		mov	r2, #0
+ 484 012a 1A70     		strb	r2, [r3, #0]
+ 485 012c 03E0     		b	.L17
+ 486              	.L24:
+  63:../src/adc/adc.c **** 		} else {
+  64:../src/adc/adc.c **** 			isBattaryConnected = true;
+ 487              		.loc 2 64 0
+ 488 012e 0F4B     		ldr	r3, .L25+44
+ 489 0130 4FF00102 		mov	r2, #1
+ 490 0134 1A70     		strb	r2, [r3, #0]
+ 491              	.L17:
+  65:../src/adc/adc.c **** 		}
+  66:../src/adc/adc.c **** 	}
+  67:../src/adc/adc.c **** }
+ 492              		.loc 2 67 0
+ 493 0136 07F10807 		add	r7, r7, #8
+ 494 013a BD46     		mov	sp, r7
+ 495 013c 80BD     		pop	{r7, pc}
+ 496              	.L26:
+ 497 013e 00BF     		.align	2
+ 498              	.L25:
+ 499 0140 00240140 		.word	1073816576
+ 500 0144 00000000 		.word	uToBatteryBuffer
+ 501 0148 00000000 		.word	uFromBatteryBuffer
+ 502 014c 00000000 		.word	amperageBuffer
+ 503 0150 00000000 		.word	systemTemperatureBuffer
+ 504 0154 00000000 		.word	currentMeasureNumber
+ 505 0158 00000000 		.word	uFromBattery
+ 506 015c 00000000 		.word	uToBattery
+ 507 0160 00000000 		.word	amperage
+ 508 0164 00000000 		.word	systemTemperature
+ 509 0168 00000840 		.word	1074266112
+ 510 016c 00000000 		.word	isBattaryConnected
+ 511              		.cfi_endproc
+ 512              	.LFE33:
+ 514              		.section	.text.initADC,"ax",%progbits
+ 515              		.align	2
+ 516              		.global	initADC
+ 517              		.thumb
+ 518              		.thumb_func
+ 520              	initADC:
+ 521              	.LFB34:
+  68:../src/adc/adc.c **** 
+  69:../src/adc/adc.c **** void initADC() {
+ 522              		.loc 2 69 0
+ 523              		.cfi_startproc
+ 524              		@ args = 0, pretend = 0, frame = 32
+ 525              		@ frame_needed = 1, uses_anonymous_args = 0
+ 526 0000 80B5     		push	{r7, lr}
+ 527              	.LCFI16:
+ 528              		.cfi_def_cfa_offset 8
+ 529              		.cfi_offset 7, -8
+ 530              		.cfi_offset 14, -4
+ 531 0002 88B0     		sub	sp, sp, #32
+ 532              	.LCFI17:
+ 533              		.cfi_def_cfa_offset 40
+ 534 0004 00AF     		add	r7, sp, #0
+ 535              	.LCFI18:
+ 536              		.cfi_def_cfa_register 7
+  70:../src/adc/adc.c **** 	uFromBattery = 0;
+ 537              		.loc 2 70 0
+ 538 0006 5C49     		ldr	r1, .L32
+ 539 0008 4FF00002 		mov	r2, #0
+ 540 000c 4FF00003 		mov	r3, #0
+ 541 0010 C1E90023 		strd	r2, [r1]
+  71:../src/adc/adc.c **** 	uToBattery = 0;
+ 542              		.loc 2 71 0
+ 543 0014 5949     		ldr	r1, .L32+4
+ 544 0016 4FF00002 		mov	r2, #0
+ 545 001a 4FF00003 		mov	r3, #0
+ 546 001e C1E90023 		strd	r2, [r1]
+  72:../src/adc/adc.c **** 	amperage = 0;
+ 547              		.loc 2 72 0
+ 548 0022 5749     		ldr	r1, .L32+8
+ 549 0024 4FF00002 		mov	r2, #0
+ 550 0028 4FF00003 		mov	r3, #0
+ 551 002c C1E90023 		strd	r2, [r1]
+  73:../src/adc/adc.c **** 	systemTemperature = 0;
+ 552              		.loc 2 73 0
+ 553 0030 5449     		ldr	r1, .L32+12
+ 554 0032 4FF00002 		mov	r2, #0
+ 555 0036 4FF00003 		mov	r3, #0
+ 556 003a C1E90023 		strd	r2, [r1]
+  74:../src/adc/adc.c **** 	currentMeasureNumber = 0;
+ 557              		.loc 2 74 0
+ 558 003e 524B     		ldr	r3, .L32+16
+ 559 0040 4FF00002 		mov	r2, #0
+ 560 0044 1A60     		str	r2, [r3, #0]
+  75:../src/adc/adc.c **** 
+  76:../src/adc/adc.c **** 	clearMeasuringBuffers();
+ 561              		.loc 2 76 0
+ 562 0046 FFF7FEFF 		bl	clearMeasuringBuffers
+  77:../src/adc/adc.c **** 
+  78:../src/adc/adc.c **** 	ADC_DeInit(ADC1 );
+ 563              		.loc 2 78 0
+ 564 004a 5048     		ldr	r0, .L32+20
+ 565 004c FFF7FEFF 		bl	ADC_DeInit
+  79:../src/adc/adc.c **** 	RCC_ADCCLKConfig(RCC_PCLK2_Div8 );
+ 566              		.loc 2 79 0
+ 567 0050 4FF44040 		mov	r0, #49152
+ 568 0054 FFF7FEFF 		bl	RCC_ADCCLKConfig
+  80:../src/adc/adc.c **** 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+ 569              		.loc 2 80 0
+ 570 0058 4FF40070 		mov	r0, #512
+ 571 005c 4FF00101 		mov	r1, #1
+ 572 0060 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  81:../src/adc/adc.c **** 
+  82:../src/adc/adc.c **** 	GPIO_InitTypeDef GPIO_InitStructure;
+  83:../src/adc/adc.c **** 	GPIO_InitStructure.GPIO_Pin = VOLTAGE_INPUT_PIN | AMPERAGE_INPUT_PIN | TEMPERATURE_INPUT_PIN;
+ 573              		.loc 2 83 0
+ 574 0064 4FF00703 		mov	r3, #7
+ 575 0068 BB83     		strh	r3, [r7, #28]	@ movhi
+  84:../src/adc/adc.c **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+ 576              		.loc 2 84 0
+ 577 006a 4FF00003 		mov	r3, #0
+ 578 006e FB77     		strb	r3, [r7, #31]
+  85:../src/adc/adc.c **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+ 579              		.loc 2 85 0
+ 580 0070 4FF00203 		mov	r3, #2
+ 581 0074 BB77     		strb	r3, [r7, #30]
+  86:../src/adc/adc.c **** 	GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 582              		.loc 2 86 0
+ 583 0076 07F11C03 		add	r3, r7, #28
+ 584 007a 4548     		ldr	r0, .L32+24
+ 585 007c 1946     		mov	r1, r3
+ 586 007e FFF7FEFF 		bl	GPIO_Init
+  87:../src/adc/adc.c **** 
+  88:../src/adc/adc.c **** 	ADC_InitTypeDef ADC_InitStructure;
+  89:../src/adc/adc.c **** 	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
+ 587              		.loc 2 89 0
+ 588 0082 4FF00003 		mov	r3, #0
+ 589 0086 BB60     		str	r3, [r7, #8]
+  90:../src/adc/adc.c **** 	ADC_InitStructure.ADC_ScanConvMode = ENABLE;
+ 590              		.loc 2 90 0
+ 591 0088 4FF00103 		mov	r3, #1
+ 592 008c 3B73     		strb	r3, [r7, #12]
+  91:../src/adc/adc.c **** 	ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+ 593              		.loc 2 91 0
+ 594 008e 4FF00003 		mov	r3, #0
+ 595 0092 7B73     		strb	r3, [r7, #13]
+  92:../src/adc/adc.c **** 	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
+ 596              		.loc 2 92 0
+ 597 0094 4FF46023 		mov	r3, #917504
+ 598 0098 3B61     		str	r3, [r7, #16]
+  93:../src/adc/adc.c **** 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+ 599              		.loc 2 93 0
+ 600 009a 4FF00003 		mov	r3, #0
+ 601 009e 7B61     		str	r3, [r7, #20]
+  94:../src/adc/adc.c **** 	ADC_InitStructure.ADC_NbrOfChannel = 3;
+ 602              		.loc 2 94 0
+ 603 00a0 4FF00303 		mov	r3, #3
+ 604 00a4 3B76     		strb	r3, [r7, #24]
+  95:../src/adc/adc.c **** 	ADC_Init(ADC1, &ADC_InitStructure);
+ 605              		.loc 2 95 0
+ 606 00a6 07F10803 		add	r3, r7, #8
+ 607 00aa 3848     		ldr	r0, .L32+20
+ 608 00ac 1946     		mov	r1, r3
+ 609 00ae FFF7FEFF 		bl	ADC_Init
+  96:../src/adc/adc.c **** 
+  97:../src/adc/adc.c **** 	/* Set injected sequencer length */
+  98:../src/adc/adc.c **** 	ADC_InjectedSequencerLengthConfig(ADC1, 3);
+ 610              		.loc 2 98 0
+ 611 00b2 3648     		ldr	r0, .L32+20
+ 612 00b4 4FF00301 		mov	r1, #3
+ 613 00b8 FFF7FEFF 		bl	ADC_InjectedSequencerLengthConfig
+  99:../src/adc/adc.c **** 
+ 100:../src/adc/adc.c **** 	/* ADC1 injected channel Configuration */
+ 101:../src/adc/adc.c **** 	ADC_InjectedChannelConfig(ADC1, VOLTAGE_ADC_CHANNEL, 1, ADC_SampleTime_28Cycles5 );
+ 614              		.loc 2 101 0
+ 615 00bc 3348     		ldr	r0, .L32+20
+ 616 00be 4FF00001 		mov	r1, #0
+ 617 00c2 4FF00102 		mov	r2, #1
+ 618 00c6 4FF00303 		mov	r3, #3
+ 619 00ca FFF7FEFF 		bl	ADC_InjectedChannelConfig
+ 102:../src/adc/adc.c **** 	ADC_InjectedChannelConfig(ADC1, AMPERAGE_ADC_CHANNEL, 2, ADC_SampleTime_28Cycles5 );
+ 620              		.loc 2 102 0
+ 621 00ce 2F48     		ldr	r0, .L32+20
+ 622 00d0 4FF00101 		mov	r1, #1
+ 623 00d4 4FF00202 		mov	r2, #2
+ 624 00d8 4FF00303 		mov	r3, #3
+ 625 00dc FFF7FEFF 		bl	ADC_InjectedChannelConfig
+ 103:../src/adc/adc.c **** 	ADC_InjectedChannelConfig(ADC1, TEMPERATURE_ADC_CHANNEL, 3, ADC_SampleTime_28Cycles5 );
+ 626              		.loc 2 103 0
+ 627 00e0 2A48     		ldr	r0, .L32+20
+ 628 00e2 4FF00201 		mov	r1, #2
+ 629 00e6 4FF00302 		mov	r2, #3
+ 630 00ea 4FF00303 		mov	r3, #3
+ 631 00ee FFF7FEFF 		bl	ADC_InjectedChannelConfig
+ 104:../src/adc/adc.c **** 
+ 105:../src/adc/adc.c **** 	/* ADC1 injected external trigger configuration */
+ 106:../src/adc/adc.c **** 	ADC_ExternalTrigInjectedConvConfig(ADC1, ADC_ExternalTrigInjecConv_None );
+ 632              		.loc 2 106 0
+ 633 00f2 2648     		ldr	r0, .L32+20
+ 634 00f4 4FF4E041 		mov	r1, #28672
+ 635 00f8 FFF7FEFF 		bl	ADC_ExternalTrigInjectedConvConfig
+ 107:../src/adc/adc.c **** 
+ 108:../src/adc/adc.c **** 	/* Enable ADC1 */
+ 109:../src/adc/adc.c **** 	ADC_Cmd(ADC1, ENABLE);
+ 636              		.loc 2 109 0
+ 637 00fc 2348     		ldr	r0, .L32+20
+ 638 00fe 4FF00101 		mov	r1, #1
+ 639 0102 FFF7FEFF 		bl	ADC_Cmd
+ 110:../src/adc/adc.c **** 
+ 111:../src/adc/adc.c **** 	/* Enable ADC1 reset calibration register */
+ 112:../src/adc/adc.c **** 	ADC_ResetCalibration(ADC1 );
+ 640              		.loc 2 112 0
+ 641 0106 2148     		ldr	r0, .L32+20
+ 642 0108 FFF7FEFF 		bl	ADC_ResetCalibration
+ 113:../src/adc/adc.c **** 	/* Check the end of ADC1 reset calibration register */
+ 114:../src/adc/adc.c **** 	while (ADC_GetResetCalibrationStatus(ADC1 )) {
+ 643              		.loc 2 114 0
+ 644 010c 01E0     		b	.L28
+ 645              	.L29:
+ 115:../src/adc/adc.c **** 		__NOP();
+ 646              		.loc 2 115 0
+ 647 010e FFF7FEFF 		bl	__NOP
+ 648              	.L28:
+ 114:../src/adc/adc.c **** 	while (ADC_GetResetCalibrationStatus(ADC1 )) {
+ 649              		.loc 2 114 0 discriminator 1
+ 650 0112 1E48     		ldr	r0, .L32+20
+ 651 0114 FFF7FEFF 		bl	ADC_GetResetCalibrationStatus
+ 652 0118 0346     		mov	r3, r0
+ 653 011a 002B     		cmp	r3, #0
+ 654 011c F7D1     		bne	.L29
+ 116:../src/adc/adc.c **** 	}
+ 117:../src/adc/adc.c **** 
+ 118:../src/adc/adc.c **** 	NVIC_InitTypeDef NVIC_InitStructure;
+ 119:../src/adc/adc.c **** 
+ 120:../src/adc/adc.c **** 	/* Enable ADC1_2 IRQChannel */
+ 121:../src/adc/adc.c **** 	NVIC_InitStructure.NVIC_IRQChannel = ADC1_IRQn;
+ 655              		.loc 2 121 0
+ 656 011e 4FF01203 		mov	r3, #18
+ 657 0122 3B71     		strb	r3, [r7, #4]
+ 122:../src/adc/adc.c **** 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+ 658              		.loc 2 122 0
+ 659 0124 4FF00103 		mov	r3, #1
+ 660 0128 7B71     		strb	r3, [r7, #5]
+ 123:../src/adc/adc.c **** 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+ 661              		.loc 2 123 0
+ 662 012a 4FF00003 		mov	r3, #0
+ 663 012e BB71     		strb	r3, [r7, #6]
+ 124:../src/adc/adc.c **** 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+ 664              		.loc 2 124 0
+ 665 0130 4FF00103 		mov	r3, #1
+ 666 0134 FB71     		strb	r3, [r7, #7]
+ 125:../src/adc/adc.c **** 	NVIC_Init(&NVIC_InitStructure);
+ 667              		.loc 2 125 0
+ 668 0136 07F10403 		add	r3, r7, #4
+ 669 013a 1846     		mov	r0, r3
+ 670 013c FFF7FEFF 		bl	NVIC_Init
+ 126:../src/adc/adc.c **** 
+ 127:../src/adc/adc.c **** 	/* Enable JEOC interrupt */
+ 128:../src/adc/adc.c **** 	ADC_ITConfig(ADC1, ADC_IT_JEOC, ENABLE);
+ 671              		.loc 2 128 0
+ 672 0140 1248     		ldr	r0, .L32+20
+ 673 0142 4FF49061 		mov	r1, #1152
+ 674 0146 4FF00102 		mov	r2, #1
+ 675 014a FFF7FEFF 		bl	ADC_ITConfig
+ 129:../src/adc/adc.c **** 
+ 130:../src/adc/adc.c **** 	/* Start ADC1 calibration */
+ 131:../src/adc/adc.c **** 	ADC_StartCalibration(ADC1 );
+ 676              		.loc 2 131 0
+ 677 014e 0F48     		ldr	r0, .L32+20
+ 678 0150 FFF7FEFF 		bl	ADC_StartCalibration
+ 132:../src/adc/adc.c **** 	/* Check the end of ADC1 calibration */
+ 133:../src/adc/adc.c **** 	while (ADC_GetCalibrationStatus(ADC1 ))
+ 679              		.loc 2 133 0
+ 680 0154 01E0     		b	.L30
+ 681              	.L31:
+ 134:../src/adc/adc.c **** 		__NOP();
+ 682              		.loc 2 134 0
+ 683 0156 FFF7FEFF 		bl	__NOP
+ 684              	.L30:
+ 133:../src/adc/adc.c **** 	while (ADC_GetCalibrationStatus(ADC1 ))
+ 685              		.loc 2 133 0 discriminator 1
+ 686 015a 0C48     		ldr	r0, .L32+20
+ 687 015c FFF7FEFF 		bl	ADC_GetCalibrationStatus
+ 688 0160 0346     		mov	r3, r0
+ 689 0162 002B     		cmp	r3, #0
+ 690 0164 F7D1     		bne	.L31
+ 135:../src/adc/adc.c **** 
+ 136:../src/adc/adc.c **** 	ADC_SoftwareStartInjectedConvCmd(ADC1, ENABLE);
+ 691              		.loc 2 136 0
+ 692 0166 0948     		ldr	r0, .L32+20
+ 693 0168 4FF00101 		mov	r1, #1
+ 694 016c FFF7FEFF 		bl	ADC_SoftwareStartInjectedConvCmd
+ 137:../src/adc/adc.c **** }
+ 695              		.loc 2 137 0
+ 696 0170 07F12007 		add	r7, r7, #32
+ 697 0174 BD46     		mov	sp, r7
+ 698 0176 80BD     		pop	{r7, pc}
+ 699              	.L33:
+ 700              		.align	2
+ 701              	.L32:
+ 702 0178 00000000 		.word	uFromBattery
+ 703 017c 00000000 		.word	uToBattery
+ 704 0180 00000000 		.word	amperage
+ 705 0184 00000000 		.word	systemTemperature
+ 706 0188 00000000 		.word	currentMeasureNumber
+ 707 018c 00240140 		.word	1073816576
+ 708 0190 00080140 		.word	1073809408
+ 709              		.cfi_endproc
+ 710              	.LFE34:
+ 712              		.text
+ 713              	.Letext0:
+ 714              		.file 3 "d:\\programs\\stm programs\\codebench\\bin\\../lib/gcc/arm-none-eabi/4.7.3/../../../../ar
+ 715              		.file 4 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/stm32f10x.h"
+ 716              		.file 5 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\StdPeripheralDriver\\inc/stm32f10
+ 717              		.file 6 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\StdPeripheralDriver\\inc/stm32f10
+ 718              		.file 7 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\StdPeripheralDriver\\inc/misc.h"
+ 719              		.file 8 "../src/adc/../common/common.h"
+ 720              		.file 9 "../src/adc/adc.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc.c
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:19     .text.__NOP:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:23     .text.__NOP:00000000 __NOP
+                            *COM*:00000008 time_ms
+                            *COM*:00000001 batteryPower
+                            *COM*:00000001 isBattaryConnected
+                            *COM*:00000004 currentMeasureNumber
+                            *COM*:00000008 uFromBattery
+                            *COM*:00000008 uToBattery
+                            *COM*:00000008 amperage
+                            *COM*:00000008 systemTemperature
+                            *COM*:00000008 uFromBatteryBuffer
+                            *COM*:00000008 uToBatteryBuffer
+                            *COM*:00000004 amperageBuffer
+                            *COM*:00000004 systemTemperatureBuffer
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:65     .text.convertADCBufferToAmperageValue:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:70     .text.convertADCBufferToAmperageValue:00000000 convertADCBufferToAmperageValue
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:117    .text.convertADCBufferToAmperageValue:00000048 $d
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:125    .text.convertADCBufferToVoltageValue:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:130    .text.convertADCBufferToVoltageValue:00000000 convertADCBufferToVoltageValue
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:183    .text.convertADCBufferToVoltageValue:00000050 $d
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:191    .text.convertADCBufferToTemperatureValue:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:196    .text.convertADCBufferToTemperatureValue:00000000 convertADCBufferToTemperatureValue
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:251    .text.convertADCBufferToTemperatureValue:00000060 $d
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:259    .text.clearMeasuringBuffers:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:264    .text.clearMeasuringBuffers:00000000 clearMeasuringBuffers
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:313    .text.clearMeasuringBuffers:00000044 $d
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:323    .text.ADC1_IRQHandler:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:328    .text.ADC1_IRQHandler:00000000 ADC1_IRQHandler
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:499    .text.ADC1_IRQHandler:00000140 $d
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:515    .text.initADC:00000000 $t
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:520    .text.initADC:00000000 initADC
+C:\Users\Oleksiy\AppData\Local\Temp\ccl3Jyvo.s:702    .text.initADC:00000178 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_ddiv
+__aeabi_i2d
+__aeabi_dadd
+__aeabi_dcmplt
+ADC_ClearITPendingBit
+ADC_SoftwareStartInjectedConvCmd
+ADC_GetInjectedConversionValue
+ADC_DeInit
+RCC_ADCCLKConfig
+RCC_APB2PeriphClockCmd
+GPIO_Init
+ADC_Init
+ADC_InjectedSequencerLengthConfig
+ADC_InjectedChannelConfig
+ADC_ExternalTrigInjectedConvConfig
+ADC_Cmd
+ADC_ResetCalibration
+ADC_GetResetCalibrationStatus
+NVIC_Init
+ADC_ITConfig
+ADC_StartCalibration
+ADC_GetCalibrationStatus

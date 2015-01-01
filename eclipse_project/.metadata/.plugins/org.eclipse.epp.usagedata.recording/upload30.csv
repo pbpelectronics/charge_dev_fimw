@@ -1,0 +1,276 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219305246
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219309319
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219309393
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219309409
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219310732
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219322759
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219372264
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.window.preferences",1380219372274
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219375563
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219375595
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219375611
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219377158
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219384093
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219384129
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219384149
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219387864
+error,log,,,"Error while launching command: gdb --version",1380219388759
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219388795
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219390582
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219397697
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219457957
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.window.preferences",1380219457973
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.RunLast",1380219460041
+error,log,,,"Error starting process.",1380219460898
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219460917
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219462216
+started,bundle,org.eclipse.compare,3.5.202.R37x_v20111109-0800,"org.eclipse.compare",1380219463073
+activated,perspective,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugPerspective",1380219465627
+error,log,,,"Failed command",1380219564979
+error,log,,,"Failed command",1380219564995
+activated,view,org.eclipse.ui.console,3.5.100.v20111007_r372,"org.eclipse.ui.console.ConsoleView",1380219759965
+error,log,,,"Internal Error",1380219778329
+error,log,,,"Failed command",1380219780224
+error,log,,,"Failed command",1380219780225
+error,log,,,"Internal error logged from CDI Debug: ",1380219780232
+error,log,,,"Internal error logged from CDI Debug: ",1380219780232
+error,log,,,"Internal error logged from CDI Debug: ",1380219780233
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219780848
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219783455
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219786185
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219787886
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar",1380219787896
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219789056
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219790466
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar",1380219790466
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219800790
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219809682
+failed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations",1380219809682
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380219813823
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219825465
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219826777
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219829448
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219860038
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380219872726
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380219874566
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380219874636
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219910966
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380219911876
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380219918998
+error,log,,,"Error logged from Debug Core: ",1380219919110
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380219924902
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380219933267
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380219949551
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380219950861
+opened,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.BreakpointView",1380219966882
+opened,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.MemoryView",1380219966952
+opened,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.RegisterView",1380219966972
+opened,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.ModuleView",1380219967002
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380219967092
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380219969363
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380220029006
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380220029086
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220048813
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220811809
+activated,perspective,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.CPerspective",1380220814580
+activated,view,org.eclipse.ui.console,3.5.100.v20111007_r372,"org.eclipse.ui.console.ConsoleView",1380220814586
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380220818765
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380220824708
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380220848274
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380220849159
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.rename.element",1380220850741
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220859539
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220863954
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380220911164
+activated,perspective,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugPerspective",1380220918663
+error,log,,,"Failed command",1380220920008
+error,log,,,"Failed command",1380220920016
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380220924173
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380220924249
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220924263
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220927562
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380220933672
+error,log,,,"Failed command",1380220952731
+error,log,,,"Failed command",1380220952735
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380220958582
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220958592
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220959641
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380220960445
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380220968728
+error,log,,,"Failed command",1380220969222
+error,log,,,"Failed command",1380220969223
+error,log,,,"Internal error logged from CDI Debug: ",1380220969247
+error,log,,,"Internal error logged from CDI Debug: ",1380220969248
+error,log,,,"Internal error logged from CDI Debug: ",1380220969249
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380220970836
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220980048
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220988061
+failed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations",1380220988069
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380220990743
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221027316
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.window.preferences",1380221027326
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221034274
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221047243
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221048994
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221053548
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations",1380221053570
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221068918
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380221071945
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221076781
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380221089084
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380221093382
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380221093804
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380221094288
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380221102236
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380221111244
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221112720
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221112794
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221131926
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221136287
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221332181
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380221333497
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221334825
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1380221342168
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380221343502
+error,log,,,"Failed command",1380221353583
+error,log,,,"Failed command",1380221353589
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221356661
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221356732
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221356748
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221358073
+activated,view,org.eclipse.ui.console,3.5.100.v20111007_r372,"org.eclipse.ui.console.ConsoleView",1380221360602
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221363119
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar",1380221365391
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221390515
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221411530
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221487084
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221496237
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221499709
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1380221503699
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380221505074
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380221519234
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221520790
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221530512
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221540090
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221540171
+error,log,,,"Internal Error",1380221540244
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221548990
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221841622
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221844015
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20111007_r372,"org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar",1380221848506
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221853918
+error,log,,,"Failed command",1380221858319
+error,log,,,"Failed command",1380221858324
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221864867
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221864877
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380221866218
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221871729
+error,log,,,"Error logged from Debug Core: ",1380221871774
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221905820
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221912052
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221912142
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221924853
+opened,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221927535
+closed,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380221927565
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221933314
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221939660
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380221944060
+activated,view,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.DebugView",1380221946420
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380221946460
+opened,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.asm.AsmEditor",1380221962705
+closed,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380221962745
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Resume",1380221966126
+executed,command,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui.commands.Terminate",1380222049507
+error,log,,,"Internal Error",1380222049578
+error,log,,,"Error logged from Debug Core: ",1380222049653
+activated,editor,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.editor.CEditor",1380222054683
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222576547
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222648832
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222653788
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222845063
+activated,perspective,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.CPerspective",1380222851639
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222860080
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222874047
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222928201
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380222930510
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380223647071
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380223655748
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380223674847
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380223684718
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380223694739
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.cut",1380223729295
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380223732382
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.c.format",1380223734508
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223741157
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223741964
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordPrevious",1380223751265
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordNext",1380223778361
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordNext",1380223778512
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordNext",1380223778649
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordNext",1380223778744
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordNext",1380223778912
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223806428
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.toggleOverwrite",1380223873860
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.toggleOverwrite",1380223875132
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.toggleOverwrite",1380223875308
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380223876794
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380223876987
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.redo",1380223879332
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.redo",1380223880893
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1380223882288
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.toggleOverwrite",1380223884107
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223907229
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223910621
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223935309
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223935771
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.cut",1380223945032
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223946330
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380223946483
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1380223959869
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380223965054
+executed,command,,,"AUTOGEN:::org.eclipse.ui.texteditor.ruler.actions/org.eclipse.cdt.internal.ui.text.correction.CSelectRulerAction",1380223978002
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223985354
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223985532
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223985666
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223985818
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223985966
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223986169
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223986361
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223986521
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.moveLineDown",1380223987057
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224107622
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224109656
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224110068
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224113893
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.refactor.extract.function",1380224113909
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1380224123731
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380224143013
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1380224151056
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1380224154431
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224170166
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224171099
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224171254
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224178857
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.refactor.extract.function",1380224178865
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.cut",1380224222930
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224228176
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380224238448
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.cut",1380224271941
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1380224273734
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordPrevious",1380224275086
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordPrevious",1380224275270
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordPrevious",1380224275422
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1380224277684
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.c.format",1380224279385
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224286150
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224288799
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224290115
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.rename.element",1380224297423
+executed,command,org.eclipse.cdt.ui,5.3.2.201211091924,"org.eclipse.cdt.ui.edit.text.rename.element",1380224324000
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1380224327254
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380224377985
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.delete.line",1380224378589
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224470240
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1380224475571
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1380224478531

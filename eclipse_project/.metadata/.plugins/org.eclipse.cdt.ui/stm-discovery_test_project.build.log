@@ -1,0 +1,117 @@
+
+**** Build of configuration Debug for project stm-discovery_test_project ****
+
+cs-make all 
+'Building file: ../src/timers/timers.c'
+'Invoking: ARM Sourcery Windows GCC C Compiler'
+arm-none-eabi-gcc -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD_VL -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100" -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS" -O0 -ffunction-sections -fdata-sections -Wall -std=gnu99 -Wa,-adhlns="src/timers/timers.o.lst" -v -c -fmessage-length=0 -MMD -MP -MF"src/timers/timers.d" -MT"src/timers/timers.d" -mcpu=cortex-m3 -mthumb -g -ggdb -o "src/timers/timers.o" "../src/timers/timers.c"
+Using built-in specs.
+COLLECT_GCC=arm-none-eabi-gcc
+Target: arm-none-eabi
+Configured with: /scratch/jbrown/2013.05-arm-eabi-release/src/gcc-4.7-2013.05/configure --build=i686-pc-linux-gnu --host=i686-mingw32 --target=arm-none-eabi --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2013 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=23 %{O2:%{!fno-remove-local-statics: -fremove-local-statics}} %{O*:%{O|O0|O1|O2|Os:;:%{!fno-remove-local-statics: -fremove-local-statics}}}' --enable-languages=c,c++ --disable-shared --enable-lto --with-newlib --with-pkgversion='Sourcery CodeBench Lite 2013.05-23' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-headers=yes --with-sysroot=/opt/codesourcery/arm-none-eabi --with-build-sysroot=/scratch/jbrown/2013.05-arm-eabi-release/install/host-i686-mingw32/arm-none-eabi --with-libiconv-prefix=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-gmp=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-mpfr=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-mpc=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-ppl=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-cloog=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-libelf=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --disable-libgomp --disable-libitm --enable-poison-system-directories --with-build-time-tools=/scratch/jbrown/2013.05-arm-eabi-release/obj/tools-i686-pc-linux-gnu-2013.05-23-arm-none-eabi-i686-mingw32/arm-none-eabi/bin --with-build-time-tools=/scratch/jbrown/2013.05-arm-eabi-release/obj/tools-i686-pc-linux-gnu-2013.05-23-arm-none-eabi-i686-mingw32/arm-none-eabi/bin
+Thread model: single
+gcc version 4.7.3 (Sourcery CodeBench Lite 2013.05-23) 
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/timers/timers.d' '-MT' 'src/timers/timers.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/timers/timers.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+ d:/programs/stm programs/codebench/bin/../libexec/gcc/arm-none-eabi/4.7.3/cc1.exe -quiet -v -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100 -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS -imultilib thumb2 -iprefix d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/ -isysroot d:\programs\stm programs\codebench\bin\../arm-none-eabi -MMD src/timers/timers.d -MF src/timers/timers.d -MP -MT src/timers/timers.d -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F10X_MD_VL -D __CS_SOURCERYGXX_MAJ__=2013 -D __CS_SOURCERYGXX_MIN__=5 -D __CS_SOURCERYGXX_REV__=23 ../src/timers/timers.c -quiet -dumpbase timers.c -mcpu=cortex-m3 -mthumb -auxbase-strip src/timers/timers.o -g -ggdb -O0 -Wall -std=gnu99 -version -ffunction-sections -fdata-sections -fmessage-length=0 -o C:\Users\Oleksiy\AppData\Local\Temp\ccrSVihB.s
+GNU C (Sourcery CodeBench Lite 2013.05-23) version 4.7.3 (arm-none-eabi)
+	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/include"
+ignoring nonexistent directory "d:\programs\stm programs\codebench\bin\../arm-none-eabi/opt/codesourcery/lib/gcc/arm-none-eabi/4.7.3/../../../../include"
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/include-fixed"
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include"
+ignoring nonexistent directory "d:\programs\stm programs\codebench\bin\../arm-none-eabi/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/include
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/include-fixed
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include
+End of search list.
+GNU C (Sourcery CodeBench Lite 2013.05-23) version 4.7.3 (arm-none-eabi)
+	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 0cb317296e354aa87398d7764d2e5825
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/timers/timers.d' '-MT' 'src/timers/timers.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/timers/timers.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+ d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/bin/as.exe -v -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100 -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS -mcpu=cortex-m3 -meabi=5 -adhlns=src/timers/timers.o.lst -o src/timers/timers.o C:\Users\Oleksiy\AppData\Local\Temp\ccrSVihB.s
+GNU assembler version 2.23.52 (arm-none-eabi) using BFD version (Sourcery CodeBench Lite 2013.05-23) 2.23.52.20130219
+COMPILER_PATH=d:/programs/stm programs/codebench/bin/../libexec/gcc/arm-none-eabi/4.7.3/;d:/programs/stm programs/codebench/bin/../libexec/gcc/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/thumb2/;d:/programs/stm programs/codebench/bin/../arm-none-eabi/lib/thumb2/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/;d:/programs/stm programs/codebench/bin/../lib/gcc/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/;d:/programs/stm programs/codebench/bin/../arm-none-eabi/lib/
+'Finished building: ../src/timers/timers.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: ARM Sourcery Windows GCC C Compiler'
+arm-none-eabi-gcc -DUSE_STDPERIPH_DRIVER -DSTM32F10X_MD_VL -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100" -I"D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS" -O0 -ffunction-sections -fdata-sections -Wall -std=gnu99 -Wa,-adhlns="src/main.o.lst" -v -c -fmessage-length=0 -MMD -MP -MF"src/main.d" -MT"src/main.d" -mcpu=cortex-m3 -mthumb -g -ggdb -o "src/main.o" "../src/main.c"
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/timers/timers.d' '-MT' 'src/timers/timers.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/timers/timers.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+Using built-in specs.
+COLLECT_GCC=arm-none-eabi-gcc
+Target: arm-none-eabi
+Configured with: /scratch/jbrown/2013.05-arm-eabi-release/src/gcc-4.7-2013.05/configure --build=i686-pc-linux-gnu --host=i686-mingw32 --target=arm-none-eabi --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2013 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=23 %{O2:%{!fno-remove-local-statics: -fremove-local-statics}} %{O*:%{O|O0|O1|O2|Os:;:%{!fno-remove-local-statics: -fremove-local-statics}}}' --enable-languages=c,c++ --disable-shared --enable-lto --with-newlib --with-pkgversion='Sourcery CodeBench Lite 2013.05-23' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-headers=yes --with-sysroot=/opt/codesourcery/arm-none-eabi --with-build-sysroot=/scratch/jbrown/2013.05-arm-eabi-release/install/host-i686-mingw32/arm-none-eabi --with-libiconv-prefix=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-gmp=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-mpfr=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-mpc=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-ppl=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-cloog=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --with-libelf=/scratch/jbrown/2013.05-arm-eabi-release/obj/pkg-2013.05-23-arm-none-eabi/arm-2013.05-23-arm-none-eabi.extras/host-libs-i686-mingw32/usr --disable-libgomp --disable-libitm --enable-poison-system-directories --with-build-time-tools=/scratch/jbrown/2013.05-arm-eabi-release/obj/tools-i686-pc-linux-gnu-2013.05-23-arm-none-eabi-i686-mingw32/arm-none-eabi/bin --with-build-time-tools=/scratch/jbrown/2013.05-arm-eabi-release/obj/tools-i686-pc-linux-gnu-2013.05-23-arm-none-eabi-i686-mingw32/arm-none-eabi/bin
+Thread model: single
+gcc version 4.7.3 (Sourcery CodeBench Lite 2013.05-23) 
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/main.d' '-MT' 'src/main.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/main.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+ d:/programs/stm programs/codebench/bin/../libexec/gcc/arm-none-eabi/4.7.3/cc1.exe -quiet -v -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100 -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS -imultilib thumb2 -iprefix d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/ -isysroot d:\programs\stm programs\codebench\bin\../arm-none-eabi -MMD src/main.d -MF src/main.d -MP -MT src/main.d -D__USES_INITFINI__ -D USE_STDPERIPH_DRIVER -D STM32F10X_MD_VL -D __CS_SOURCERYGXX_MAJ__=2013 -D __CS_SOURCERYGXX_MIN__=5 -D __CS_SOURCERYGXX_REV__=23 ../src/main.c -quiet -dumpbase main.c -mcpu=cortex-m3 -mthumb -auxbase-strip src/main.o -g -ggdb -O0 -Wall -std=gnu99 -version -ffunction-sections -fdata-sections -fmessage-length=0 -o C:\Users\Oleksiy\AppData\Local\Temp\ccDRLr6e.s
+GNU C (Sourcery CodeBench Lite 2013.05-23) version 4.7.3 (arm-none-eabi)
+	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/include"
+ignoring nonexistent directory "d:\programs\stm programs\codebench\bin\../arm-none-eabi/opt/codesourcery/lib/gcc/arm-none-eabi/4.7.3/../../../../include"
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/include-fixed"
+ignoring duplicate directory "d:/programs/stm programs/codebench/lib/gcc/../../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include"
+ignoring nonexistent directory "d:\programs\stm programs\codebench\bin\../arm-none-eabi/usr/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100
+ D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/include
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/include-fixed
+ d:\programs\stm programs\codebench\bin\../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/include
+End of search list.
+GNU C (Sourcery CodeBench Lite 2013.05-23) version 4.7.3 (arm-none-eabi)
+	compiled by GNU C version 4.7.2, GMP version 5.0.5, MPFR version 3.1.1-p2, MPC version 1.0.1
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 0cb317296e354aa87398d7764d2e5825
+../src/main.c: In function 'changeAmperageMenu':
+../src/main.c:26:2: warning: implicit declaration of function 'printChangeAmperageMenuDigits' [-Wimplicit-function-declaration]
+../src/main.c:29:2: warning: implicit declaration of function 'isMenuEncoderPressed' [-Wimplicit-function-declaration]
+../src/main.c: In function 'additinalMenu':
+../src/main.c:69:3: warning: implicit declaration of function 'printAdditionalMenuAnimation' [-Wimplicit-function-declaration]
+../src/main.c: In function 'main':
+../src/main.c:88:2: warning: implicit declaration of function 'clearMeasuringBuffers' [-Wimplicit-function-declaration]
+In file included from ../src/main.c:9:0:
+../src/main.c: At top level:
+D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:78:22: warning: 'nlcd_memory' defined but not used [-Wunused-variable]
+D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:22: warning: 'nlcd_xcurr' defined but not used [-Wunused-variable]
+D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:34: warning: 'nlcd_ycurr' defined but not used [-Wunused-variable]
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/main.d' '-MT' 'src/main.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/main.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+ d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/bin/as.exe -v -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100 -I D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS -mcpu=cortex-m3 -meabi=5 -adhlns=src/main.o.lst -o src/main.o C:\Users\Oleksiy\AppData\Local\Temp\ccDRLr6e.s
+GNU assembler version 2.23.52 (arm-none-eabi) using BFD version (Sourcery CodeBench Lite 2013.05-23) 2.23.52.20130219
+COMPILER_PATH=d:/programs/stm programs/codebench/bin/../libexec/gcc/arm-none-eabi/4.7.3/;d:/programs/stm programs/codebench/bin/../libexec/gcc/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/bin/
+'Finished building: ../src/main.c'
+' '
+'Building target: stm-discovery_test_project.elf'
+'Invoking: ARM Sourcery Windows GCC C Linker'
+arm-none-eabi-gcc -T"D:\PROGRAMMING\stm\stm-discovery_test_project\build\stm32f100rb.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,stm-discovery_test_project.map -mcpu=cortex-m3 -mthumb -g -ggdb -o "stm-discovery_test_project.elf"  ./src/timers/timers.o  ./src/led/led.o  ./src/encoder/encoder.o  ./src/display/images_printing.o  ./src/common/common.o  ./src/adc/adc.o  ./src/main.o  ./libs/lcd_1100/nokia1100_lcd_lib.o  ./libs/StdPeripheralDriver/src/misc.o ./libs/StdPeripheralDriver/src/stm32f10x_adc.o ./libs/StdPeripheralDriver/src/stm32f10x_bkp.o ./libs/StdPeripheralDriver/src/stm32f10x_can.o ./libs/StdPeripheralDriver/src/stm32f10x_cec.o ./libs/StdPeripheralDriver/src/stm32f10x_crc.o ./libs/StdPeripheralDriver/src/stm32f10x_dac.o ./libs/StdPeripheralDriver/src/stm32f10x_dbgmcu.o ./libs/StdPeripheralDriver/src/stm32f10x_dma.o ./libs/StdPeripheralDriver/src/stm32f10x_exti.o ./libs/StdPeripheralDriver/src/stm32f10x_flash.o ./libs/StdPeripheralDriver/src/stm32f10x_fsmc.o ./libs/StdPeripheralDriver/src/stm32f10x_gpio.o ./libs/StdPeripheralDriver/src/stm32f10x_i2c.o ./libs/StdPeripheralDriver/src/stm32f10x_iwdg.o ./libs/StdPeripheralDriver/src/stm32f10x_pwr.o ./libs/StdPeripheralDriver/src/stm32f10x_rcc.o ./libs/StdPeripheralDriver/src/stm32f10x_rtc.o ./libs/StdPeripheralDriver/src/stm32f10x_sdio.o ./libs/StdPeripheralDriver/src/stm32f10x_spi.o ./libs/StdPeripheralDriver/src/stm32f10x_tim.o ./libs/StdPeripheralDriver/src/stm32f10x_usart.o ./libs/StdPeripheralDriver/src/stm32f10x_wwdg.o  ./libs/CMSIS/core_cm3.o ./libs/CMSIS/startup_stm32f10x_md_vl.o ./libs/CMSIS/system_stm32f10x.o   
+LIBRARY_PATH=d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/thumb2/;d:/programs/stm programs/codebench/bin/../arm-none-eabi/lib/thumb2/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/;d:/programs/stm programs/codebench/bin/../lib/gcc/;d:/programs/stm programs/codebench/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/;d:/programs/stm programs/codebench/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-D' 'USE_STDPERIPH_DRIVER' '-D' 'STM32F10X_MD_VL' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\StdPeripheralDriver\inc' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\lcd_1100' '-I' 'D:\PROGRAMMING\stm\stm-discovery_test_project\libs\CMSIS' '-O0' '-ffunction-sections' '-fdata-sections' '-Wall' '-std=gnu99' '-v' '-c' '-fmessage-length=0' '-MMD' '-MP' '-MF' 'src/main.d' '-MT' 'src/main.d' '-mcpu=cortex-m3' '-mthumb' '-g' '-ggdb' '-o' 'src/main.o' '-D' '__CS_SOURCERYGXX_MAJ__=2013' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=23'
+'Finished building target: stm-discovery_test_project.elf'
+' '
+'Invoking: ARM Sourcery Windows GNU Create Flash Image'
+arm-none-eabi-objcopy -O ihex stm-discovery_test_project.elf  "stm-discovery_test_project.hex"
+'Finished building: stm-discovery_test_project.hex'
+' '
+'Invoking: ARM Sourcery Windows GNU Create Listing'
+arm-none-eabi-objdump -h -S stm-discovery_test_project.elf > "stm-discovery_test_project.lst"
+'Finished building: stm-discovery_test_project.lst'
+' '
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley stm-discovery_test_project.elf
+   text	   data	    bss	    dec	    hex	filename
+  31796	     20	   1208	  33024	   8100	stm-discovery_test_project.elf
+'Finished building: stm-discovery_test_project.siz'
+' '
+
+**** Build Finished ****

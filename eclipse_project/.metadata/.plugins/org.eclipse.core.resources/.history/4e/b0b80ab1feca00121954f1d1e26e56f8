@@ -1,0 +1,1313 @@
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"stm32f10x_bkp.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.BKP_DeInit,"ax",%progbits
+  19              		.align	2
+  20              		.global	BKP_DeInit
+  21              		.thumb
+  22              		.thumb_func
+  24              	BKP_DeInit:
+  25              	.LFB29:
+  26              		.file 1 "../libs/StdPeripheralDriver/src/stm32f10x_bkp.c"
+   1:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+   2:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   ******************************************************************************
+   3:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @file    stm32f10x_bkp.c
+   4:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @author  MCD Application Team
+   5:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @version V3.5.0
+   6:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @date    11-March-2011
+   7:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief   This file provides all the BKP firmware functions.
+   8:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   ******************************************************************************
+   9:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @attention
+  10:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *
+  11:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  14:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *
+  18:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+  19:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   ******************************************************************************
+  20:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  21:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  22:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Includes ------------------------------------------------------------------*/
+  23:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #include "stm32f10x_bkp.h"
+  24:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #include "stm32f10x_rcc.h"
+  25:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  26:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @addtogroup STM32F10x_StdPeriph_Driver
+  27:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  28:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  29:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  30:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP 
+  31:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief BKP driver modules
+  32:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  33:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  34:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  35:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_TypesDefinitions
+  36:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  37:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  38:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  39:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+  40:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @}
+  41:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  42:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  43:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_Defines
+  44:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  45:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  46:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  47:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* ------------ BKP registers bit address in the alias region --------------- */
+  48:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define BKP_OFFSET        (BKP_BASE - PERIPH_BASE)
+  49:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  50:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* --- CR Register ----*/
+  51:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  52:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Alias word address of TPAL bit */
+  53:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CR_OFFSET         (BKP_OFFSET + 0x30)
+  54:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define TPAL_BitNumber    0x01
+  55:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CR_TPAL_BB        (PERIPH_BB_BASE + (CR_OFFSET * 32) + (TPAL_BitNumber * 4))
+  56:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  57:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Alias word address of TPE bit */
+  58:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define TPE_BitNumber     0x00
+  59:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CR_TPE_BB         (PERIPH_BB_BASE + (CR_OFFSET * 32) + (TPE_BitNumber * 4))
+  60:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  61:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* --- CSR Register ---*/
+  62:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  63:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Alias word address of TPIE bit */
+  64:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CSR_OFFSET        (BKP_OFFSET + 0x34)
+  65:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define TPIE_BitNumber    0x02
+  66:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CSR_TPIE_BB       (PERIPH_BB_BASE + (CSR_OFFSET * 32) + (TPIE_BitNumber * 4))
+  67:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  68:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Alias word address of TIF bit */
+  69:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define TIF_BitNumber     0x09
+  70:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CSR_TIF_BB        (PERIPH_BB_BASE + (CSR_OFFSET * 32) + (TIF_BitNumber * 4))
+  71:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  72:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* Alias word address of TEF bit */
+  73:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define TEF_BitNumber     0x08
+  74:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define CSR_TEF_BB        (PERIPH_BB_BASE + (CSR_OFFSET * 32) + (TEF_BitNumber * 4))
+  75:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  76:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* ---------------------- BKP registers bit mask ------------------------ */
+  77:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  78:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /* RTCCR register bit mask */
+  79:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define RTCCR_CAL_MASK    ((uint16_t)0xFF80)
+  80:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** #define RTCCR_MASK        ((uint16_t)0xFC7F)
+  81:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  82:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+  83:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @}
+  84:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */ 
+  85:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  86:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  87:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_Macros
+  88:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  89:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  90:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  91:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+  92:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @}
+  93:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  94:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  95:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_Variables
+  96:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+  97:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+  98:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+  99:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 100:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @}
+ 101:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 102:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 103:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_FunctionPrototypes
+ 104:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+ 105:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 106:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 107:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 108:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @}
+ 109:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 110:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 111:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /** @defgroup BKP_Private_Functions
+ 112:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @{
+ 113:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 114:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 115:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 116:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Deinitializes the BKP peripheral registers to their default reset values.
+ 117:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  None
+ 118:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 119:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 120:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_DeInit(void)
+ 121:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+  27              		.loc 1 121 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+ 122:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   RCC_BackupResetCmd(ENABLE);
+  39              		.loc 1 122 0
+  40 0004 4FF00100 		mov	r0, #1
+  41 0008 FFF7FEFF 		bl	RCC_BackupResetCmd
+ 123:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   RCC_BackupResetCmd(DISABLE);
+  42              		.loc 1 123 0
+  43 000c 4FF00000 		mov	r0, #0
+  44 0010 FFF7FEFF 		bl	RCC_BackupResetCmd
+ 124:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+  45              		.loc 1 124 0
+  46 0014 80BD     		pop	{r7, pc}
+  47              		.cfi_endproc
+  48              	.LFE29:
+  50 0016 00BF     		.section	.text.BKP_TamperPinLevelConfig,"ax",%progbits
+  51              		.align	2
+  52              		.global	BKP_TamperPinLevelConfig
+  53              		.thumb
+  54              		.thumb_func
+  56              	BKP_TamperPinLevelConfig:
+  57              	.LFB30:
+ 125:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 126:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 127:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Configures the Tamper Pin active level.
+ 128:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  BKP_TamperPinLevel: specifies the Tamper Pin active level.
+ 129:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be one of the following values:
+ 130:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_TamperPinLevel_High: Tamper pin active on high level
+ 131:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_TamperPinLevel_Low: Tamper pin active on low level
+ 132:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 133:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 134:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_TamperPinLevelConfig(uint16_t BKP_TamperPinLevel)
+ 135:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+  58              		.loc 1 135 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 8
+  61              		@ frame_needed = 1, uses_anonymous_args = 0
+  62 0000 80B5     		push	{r7, lr}
+  63              	.LCFI2:
+  64              		.cfi_def_cfa_offset 8
+  65              		.cfi_offset 7, -8
+  66              		.cfi_offset 14, -4
+  67 0002 82B0     		sub	sp, sp, #8
+  68              	.LCFI3:
+  69              		.cfi_def_cfa_offset 16
+  70 0004 00AF     		add	r7, sp, #0
+  71              	.LCFI4:
+  72              		.cfi_def_cfa_register 7
+  73 0006 0346     		mov	r3, r0
+  74 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 136:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 137:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_BKP_TAMPER_PIN_LEVEL(BKP_TamperPinLevel));
+  75              		.loc 1 137 0
+  76 000a FB88     		ldrh	r3, [r7, #6]
+  77 000c 002B     		cmp	r3, #0
+  78 000e 02D0     		beq	.L3
+  79              		.loc 1 137 0 is_stmt 0 discriminator 2
+  80 0010 FB88     		ldrh	r3, [r7, #6]
+  81 0012 012B     		cmp	r3, #1
+  82 0014 02D1     		bne	.L4
+  83              	.L3:
+  84              		.loc 1 137 0 discriminator 1
+  85 0016 4FF00103 		mov	r3, #1
+  86 001a 01E0     		b	.L5
+  87              	.L4:
+  88              		.loc 1 137 0 discriminator 3
+  89 001c 4FF00003 		mov	r3, #0
+  90              	.L5:
+  91              		.loc 1 137 0 discriminator 4
+  92 0020 1846     		mov	r0, r3
+  93 0022 FFF7FEFF 		bl	assert_param
+ 138:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *(__IO uint32_t *) CR_TPAL_BB = BKP_TamperPinLevel;
+  94              		.loc 1 138 0 is_stmt 1 discriminator 4
+  95 0026 034B     		ldr	r3, .L6
+  96 0028 FA88     		ldrh	r2, [r7, #6]
+  97 002a 1A60     		str	r2, [r3, #0]
+ 139:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+  98              		.loc 1 139 0 discriminator 4
+  99 002c 07F10807 		add	r7, r7, #8
+ 100 0030 BD46     		mov	sp, r7
+ 101 0032 80BD     		pop	{r7, pc}
+ 102              	.L7:
+ 103              		.align	2
+ 104              	.L6:
+ 105 0034 04860D42 		.word	1108182532
+ 106              		.cfi_endproc
+ 107              	.LFE30:
+ 109              		.section	.text.BKP_TamperPinCmd,"ax",%progbits
+ 110              		.align	2
+ 111              		.global	BKP_TamperPinCmd
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	BKP_TamperPinCmd:
+ 116              	.LFB31:
+ 140:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 141:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 142:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Enables or disables the Tamper Pin activation.
+ 143:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  NewState: new state of the Tamper Pin activation.
+ 144:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 145:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 146:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 147:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_TamperPinCmd(FunctionalState NewState)
+ 148:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 117              		.loc 1 148 0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 8
+ 120              		@ frame_needed = 1, uses_anonymous_args = 0
+ 121 0000 80B5     		push	{r7, lr}
+ 122              	.LCFI5:
+ 123              		.cfi_def_cfa_offset 8
+ 124              		.cfi_offset 7, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 82B0     		sub	sp, sp, #8
+ 127              	.LCFI6:
+ 128              		.cfi_def_cfa_offset 16
+ 129 0004 00AF     		add	r7, sp, #0
+ 130              	.LCFI7:
+ 131              		.cfi_def_cfa_register 7
+ 132 0006 0346     		mov	r3, r0
+ 133 0008 FB71     		strb	r3, [r7, #7]
+ 149:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 150:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 134              		.loc 1 150 0
+ 135 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 136 000c 002B     		cmp	r3, #0
+ 137 000e 02D0     		beq	.L9
+ 138              		.loc 1 150 0 is_stmt 0 discriminator 2
+ 139 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 140 0012 012B     		cmp	r3, #1
+ 141 0014 02D1     		bne	.L10
+ 142              	.L9:
+ 143              		.loc 1 150 0 discriminator 1
+ 144 0016 4FF00103 		mov	r3, #1
+ 145 001a 01E0     		b	.L11
+ 146              	.L10:
+ 147              		.loc 1 150 0 discriminator 3
+ 148 001c 4FF00003 		mov	r3, #0
+ 149              	.L11:
+ 150              		.loc 1 150 0 discriminator 4
+ 151 0020 1846     		mov	r0, r3
+ 152 0022 FFF7FEFF 		bl	assert_param
+ 151:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *(__IO uint32_t *) CR_TPE_BB = (uint32_t)NewState;
+ 153              		.loc 1 151 0 is_stmt 1 discriminator 4
+ 154 0026 034B     		ldr	r3, .L12
+ 155 0028 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 156 002a 1A60     		str	r2, [r3, #0]
+ 152:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 157              		.loc 1 152 0 discriminator 4
+ 158 002c 07F10807 		add	r7, r7, #8
+ 159 0030 BD46     		mov	sp, r7
+ 160 0032 80BD     		pop	{r7, pc}
+ 161              	.L13:
+ 162              		.align	2
+ 163              	.L12:
+ 164 0034 00860D42 		.word	1108182528
+ 165              		.cfi_endproc
+ 166              	.LFE31:
+ 168              		.section	.text.BKP_ITConfig,"ax",%progbits
+ 169              		.align	2
+ 170              		.global	BKP_ITConfig
+ 171              		.thumb
+ 172              		.thumb_func
+ 174              	BKP_ITConfig:
+ 175              	.LFB32:
+ 153:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 154:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 155:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Enables or disables the Tamper Pin Interrupt.
+ 156:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  NewState: new state of the Tamper Pin Interrupt.
+ 157:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 158:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 159:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 160:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_ITConfig(FunctionalState NewState)
+ 161:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 176              		.loc 1 161 0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 8
+ 179              		@ frame_needed = 1, uses_anonymous_args = 0
+ 180 0000 80B5     		push	{r7, lr}
+ 181              	.LCFI8:
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 7, -8
+ 184              		.cfi_offset 14, -4
+ 185 0002 82B0     		sub	sp, sp, #8
+ 186              	.LCFI9:
+ 187              		.cfi_def_cfa_offset 16
+ 188 0004 00AF     		add	r7, sp, #0
+ 189              	.LCFI10:
+ 190              		.cfi_def_cfa_register 7
+ 191 0006 0346     		mov	r3, r0
+ 192 0008 FB71     		strb	r3, [r7, #7]
+ 162:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 163:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 193              		.loc 1 163 0
+ 194 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 195 000c 002B     		cmp	r3, #0
+ 196 000e 02D0     		beq	.L15
+ 197              		.loc 1 163 0 is_stmt 0 discriminator 2
+ 198 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 199 0012 012B     		cmp	r3, #1
+ 200 0014 02D1     		bne	.L16
+ 201              	.L15:
+ 202              		.loc 1 163 0 discriminator 1
+ 203 0016 4FF00103 		mov	r3, #1
+ 204 001a 01E0     		b	.L17
+ 205              	.L16:
+ 206              		.loc 1 163 0 discriminator 3
+ 207 001c 4FF00003 		mov	r3, #0
+ 208              	.L17:
+ 209              		.loc 1 163 0 discriminator 4
+ 210 0020 1846     		mov	r0, r3
+ 211 0022 FFF7FEFF 		bl	assert_param
+ 164:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *(__IO uint32_t *) CSR_TPIE_BB = (uint32_t)NewState;
+ 212              		.loc 1 164 0 is_stmt 1 discriminator 4
+ 213 0026 034B     		ldr	r3, .L18
+ 214 0028 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 215 002a 1A60     		str	r2, [r3, #0]
+ 165:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 216              		.loc 1 165 0 discriminator 4
+ 217 002c 07F10807 		add	r7, r7, #8
+ 218 0030 BD46     		mov	sp, r7
+ 219 0032 80BD     		pop	{r7, pc}
+ 220              	.L19:
+ 221              		.align	2
+ 222              	.L18:
+ 223 0034 88860D42 		.word	1108182664
+ 224              		.cfi_endproc
+ 225              	.LFE32:
+ 227              		.section	.text.BKP_RTCOutputConfig,"ax",%progbits
+ 228              		.align	2
+ 229              		.global	BKP_RTCOutputConfig
+ 230              		.thumb
+ 231              		.thumb_func
+ 233              	BKP_RTCOutputConfig:
+ 234              	.LFB33:
+ 166:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 167:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 168:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Select the RTC output source to output on the Tamper pin.
+ 169:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  BKP_RTCOutputSource: specifies the RTC output source.
+ 170:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be one of the following values:
+ 171:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_RTCOutputSource_None: no RTC output on the Tamper pin.
+ 172:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_RTCOutputSource_CalibClock: output the RTC clock with frequency
+ 173:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *                                          divided by 64 on the Tamper pin.
+ 174:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_RTCOutputSource_Alarm: output the RTC Alarm pulse signal on
+ 175:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *                                     the Tamper pin.
+ 176:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *     @arg BKP_RTCOutputSource_Second: output the RTC Second pulse signal on
+ 177:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *                                      the Tamper pin.  
+ 178:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 179:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 180:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_RTCOutputConfig(uint16_t BKP_RTCOutputSource)
+ 181:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 235              		.loc 1 181 0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 16
+ 238              		@ frame_needed = 1, uses_anonymous_args = 0
+ 239 0000 80B5     		push	{r7, lr}
+ 240              	.LCFI11:
+ 241              		.cfi_def_cfa_offset 8
+ 242              		.cfi_offset 7, -8
+ 243              		.cfi_offset 14, -4
+ 244 0002 84B0     		sub	sp, sp, #16
+ 245              	.LCFI12:
+ 246              		.cfi_def_cfa_offset 24
+ 247 0004 00AF     		add	r7, sp, #0
+ 248              	.LCFI13:
+ 249              		.cfi_def_cfa_register 7
+ 250 0006 0346     		mov	r3, r0
+ 251 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 182:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   uint16_t tmpreg = 0;
+ 252              		.loc 1 182 0
+ 253 000a 4FF00003 		mov	r3, #0
+ 254 000e FB81     		strh	r3, [r7, #14]	@ movhi
+ 183:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 184:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_BKP_RTC_OUTPUT_SOURCE(BKP_RTCOutputSource));
+ 255              		.loc 1 184 0
+ 256 0010 FB88     		ldrh	r3, [r7, #6]
+ 257 0012 002B     		cmp	r3, #0
+ 258 0014 0AD0     		beq	.L21
+ 259              		.loc 1 184 0 is_stmt 0 discriminator 2
+ 260 0016 FB88     		ldrh	r3, [r7, #6]
+ 261 0018 802B     		cmp	r3, #128
+ 262 001a 07D0     		beq	.L21
+ 263              		.loc 1 184 0 discriminator 1
+ 264 001c FB88     		ldrh	r3, [r7, #6]
+ 265 001e B3F5807F 		cmp	r3, #256
+ 266 0022 03D0     		beq	.L21
+ 267              		.loc 1 184 0 discriminator 2
+ 268 0024 FB88     		ldrh	r3, [r7, #6]
+ 269 0026 B3F5407F 		cmp	r3, #768
+ 270 002a 02D1     		bne	.L22
+ 271              	.L21:
+ 272              		.loc 1 184 0 discriminator 1
+ 273 002c 4FF00103 		mov	r3, #1
+ 274 0030 01E0     		b	.L23
+ 275              	.L22:
+ 276              		.loc 1 184 0 discriminator 3
+ 277 0032 4FF00003 		mov	r3, #0
+ 278              	.L23:
+ 279              		.loc 1 184 0 discriminator 4
+ 280 0036 1846     		mov	r0, r3
+ 281 0038 FFF7FEFF 		bl	assert_param
+ 185:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg = BKP->RTCCR;
+ 282              		.loc 1 185 0 is_stmt 1 discriminator 4
+ 283 003c 084B     		ldr	r3, .L24
+ 284 003e 9B8D     		ldrh	r3, [r3, #44]	@ movhi
+ 285 0040 FB81     		strh	r3, [r7, #14]	@ movhi
+ 186:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Clear CCO, ASOE and ASOS bits */
+ 187:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg &= RTCCR_MASK;
+ 286              		.loc 1 187 0 discriminator 4
+ 287 0042 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 288 0044 23F46073 		bic	r3, r3, #896
+ 289 0048 FB81     		strh	r3, [r7, #14]	@ movhi
+ 188:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   
+ 189:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Set CCO, ASOE and ASOS bits according to BKP_RTCOutputSource value */
+ 190:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg |= BKP_RTCOutputSource;
+ 290              		.loc 1 190 0 discriminator 4
+ 291 004a FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 292 004c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 293 004e 1343     		orrs	r3, r3, r2
+ 294 0050 FB81     		strh	r3, [r7, #14]	@ movhi
+ 191:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Store the new value */
+ 192:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   BKP->RTCCR = tmpreg;
+ 295              		.loc 1 192 0 discriminator 4
+ 296 0052 034B     		ldr	r3, .L24
+ 297 0054 FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 298 0056 9A85     		strh	r2, [r3, #44]	@ movhi
+ 193:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 299              		.loc 1 193 0 discriminator 4
+ 300 0058 07F11007 		add	r7, r7, #16
+ 301 005c BD46     		mov	sp, r7
+ 302 005e 80BD     		pop	{r7, pc}
+ 303              	.L25:
+ 304              		.align	2
+ 305              	.L24:
+ 306 0060 006C0040 		.word	1073769472
+ 307              		.cfi_endproc
+ 308              	.LFE33:
+ 310              		.section	.text.BKP_SetRTCCalibrationValue,"ax",%progbits
+ 311              		.align	2
+ 312              		.global	BKP_SetRTCCalibrationValue
+ 313              		.thumb
+ 314              		.thumb_func
+ 316              	BKP_SetRTCCalibrationValue:
+ 317              	.LFB34:
+ 194:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 195:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 196:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Sets RTC Clock Calibration value.
+ 197:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  CalibrationValue: specifies the RTC Clock Calibration value.
+ 198:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter must be a number between 0 and 0x7F.
+ 199:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 200:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 201:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_SetRTCCalibrationValue(uint8_t CalibrationValue)
+ 202:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 318              		.loc 1 202 0
+ 319              		.cfi_startproc
+ 320              		@ args = 0, pretend = 0, frame = 16
+ 321              		@ frame_needed = 1, uses_anonymous_args = 0
+ 322 0000 80B5     		push	{r7, lr}
+ 323              	.LCFI14:
+ 324              		.cfi_def_cfa_offset 8
+ 325              		.cfi_offset 7, -8
+ 326              		.cfi_offset 14, -4
+ 327 0002 84B0     		sub	sp, sp, #16
+ 328              	.LCFI15:
+ 329              		.cfi_def_cfa_offset 24
+ 330 0004 00AF     		add	r7, sp, #0
+ 331              	.LCFI16:
+ 332              		.cfi_def_cfa_register 7
+ 333 0006 0346     		mov	r3, r0
+ 334 0008 FB71     		strb	r3, [r7, #7]
+ 203:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   uint16_t tmpreg = 0;
+ 335              		.loc 1 203 0
+ 336 000a 4FF00003 		mov	r3, #0
+ 337 000e FB81     		strh	r3, [r7, #14]	@ movhi
+ 204:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 205:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_BKP_CALIBRATION_VALUE(CalibrationValue));
+ 338              		.loc 1 205 0
+ 339 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 340 0012 6FEA0303 		mvn	r3, r3
+ 341 0016 DBB2     		uxtb	r3, r3
+ 342 0018 4FEAD313 		lsr	r3, r3, #7
+ 343 001c DBB2     		uxtb	r3, r3
+ 344 001e 1846     		mov	r0, r3
+ 345 0020 FFF7FEFF 		bl	assert_param
+ 206:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg = BKP->RTCCR;
+ 346              		.loc 1 206 0
+ 347 0024 094B     		ldr	r3, .L27
+ 348 0026 9B8D     		ldrh	r3, [r3, #44]	@ movhi
+ 349 0028 FB81     		strh	r3, [r7, #14]	@ movhi
+ 207:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Clear CAL[6:0] bits */
+ 208:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg &= RTCCR_CAL_MASK;
+ 350              		.loc 1 208 0
+ 351 002a FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 352 002c 23F07F03 		bic	r3, r3, #127
+ 353 0030 FB81     		strh	r3, [r7, #14]	@ movhi
+ 209:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Set CAL[6:0] bits according to CalibrationValue value */
+ 210:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmpreg |= CalibrationValue;
+ 354              		.loc 1 210 0
+ 355 0032 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 356 0034 9AB2     		uxth	r2, r3
+ 357 0036 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 358 0038 1343     		orrs	r3, r3, r2
+ 359 003a FB81     		strh	r3, [r7, #14]	@ movhi
+ 211:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Store the new value */
+ 212:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   BKP->RTCCR = tmpreg;
+ 360              		.loc 1 212 0
+ 361 003c 034B     		ldr	r3, .L27
+ 362 003e FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 363 0040 9A85     		strh	r2, [r3, #44]	@ movhi
+ 213:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 364              		.loc 1 213 0
+ 365 0042 07F11007 		add	r7, r7, #16
+ 366 0046 BD46     		mov	sp, r7
+ 367 0048 80BD     		pop	{r7, pc}
+ 368              	.L28:
+ 369 004a 00BF     		.align	2
+ 370              	.L27:
+ 371 004c 006C0040 		.word	1073769472
+ 372              		.cfi_endproc
+ 373              	.LFE34:
+ 375              		.section	.text.BKP_WriteBackupRegister,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	BKP_WriteBackupRegister
+ 378              		.thumb
+ 379              		.thumb_func
+ 381              	BKP_WriteBackupRegister:
+ 382              	.LFB35:
+ 214:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 215:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 216:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Writes user data to the specified Data Backup Register.
+ 217:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  BKP_DR: specifies the Data Backup Register.
+ 218:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be BKP_DRx where x:[1, 42]
+ 219:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  Data: data to write
+ 220:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 221:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 222:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_WriteBackupRegister(uint16_t BKP_DR, uint16_t Data)
+ 223:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 383              		.loc 1 223 0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 16
+ 386              		@ frame_needed = 1, uses_anonymous_args = 0
+ 387 0000 80B5     		push	{r7, lr}
+ 388              	.LCFI17:
+ 389              		.cfi_def_cfa_offset 8
+ 390              		.cfi_offset 7, -8
+ 391              		.cfi_offset 14, -4
+ 392 0002 84B0     		sub	sp, sp, #16
+ 393              	.LCFI18:
+ 394              		.cfi_def_cfa_offset 24
+ 395 0004 00AF     		add	r7, sp, #0
+ 396              	.LCFI19:
+ 397              		.cfi_def_cfa_register 7
+ 398 0006 0246     		mov	r2, r0
+ 399 0008 0B46     		mov	r3, r1
+ 400 000a FA80     		strh	r2, [r7, #6]	@ movhi
+ 401 000c BB80     		strh	r3, [r7, #4]	@ movhi
+ 224:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   __IO uint32_t tmp = 0;
+ 402              		.loc 1 224 0
+ 403 000e 4FF00003 		mov	r3, #0
+ 404 0012 FB60     		str	r3, [r7, #12]
+ 225:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 226:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 227:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_BKP_DR(BKP_DR));
+ 405              		.loc 1 227 0
+ 406 0014 FB88     		ldrh	r3, [r7, #6]
+ 407 0016 042B     		cmp	r3, #4
+ 408 0018 7AD0     		beq	.L30
+ 409              		.loc 1 227 0 is_stmt 0 discriminator 2
+ 410 001a FB88     		ldrh	r3, [r7, #6]
+ 411 001c 082B     		cmp	r3, #8
+ 412 001e 77D0     		beq	.L30
+ 413              		.loc 1 227 0 discriminator 1
+ 414 0020 FB88     		ldrh	r3, [r7, #6]
+ 415 0022 0C2B     		cmp	r3, #12
+ 416 0024 74D0     		beq	.L30
+ 417              		.loc 1 227 0 discriminator 2
+ 418 0026 FB88     		ldrh	r3, [r7, #6]
+ 419 0028 102B     		cmp	r3, #16
+ 420 002a 71D0     		beq	.L30
+ 421              		.loc 1 227 0 discriminator 3
+ 422 002c FB88     		ldrh	r3, [r7, #6]
+ 423 002e 142B     		cmp	r3, #20
+ 424 0030 6ED0     		beq	.L30
+ 425              		.loc 1 227 0 discriminator 4
+ 426 0032 FB88     		ldrh	r3, [r7, #6]
+ 427 0034 182B     		cmp	r3, #24
+ 428 0036 6BD0     		beq	.L30
+ 429              		.loc 1 227 0 discriminator 5
+ 430 0038 FB88     		ldrh	r3, [r7, #6]
+ 431 003a 1C2B     		cmp	r3, #28
+ 432 003c 68D0     		beq	.L30
+ 433              		.loc 1 227 0 discriminator 6
+ 434 003e FB88     		ldrh	r3, [r7, #6]
+ 435 0040 202B     		cmp	r3, #32
+ 436 0042 65D0     		beq	.L30
+ 437              		.loc 1 227 0 discriminator 7
+ 438 0044 FB88     		ldrh	r3, [r7, #6]
+ 439 0046 242B     		cmp	r3, #36
+ 440 0048 62D0     		beq	.L30
+ 441              		.loc 1 227 0 discriminator 8
+ 442 004a FB88     		ldrh	r3, [r7, #6]
+ 443 004c 282B     		cmp	r3, #40
+ 444 004e 5FD0     		beq	.L30
+ 445              		.loc 1 227 0 discriminator 9
+ 446 0050 FB88     		ldrh	r3, [r7, #6]
+ 447 0052 402B     		cmp	r3, #64
+ 448 0054 5CD0     		beq	.L30
+ 449              		.loc 1 227 0 discriminator 10
+ 450 0056 FB88     		ldrh	r3, [r7, #6]
+ 451 0058 442B     		cmp	r3, #68
+ 452 005a 59D0     		beq	.L30
+ 453              		.loc 1 227 0 discriminator 11
+ 454 005c FB88     		ldrh	r3, [r7, #6]
+ 455 005e 482B     		cmp	r3, #72
+ 456 0060 56D0     		beq	.L30
+ 457              		.loc 1 227 0 discriminator 12
+ 458 0062 FB88     		ldrh	r3, [r7, #6]
+ 459 0064 4C2B     		cmp	r3, #76
+ 460 0066 53D0     		beq	.L30
+ 461              		.loc 1 227 0 discriminator 13
+ 462 0068 FB88     		ldrh	r3, [r7, #6]
+ 463 006a 502B     		cmp	r3, #80
+ 464 006c 50D0     		beq	.L30
+ 465              		.loc 1 227 0 discriminator 14
+ 466 006e FB88     		ldrh	r3, [r7, #6]
+ 467 0070 542B     		cmp	r3, #84
+ 468 0072 4DD0     		beq	.L30
+ 469              		.loc 1 227 0 discriminator 15
+ 470 0074 FB88     		ldrh	r3, [r7, #6]
+ 471 0076 582B     		cmp	r3, #88
+ 472 0078 4AD0     		beq	.L30
+ 473              		.loc 1 227 0 discriminator 16
+ 474 007a FB88     		ldrh	r3, [r7, #6]
+ 475 007c 5C2B     		cmp	r3, #92
+ 476 007e 47D0     		beq	.L30
+ 477              		.loc 1 227 0 discriminator 17
+ 478 0080 FB88     		ldrh	r3, [r7, #6]
+ 479 0082 602B     		cmp	r3, #96
+ 480 0084 44D0     		beq	.L30
+ 481              		.loc 1 227 0 discriminator 18
+ 482 0086 FB88     		ldrh	r3, [r7, #6]
+ 483 0088 642B     		cmp	r3, #100
+ 484 008a 41D0     		beq	.L30
+ 485              		.loc 1 227 0 discriminator 19
+ 486 008c FB88     		ldrh	r3, [r7, #6]
+ 487 008e 682B     		cmp	r3, #104
+ 488 0090 3ED0     		beq	.L30
+ 489              		.loc 1 227 0 discriminator 20
+ 490 0092 FB88     		ldrh	r3, [r7, #6]
+ 491 0094 6C2B     		cmp	r3, #108
+ 492 0096 3BD0     		beq	.L30
+ 493              		.loc 1 227 0 discriminator 21
+ 494 0098 FB88     		ldrh	r3, [r7, #6]
+ 495 009a 702B     		cmp	r3, #112
+ 496 009c 38D0     		beq	.L30
+ 497              		.loc 1 227 0 discriminator 22
+ 498 009e FB88     		ldrh	r3, [r7, #6]
+ 499 00a0 742B     		cmp	r3, #116
+ 500 00a2 35D0     		beq	.L30
+ 501              		.loc 1 227 0 discriminator 23
+ 502 00a4 FB88     		ldrh	r3, [r7, #6]
+ 503 00a6 782B     		cmp	r3, #120
+ 504 00a8 32D0     		beq	.L30
+ 505              		.loc 1 227 0 discriminator 24
+ 506 00aa FB88     		ldrh	r3, [r7, #6]
+ 507 00ac 7C2B     		cmp	r3, #124
+ 508 00ae 2FD0     		beq	.L30
+ 509              		.loc 1 227 0 discriminator 25
+ 510 00b0 FB88     		ldrh	r3, [r7, #6]
+ 511 00b2 802B     		cmp	r3, #128
+ 512 00b4 2CD0     		beq	.L30
+ 513              		.loc 1 227 0 discriminator 26
+ 514 00b6 FB88     		ldrh	r3, [r7, #6]
+ 515 00b8 842B     		cmp	r3, #132
+ 516 00ba 29D0     		beq	.L30
+ 517              		.loc 1 227 0 discriminator 27
+ 518 00bc FB88     		ldrh	r3, [r7, #6]
+ 519 00be 882B     		cmp	r3, #136
+ 520 00c0 26D0     		beq	.L30
+ 521              		.loc 1 227 0 discriminator 28
+ 522 00c2 FB88     		ldrh	r3, [r7, #6]
+ 523 00c4 8C2B     		cmp	r3, #140
+ 524 00c6 23D0     		beq	.L30
+ 525              		.loc 1 227 0 discriminator 29
+ 526 00c8 FB88     		ldrh	r3, [r7, #6]
+ 527 00ca 902B     		cmp	r3, #144
+ 528 00cc 20D0     		beq	.L30
+ 529              		.loc 1 227 0 discriminator 30
+ 530 00ce FB88     		ldrh	r3, [r7, #6]
+ 531 00d0 942B     		cmp	r3, #148
+ 532 00d2 1DD0     		beq	.L30
+ 533              		.loc 1 227 0 discriminator 31
+ 534 00d4 FB88     		ldrh	r3, [r7, #6]
+ 535 00d6 982B     		cmp	r3, #152
+ 536 00d8 1AD0     		beq	.L30
+ 537              		.loc 1 227 0 discriminator 32
+ 538 00da FB88     		ldrh	r3, [r7, #6]
+ 539 00dc 9C2B     		cmp	r3, #156
+ 540 00de 17D0     		beq	.L30
+ 541              		.loc 1 227 0 discriminator 33
+ 542 00e0 FB88     		ldrh	r3, [r7, #6]
+ 543 00e2 A02B     		cmp	r3, #160
+ 544 00e4 14D0     		beq	.L30
+ 545              		.loc 1 227 0 discriminator 34
+ 546 00e6 FB88     		ldrh	r3, [r7, #6]
+ 547 00e8 A42B     		cmp	r3, #164
+ 548 00ea 11D0     		beq	.L30
+ 549              		.loc 1 227 0 discriminator 35
+ 550 00ec FB88     		ldrh	r3, [r7, #6]
+ 551 00ee A82B     		cmp	r3, #168
+ 552 00f0 0ED0     		beq	.L30
+ 553              		.loc 1 227 0 discriminator 36
+ 554 00f2 FB88     		ldrh	r3, [r7, #6]
+ 555 00f4 AC2B     		cmp	r3, #172
+ 556 00f6 0BD0     		beq	.L30
+ 557              		.loc 1 227 0 discriminator 37
+ 558 00f8 FB88     		ldrh	r3, [r7, #6]
+ 559 00fa B02B     		cmp	r3, #176
+ 560 00fc 08D0     		beq	.L30
+ 561              		.loc 1 227 0 discriminator 38
+ 562 00fe FB88     		ldrh	r3, [r7, #6]
+ 563 0100 B42B     		cmp	r3, #180
+ 564 0102 05D0     		beq	.L30
+ 565              		.loc 1 227 0 discriminator 39
+ 566 0104 FB88     		ldrh	r3, [r7, #6]
+ 567 0106 B82B     		cmp	r3, #184
+ 568 0108 02D0     		beq	.L30
+ 569              		.loc 1 227 0 discriminator 40
+ 570 010a FB88     		ldrh	r3, [r7, #6]
+ 571 010c BC2B     		cmp	r3, #188
+ 572 010e 02D1     		bne	.L31
+ 573              	.L30:
+ 574              		.loc 1 227 0 discriminator 1
+ 575 0110 4FF00103 		mov	r3, #1
+ 576 0114 01E0     		b	.L32
+ 577              	.L31:
+ 578              		.loc 1 227 0 discriminator 3
+ 579 0116 4FF00003 		mov	r3, #0
+ 580              	.L32:
+ 581              		.loc 1 227 0 discriminator 4
+ 582 011a 1846     		mov	r0, r3
+ 583 011c FFF7FEFF 		bl	assert_param
+ 228:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 229:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmp = (uint32_t)BKP_BASE; 
+ 584              		.loc 1 229 0 is_stmt 1 discriminator 4
+ 585 0120 064B     		ldr	r3, .L33
+ 586 0122 FB60     		str	r3, [r7, #12]
+ 230:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmp += BKP_DR;
+ 587              		.loc 1 230 0 discriminator 4
+ 588 0124 FA88     		ldrh	r2, [r7, #6]
+ 589 0126 FB68     		ldr	r3, [r7, #12]
+ 590 0128 D318     		adds	r3, r2, r3
+ 591 012a FB60     		str	r3, [r7, #12]
+ 231:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 232:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *(__IO uint32_t *) tmp = Data;
+ 592              		.loc 1 232 0 discriminator 4
+ 593 012c FB68     		ldr	r3, [r7, #12]
+ 594 012e BA88     		ldrh	r2, [r7, #4]
+ 595 0130 1A60     		str	r2, [r3, #0]
+ 233:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 596              		.loc 1 233 0 discriminator 4
+ 597 0132 07F11007 		add	r7, r7, #16
+ 598 0136 BD46     		mov	sp, r7
+ 599 0138 80BD     		pop	{r7, pc}
+ 600              	.L34:
+ 601 013a 00BF     		.align	2
+ 602              	.L33:
+ 603 013c 006C0040 		.word	1073769472
+ 604              		.cfi_endproc
+ 605              	.LFE35:
+ 607              		.section	.text.BKP_ReadBackupRegister,"ax",%progbits
+ 608              		.align	2
+ 609              		.global	BKP_ReadBackupRegister
+ 610              		.thumb
+ 611              		.thumb_func
+ 613              	BKP_ReadBackupRegister:
+ 614              	.LFB36:
+ 234:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 235:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 236:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Reads data from the specified Data Backup Register.
+ 237:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  BKP_DR: specifies the Data Backup Register.
+ 238:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   *   This parameter can be BKP_DRx where x:[1, 42]
+ 239:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval The content of the specified Data Backup Register
+ 240:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 241:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** uint16_t BKP_ReadBackupRegister(uint16_t BKP_DR)
+ 242:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 615              		.loc 1 242 0
+ 616              		.cfi_startproc
+ 617              		@ args = 0, pretend = 0, frame = 16
+ 618              		@ frame_needed = 1, uses_anonymous_args = 0
+ 619 0000 80B5     		push	{r7, lr}
+ 620              	.LCFI20:
+ 621              		.cfi_def_cfa_offset 8
+ 622              		.cfi_offset 7, -8
+ 623              		.cfi_offset 14, -4
+ 624 0002 84B0     		sub	sp, sp, #16
+ 625              	.LCFI21:
+ 626              		.cfi_def_cfa_offset 24
+ 627 0004 00AF     		add	r7, sp, #0
+ 628              	.LCFI22:
+ 629              		.cfi_def_cfa_register 7
+ 630 0006 0346     		mov	r3, r0
+ 631 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 243:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   __IO uint32_t tmp = 0;
+ 632              		.loc 1 243 0
+ 633 000a 4FF00003 		mov	r3, #0
+ 634 000e FB60     		str	r3, [r7, #12]
+ 244:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 245:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Check the parameters */
+ 246:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   assert_param(IS_BKP_DR(BKP_DR));
+ 635              		.loc 1 246 0
+ 636 0010 FB88     		ldrh	r3, [r7, #6]
+ 637 0012 042B     		cmp	r3, #4
+ 638 0014 7AD0     		beq	.L36
+ 639              		.loc 1 246 0 is_stmt 0 discriminator 2
+ 640 0016 FB88     		ldrh	r3, [r7, #6]
+ 641 0018 082B     		cmp	r3, #8
+ 642 001a 77D0     		beq	.L36
+ 643              		.loc 1 246 0 discriminator 1
+ 644 001c FB88     		ldrh	r3, [r7, #6]
+ 645 001e 0C2B     		cmp	r3, #12
+ 646 0020 74D0     		beq	.L36
+ 647              		.loc 1 246 0 discriminator 2
+ 648 0022 FB88     		ldrh	r3, [r7, #6]
+ 649 0024 102B     		cmp	r3, #16
+ 650 0026 71D0     		beq	.L36
+ 651              		.loc 1 246 0 discriminator 3
+ 652 0028 FB88     		ldrh	r3, [r7, #6]
+ 653 002a 142B     		cmp	r3, #20
+ 654 002c 6ED0     		beq	.L36
+ 655              		.loc 1 246 0 discriminator 4
+ 656 002e FB88     		ldrh	r3, [r7, #6]
+ 657 0030 182B     		cmp	r3, #24
+ 658 0032 6BD0     		beq	.L36
+ 659              		.loc 1 246 0 discriminator 5
+ 660 0034 FB88     		ldrh	r3, [r7, #6]
+ 661 0036 1C2B     		cmp	r3, #28
+ 662 0038 68D0     		beq	.L36
+ 663              		.loc 1 246 0 discriminator 6
+ 664 003a FB88     		ldrh	r3, [r7, #6]
+ 665 003c 202B     		cmp	r3, #32
+ 666 003e 65D0     		beq	.L36
+ 667              		.loc 1 246 0 discriminator 7
+ 668 0040 FB88     		ldrh	r3, [r7, #6]
+ 669 0042 242B     		cmp	r3, #36
+ 670 0044 62D0     		beq	.L36
+ 671              		.loc 1 246 0 discriminator 8
+ 672 0046 FB88     		ldrh	r3, [r7, #6]
+ 673 0048 282B     		cmp	r3, #40
+ 674 004a 5FD0     		beq	.L36
+ 675              		.loc 1 246 0 discriminator 9
+ 676 004c FB88     		ldrh	r3, [r7, #6]
+ 677 004e 402B     		cmp	r3, #64
+ 678 0050 5CD0     		beq	.L36
+ 679              		.loc 1 246 0 discriminator 10
+ 680 0052 FB88     		ldrh	r3, [r7, #6]
+ 681 0054 442B     		cmp	r3, #68
+ 682 0056 59D0     		beq	.L36
+ 683              		.loc 1 246 0 discriminator 11
+ 684 0058 FB88     		ldrh	r3, [r7, #6]
+ 685 005a 482B     		cmp	r3, #72
+ 686 005c 56D0     		beq	.L36
+ 687              		.loc 1 246 0 discriminator 12
+ 688 005e FB88     		ldrh	r3, [r7, #6]
+ 689 0060 4C2B     		cmp	r3, #76
+ 690 0062 53D0     		beq	.L36
+ 691              		.loc 1 246 0 discriminator 13
+ 692 0064 FB88     		ldrh	r3, [r7, #6]
+ 693 0066 502B     		cmp	r3, #80
+ 694 0068 50D0     		beq	.L36
+ 695              		.loc 1 246 0 discriminator 14
+ 696 006a FB88     		ldrh	r3, [r7, #6]
+ 697 006c 542B     		cmp	r3, #84
+ 698 006e 4DD0     		beq	.L36
+ 699              		.loc 1 246 0 discriminator 15
+ 700 0070 FB88     		ldrh	r3, [r7, #6]
+ 701 0072 582B     		cmp	r3, #88
+ 702 0074 4AD0     		beq	.L36
+ 703              		.loc 1 246 0 discriminator 16
+ 704 0076 FB88     		ldrh	r3, [r7, #6]
+ 705 0078 5C2B     		cmp	r3, #92
+ 706 007a 47D0     		beq	.L36
+ 707              		.loc 1 246 0 discriminator 17
+ 708 007c FB88     		ldrh	r3, [r7, #6]
+ 709 007e 602B     		cmp	r3, #96
+ 710 0080 44D0     		beq	.L36
+ 711              		.loc 1 246 0 discriminator 18
+ 712 0082 FB88     		ldrh	r3, [r7, #6]
+ 713 0084 642B     		cmp	r3, #100
+ 714 0086 41D0     		beq	.L36
+ 715              		.loc 1 246 0 discriminator 19
+ 716 0088 FB88     		ldrh	r3, [r7, #6]
+ 717 008a 682B     		cmp	r3, #104
+ 718 008c 3ED0     		beq	.L36
+ 719              		.loc 1 246 0 discriminator 20
+ 720 008e FB88     		ldrh	r3, [r7, #6]
+ 721 0090 6C2B     		cmp	r3, #108
+ 722 0092 3BD0     		beq	.L36
+ 723              		.loc 1 246 0 discriminator 21
+ 724 0094 FB88     		ldrh	r3, [r7, #6]
+ 725 0096 702B     		cmp	r3, #112
+ 726 0098 38D0     		beq	.L36
+ 727              		.loc 1 246 0 discriminator 22
+ 728 009a FB88     		ldrh	r3, [r7, #6]
+ 729 009c 742B     		cmp	r3, #116
+ 730 009e 35D0     		beq	.L36
+ 731              		.loc 1 246 0 discriminator 23
+ 732 00a0 FB88     		ldrh	r3, [r7, #6]
+ 733 00a2 782B     		cmp	r3, #120
+ 734 00a4 32D0     		beq	.L36
+ 735              		.loc 1 246 0 discriminator 24
+ 736 00a6 FB88     		ldrh	r3, [r7, #6]
+ 737 00a8 7C2B     		cmp	r3, #124
+ 738 00aa 2FD0     		beq	.L36
+ 739              		.loc 1 246 0 discriminator 25
+ 740 00ac FB88     		ldrh	r3, [r7, #6]
+ 741 00ae 802B     		cmp	r3, #128
+ 742 00b0 2CD0     		beq	.L36
+ 743              		.loc 1 246 0 discriminator 26
+ 744 00b2 FB88     		ldrh	r3, [r7, #6]
+ 745 00b4 842B     		cmp	r3, #132
+ 746 00b6 29D0     		beq	.L36
+ 747              		.loc 1 246 0 discriminator 27
+ 748 00b8 FB88     		ldrh	r3, [r7, #6]
+ 749 00ba 882B     		cmp	r3, #136
+ 750 00bc 26D0     		beq	.L36
+ 751              		.loc 1 246 0 discriminator 28
+ 752 00be FB88     		ldrh	r3, [r7, #6]
+ 753 00c0 8C2B     		cmp	r3, #140
+ 754 00c2 23D0     		beq	.L36
+ 755              		.loc 1 246 0 discriminator 29
+ 756 00c4 FB88     		ldrh	r3, [r7, #6]
+ 757 00c6 902B     		cmp	r3, #144
+ 758 00c8 20D0     		beq	.L36
+ 759              		.loc 1 246 0 discriminator 30
+ 760 00ca FB88     		ldrh	r3, [r7, #6]
+ 761 00cc 942B     		cmp	r3, #148
+ 762 00ce 1DD0     		beq	.L36
+ 763              		.loc 1 246 0 discriminator 31
+ 764 00d0 FB88     		ldrh	r3, [r7, #6]
+ 765 00d2 982B     		cmp	r3, #152
+ 766 00d4 1AD0     		beq	.L36
+ 767              		.loc 1 246 0 discriminator 32
+ 768 00d6 FB88     		ldrh	r3, [r7, #6]
+ 769 00d8 9C2B     		cmp	r3, #156
+ 770 00da 17D0     		beq	.L36
+ 771              		.loc 1 246 0 discriminator 33
+ 772 00dc FB88     		ldrh	r3, [r7, #6]
+ 773 00de A02B     		cmp	r3, #160
+ 774 00e0 14D0     		beq	.L36
+ 775              		.loc 1 246 0 discriminator 34
+ 776 00e2 FB88     		ldrh	r3, [r7, #6]
+ 777 00e4 A42B     		cmp	r3, #164
+ 778 00e6 11D0     		beq	.L36
+ 779              		.loc 1 246 0 discriminator 35
+ 780 00e8 FB88     		ldrh	r3, [r7, #6]
+ 781 00ea A82B     		cmp	r3, #168
+ 782 00ec 0ED0     		beq	.L36
+ 783              		.loc 1 246 0 discriminator 36
+ 784 00ee FB88     		ldrh	r3, [r7, #6]
+ 785 00f0 AC2B     		cmp	r3, #172
+ 786 00f2 0BD0     		beq	.L36
+ 787              		.loc 1 246 0 discriminator 37
+ 788 00f4 FB88     		ldrh	r3, [r7, #6]
+ 789 00f6 B02B     		cmp	r3, #176
+ 790 00f8 08D0     		beq	.L36
+ 791              		.loc 1 246 0 discriminator 38
+ 792 00fa FB88     		ldrh	r3, [r7, #6]
+ 793 00fc B42B     		cmp	r3, #180
+ 794 00fe 05D0     		beq	.L36
+ 795              		.loc 1 246 0 discriminator 39
+ 796 0100 FB88     		ldrh	r3, [r7, #6]
+ 797 0102 B82B     		cmp	r3, #184
+ 798 0104 02D0     		beq	.L36
+ 799              		.loc 1 246 0 discriminator 40
+ 800 0106 FB88     		ldrh	r3, [r7, #6]
+ 801 0108 BC2B     		cmp	r3, #188
+ 802 010a 02D1     		bne	.L37
+ 803              	.L36:
+ 804              		.loc 1 246 0 discriminator 1
+ 805 010c 4FF00103 		mov	r3, #1
+ 806 0110 01E0     		b	.L38
+ 807              	.L37:
+ 808              		.loc 1 246 0 discriminator 3
+ 809 0112 4FF00003 		mov	r3, #0
+ 810              	.L38:
+ 811              		.loc 1 246 0 discriminator 4
+ 812 0116 1846     		mov	r0, r3
+ 813 0118 FFF7FEFF 		bl	assert_param
+ 247:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 248:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmp = (uint32_t)BKP_BASE; 
+ 814              		.loc 1 248 0 is_stmt 1 discriminator 4
+ 815 011c 064B     		ldr	r3, .L40
+ 816 011e FB60     		str	r3, [r7, #12]
+ 249:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   tmp += BKP_DR;
+ 817              		.loc 1 249 0 discriminator 4
+ 818 0120 FA88     		ldrh	r2, [r7, #6]
+ 819 0122 FB68     		ldr	r3, [r7, #12]
+ 820 0124 D318     		adds	r3, r2, r3
+ 821 0126 FB60     		str	r3, [r7, #12]
+ 250:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 251:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   return (*(__IO uint16_t *) tmp);
+ 822              		.loc 1 251 0 discriminator 4
+ 823 0128 FB68     		ldr	r3, [r7, #12]
+ 824 012a 1B88     		ldrh	r3, [r3, #0]	@ movhi
+ 825 012c 9BB2     		uxth	r3, r3
+ 252:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 826              		.loc 1 252 0 discriminator 4
+ 827 012e 1846     		mov	r0, r3
+ 828 0130 07F11007 		add	r7, r7, #16
+ 829 0134 BD46     		mov	sp, r7
+ 830 0136 80BD     		pop	{r7, pc}
+ 831              	.L41:
+ 832              		.align	2
+ 833              	.L40:
+ 834 0138 006C0040 		.word	1073769472
+ 835              		.cfi_endproc
+ 836              	.LFE36:
+ 838              		.section	.text.BKP_GetFlagStatus,"ax",%progbits
+ 839              		.align	2
+ 840              		.global	BKP_GetFlagStatus
+ 841              		.thumb
+ 842              		.thumb_func
+ 844              	BKP_GetFlagStatus:
+ 845              	.LFB37:
+ 253:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 254:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 255:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Checks whether the Tamper Pin Event flag is set or not.
+ 256:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  None
+ 257:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval The new state of the Tamper Pin Event flag (SET or RESET).
+ 258:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 259:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** FlagStatus BKP_GetFlagStatus(void)
+ 260:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 846              		.loc 1 260 0
+ 847              		.cfi_startproc
+ 848              		@ args = 0, pretend = 0, frame = 0
+ 849              		@ frame_needed = 1, uses_anonymous_args = 0
+ 850              		@ link register save eliminated.
+ 851 0000 80B4     		push	{r7}
+ 852              	.LCFI23:
+ 853              		.cfi_def_cfa_offset 4
+ 854              		.cfi_offset 7, -4
+ 855 0002 00AF     		add	r7, sp, #0
+ 856              	.LCFI24:
+ 857              		.cfi_def_cfa_register 7
+ 261:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   return (FlagStatus)(*(__IO uint32_t *) CSR_TEF_BB);
+ 858              		.loc 1 261 0
+ 859 0004 034B     		ldr	r3, .L44
+ 860 0006 1B68     		ldr	r3, [r3, #0]
+ 861 0008 DBB2     		uxtb	r3, r3
+ 262:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 862              		.loc 1 262 0
+ 863 000a 1846     		mov	r0, r3
+ 864 000c BD46     		mov	sp, r7
+ 865 000e 80BC     		pop	{r7}
+ 866 0010 7047     		bx	lr
+ 867              	.L45:
+ 868 0012 00BF     		.align	2
+ 869              	.L44:
+ 870 0014 A0860D42 		.word	1108182688
+ 871              		.cfi_endproc
+ 872              	.LFE37:
+ 874              		.section	.text.BKP_ClearFlag,"ax",%progbits
+ 875              		.align	2
+ 876              		.global	BKP_ClearFlag
+ 877              		.thumb
+ 878              		.thumb_func
+ 880              	BKP_ClearFlag:
+ 881              	.LFB38:
+ 263:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 264:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 265:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Clears Tamper Pin Event pending flag.
+ 266:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  None
+ 267:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 268:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 269:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_ClearFlag(void)
+ 270:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 882              		.loc 1 270 0
+ 883              		.cfi_startproc
+ 884              		@ args = 0, pretend = 0, frame = 0
+ 885              		@ frame_needed = 1, uses_anonymous_args = 0
+ 886              		@ link register save eliminated.
+ 887 0000 80B4     		push	{r7}
+ 888              	.LCFI25:
+ 889              		.cfi_def_cfa_offset 4
+ 890              		.cfi_offset 7, -4
+ 891 0002 00AF     		add	r7, sp, #0
+ 892              	.LCFI26:
+ 893              		.cfi_def_cfa_register 7
+ 271:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Set CTE bit to clear Tamper Pin Event flag */
+ 272:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   BKP->CSR |= BKP_CSR_CTE;
+ 894              		.loc 1 272 0
+ 895 0004 054B     		ldr	r3, .L47
+ 896 0006 054A     		ldr	r2, .L47
+ 897 0008 928E     		ldrh	r2, [r2, #52]	@ movhi
+ 898 000a 92B2     		uxth	r2, r2
+ 899 000c 42F00102 		orr	r2, r2, #1
+ 900 0010 92B2     		uxth	r2, r2
+ 901 0012 9A86     		strh	r2, [r3, #52]	@ movhi
+ 273:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 902              		.loc 1 273 0
+ 903 0014 BD46     		mov	sp, r7
+ 904 0016 80BC     		pop	{r7}
+ 905 0018 7047     		bx	lr
+ 906              	.L48:
+ 907 001a 00BF     		.align	2
+ 908              	.L47:
+ 909 001c 006C0040 		.word	1073769472
+ 910              		.cfi_endproc
+ 911              	.LFE38:
+ 913              		.section	.text.BKP_GetITStatus,"ax",%progbits
+ 914              		.align	2
+ 915              		.global	BKP_GetITStatus
+ 916              		.thumb
+ 917              		.thumb_func
+ 919              	BKP_GetITStatus:
+ 920              	.LFB39:
+ 274:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 275:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 276:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Checks whether the Tamper Pin Interrupt has occurred or not.
+ 277:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  None
+ 278:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval The new state of the Tamper Pin Interrupt (SET or RESET).
+ 279:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 280:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** ITStatus BKP_GetITStatus(void)
+ 281:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 921              		.loc 1 281 0
+ 922              		.cfi_startproc
+ 923              		@ args = 0, pretend = 0, frame = 0
+ 924              		@ frame_needed = 1, uses_anonymous_args = 0
+ 925              		@ link register save eliminated.
+ 926 0000 80B4     		push	{r7}
+ 927              	.LCFI27:
+ 928              		.cfi_def_cfa_offset 4
+ 929              		.cfi_offset 7, -4
+ 930 0002 00AF     		add	r7, sp, #0
+ 931              	.LCFI28:
+ 932              		.cfi_def_cfa_register 7
+ 282:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   return (ITStatus)(*(__IO uint32_t *) CSR_TIF_BB);
+ 933              		.loc 1 282 0
+ 934 0004 034B     		ldr	r3, .L51
+ 935 0006 1B68     		ldr	r3, [r3, #0]
+ 936 0008 DBB2     		uxtb	r3, r3
+ 283:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 937              		.loc 1 283 0
+ 938 000a 1846     		mov	r0, r3
+ 939 000c BD46     		mov	sp, r7
+ 940 000e 80BC     		pop	{r7}
+ 941 0010 7047     		bx	lr
+ 942              	.L52:
+ 943 0012 00BF     		.align	2
+ 944              	.L51:
+ 945 0014 A4860D42 		.word	1108182692
+ 946              		.cfi_endproc
+ 947              	.LFE39:
+ 949              		.section	.text.BKP_ClearITPendingBit,"ax",%progbits
+ 950              		.align	2
+ 951              		.global	BKP_ClearITPendingBit
+ 952              		.thumb
+ 953              		.thumb_func
+ 955              	BKP_ClearITPendingBit:
+ 956              	.LFB40:
+ 284:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** 
+ 285:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** /**
+ 286:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @brief  Clears Tamper Pin Interrupt pending bit.
+ 287:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @param  None
+ 288:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   * @retval None
+ 289:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   */
+ 290:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** void BKP_ClearITPendingBit(void)
+ 291:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** {
+ 957              		.loc 1 291 0
+ 958              		.cfi_startproc
+ 959              		@ args = 0, pretend = 0, frame = 0
+ 960              		@ frame_needed = 1, uses_anonymous_args = 0
+ 961              		@ link register save eliminated.
+ 962 0000 80B4     		push	{r7}
+ 963              	.LCFI29:
+ 964              		.cfi_def_cfa_offset 4
+ 965              		.cfi_offset 7, -4
+ 966 0002 00AF     		add	r7, sp, #0
+ 967              	.LCFI30:
+ 968              		.cfi_def_cfa_register 7
+ 292:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   /* Set CTI bit to clear Tamper Pin Interrupt pending bit */
+ 293:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c ****   BKP->CSR |= BKP_CSR_CTI;
+ 969              		.loc 1 293 0
+ 970 0004 054B     		ldr	r3, .L54
+ 971 0006 054A     		ldr	r2, .L54
+ 972 0008 928E     		ldrh	r2, [r2, #52]	@ movhi
+ 973 000a 92B2     		uxth	r2, r2
+ 974 000c 42F00202 		orr	r2, r2, #2
+ 975 0010 92B2     		uxth	r2, r2
+ 976 0012 9A86     		strh	r2, [r3, #52]	@ movhi
+ 294:../libs/StdPeripheralDriver/src/stm32f10x_bkp.c **** }
+ 977              		.loc 1 294 0
+ 978 0014 BD46     		mov	sp, r7
+ 979 0016 80BC     		pop	{r7}
+ 980 0018 7047     		bx	lr
+ 981              	.L55:
+ 982 001a 00BF     		.align	2
+ 983              	.L54:
+ 984 001c 006C0040 		.word	1073769472
+ 985              		.cfi_endproc
+ 986              	.LFE40:
+ 988              		.text
+ 989              	.Letext0:
+ 990              		.file 2 "d:\\programs\\stm programs\\codebench\\bin\\../lib/gcc/arm-none-eabi/4.7.3/../../../../ar
+ 991              		.file 3 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/stm32f10x.h"
+ 992              		.file 4 "D:\\PROGRAMMING\\stm\\stm-discovery_test_project\\libs\\CMSIS/core_cm3.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_bkp.c
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:19     .text.BKP_DeInit:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:24     .text.BKP_DeInit:00000000 BKP_DeInit
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:51     .text.BKP_TamperPinLevelConfig:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:56     .text.BKP_TamperPinLevelConfig:00000000 BKP_TamperPinLevelConfig
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:105    .text.BKP_TamperPinLevelConfig:00000034 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:110    .text.BKP_TamperPinCmd:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:115    .text.BKP_TamperPinCmd:00000000 BKP_TamperPinCmd
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:164    .text.BKP_TamperPinCmd:00000034 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:169    .text.BKP_ITConfig:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:174    .text.BKP_ITConfig:00000000 BKP_ITConfig
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:223    .text.BKP_ITConfig:00000034 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:228    .text.BKP_RTCOutputConfig:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:233    .text.BKP_RTCOutputConfig:00000000 BKP_RTCOutputConfig
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:306    .text.BKP_RTCOutputConfig:00000060 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:311    .text.BKP_SetRTCCalibrationValue:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:316    .text.BKP_SetRTCCalibrationValue:00000000 BKP_SetRTCCalibrationValue
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:371    .text.BKP_SetRTCCalibrationValue:0000004c $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:376    .text.BKP_WriteBackupRegister:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:381    .text.BKP_WriteBackupRegister:00000000 BKP_WriteBackupRegister
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:603    .text.BKP_WriteBackupRegister:0000013c $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:608    .text.BKP_ReadBackupRegister:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:613    .text.BKP_ReadBackupRegister:00000000 BKP_ReadBackupRegister
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:834    .text.BKP_ReadBackupRegister:00000138 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:839    .text.BKP_GetFlagStatus:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:844    .text.BKP_GetFlagStatus:00000000 BKP_GetFlagStatus
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:870    .text.BKP_GetFlagStatus:00000014 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:875    .text.BKP_ClearFlag:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:880    .text.BKP_ClearFlag:00000000 BKP_ClearFlag
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:909    .text.BKP_ClearFlag:0000001c $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:914    .text.BKP_GetITStatus:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:919    .text.BKP_GetITStatus:00000000 BKP_GetITStatus
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:945    .text.BKP_GetITStatus:00000014 $d
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:950    .text.BKP_ClearITPendingBit:00000000 $t
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:955    .text.BKP_ClearITPendingBit:00000000 BKP_ClearITPendingBit
+C:\Users\6262~1\AppData\Local\Temp\ccwDc6Di.s:984    .text.BKP_ClearITPendingBit:0000001c $d
+                     .debug_frame:00000010 $d
+                           .group:00000000 wm4.1.a89c7a2b9e0955e95368adfe2cbc52f6
+                           .group:00000000 wm4.stm32f10x.h.51.b859cb68ed44ee02c916b41cb8c68f1c
+                           .group:00000000 wm4.core_cm3.h.25.d35e9a9b04ec4aaebae9bf79fff061f9
+                           .group:00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+                           .group:00000000 wm4.core_cm3.h.113.b286929a54d33b4c8909a7132437b244
+                           .group:00000000 wm4.stm32f10x.h.522.a925aafc848b1f088438cf0e9b167b78
+                           .group:00000000 wm4.stm32f10x.h.8304.f7d8ad90959e99679b3257267c3aadfe
+                           .group:00000000 wm4.stm32f10x_bkp.h.58.6453665ad39dc78c618a75ac337c70d3
+                           .group:00000000 wm4.stm32f10x_rcc.h.25.fe8897e7491f2eb0cff54551d08eb765
+
+UNDEFINED SYMBOLS
+RCC_BackupResetCmd
+assert_param

@@ -1,0 +1,41 @@
+#include "lib/stm32f10x.h"
+
+//----------------------------
+// System timer handler
+//----------------------------
+void SysTick_Handler(void) {
+//----- TODO -----
+	if (GPIOB ->IDR & GPIO_IDR_IDR8 ) { // if pin8 is set
+		GPIOB ->BRR |= GPIO_BRR_BR8; // reset pin8
+		GPIOB ->BSRR |= GPIO_BSRR_BS9; // set pin9
+	} else { // if pin8 is reset
+		GPIOB ->BSRR |= GPIO_BSRR_BS8; // set pin8
+		GPIOB ->BRR |= GPIO_BRR_BR9; // reset pin9
+	}
+//----- END -----
+}
+
+//----------------------------
+// GPIOx initializations
+//----------------------------
+void gpio_init(void) {
+//----- GPIOA initialization -----
+//----- GPIOB initialization -----
+	RCC ->APB2ENR |= RCC_APB2ENR_IOPBEN; // clock enable for gpiob
+	GPIOB ->BSRR |= (GPIO_BSRR_BS8 | GPIO_BSRR_BS9 ); // set bits 8, 9
+	GPIOB ->CRH &= ~0x000000FF; //( GPIO_CRH_CNF8 | GPIO_CRH_CNF9 | GPIO_CRH_MODE8 | GPIO_CRH_MODE9 ); // reset bits 8, 9
+	GPIOB ->CRH |= (GPIO_CRH_MODE8_1 | GPIO_CRH_MODE9_1 );
+//----- GPIOC initialization -----
+//----- GPIOD initialization -----
+//----- GPIOE initialization -----
+//----- GPIOF initialization -----
+//----- GPIOG initialization -----
+}
+
+int main(void) {
+	gpio_init();
+	SysTick_Config((uint32_t) 8000000); // включаем прерывание (с заданным интервалом) системного таймера
+	while (1) {
+	}
+	return 0;
+}
