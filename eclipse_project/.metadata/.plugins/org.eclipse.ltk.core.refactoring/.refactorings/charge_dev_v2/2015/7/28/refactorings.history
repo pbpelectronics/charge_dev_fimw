@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;lcd_1100&apos; to &apos;lib&apos;" description="Move &apos;lcd_1100&apos; to &apos;lib&apos;" destination="lib" element1="lcd_1100" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1436127925973" updateReferences="true"/>
+</session>

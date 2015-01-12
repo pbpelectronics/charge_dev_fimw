@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="${workspace_loc:/${ProjName}/inc/lcd_1100}" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<item value="150" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x"/>
 	<item value="5" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.last_focus"/>
 	<item value="0" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y"/>
@@ -28,6 +29,8 @@
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="CRenameRefactoringInputPage">
+	</section>
+	<section name="OptionalMessageDialog.hide.">
 	</section>
 	<section name="completion_proposal_size">
 	</section>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F100RB -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw\co_project -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw\co_project\cmsis_boot -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw\co_project\stm_lib\inc -IC:\Users\olexi_000\Documents -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw\co_project\stm_lib -IC:\Users\olexi_000 -IC:\Users -I..\..\..\..\..\..\..\PROGRAMMING\stm\charge_dev_fimw\co_project\cmsis">
+      <target file="startup_stm32f10x_md_vl.o" lastModified="14adfee4035">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f10x_md_vl.c" lastModified="14a9354516a"/>
+      </target>
+      <target file="stm32f10x_adc.o" lastModified="14adfee459b">
+         <source file="..\..\..\stm_lib\src\stm32f10x_adc.c" lastModified="14a93545edc"/>
+      </target>
+      <target file="syscalls.o" lastModified="14adfee46f1">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="14a935360a6"/>
+      </target>
+      <target file="init_ports.o" lastModified="14adfee48d7">
+         <source file="..\..\..\init_ports.c" lastModified="14a98aba4f8"/>
+      </target>
+      <target file="stm32f10x_tim.o" lastModified="14adfee3f69">
+         <source file="..\..\..\stm_lib\src\stm32f10x_tim.c" lastModified="14a9354514c"/>
+      </target>
+      <target file="system_stm32f10x.o" lastModified="14adfee415d">
+         <source file="..\..\..\cmsis_boot\system_stm32f10x.c" lastModified="14a9354517e"/>
+      </target>
+      <target file="main.o" lastModified="14ae027582c">
+         <source file="..\..\..\main.c" lastModified="14ae0274790"/>
+      </target>
+      <target file="stm32f10x_gpio.o" lastModified="14adfee4273">
+         <source file="..\..\..\stm_lib\src\stm32f10x_gpio.c" lastModified="14a9354ac1c"/>
+      </target>
+      <target file="stm32f10x_rcc.o" lastModified="14adfee4481">
+         <source file="..\..\..\stm_lib\src\stm32f10x_rcc.c" lastModified="14a93545154"/>
+      </target>
+      <target file="misc.o" lastModified="14adfee47ef">
+         <source file="..\..\..\stm_lib\src\misc.c" lastModified="14a935470aa"/>
+      </target>
+   </processor>
+</history>

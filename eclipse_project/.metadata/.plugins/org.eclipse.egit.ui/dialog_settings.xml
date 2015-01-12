@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="2" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<item value="/home/olexijko/PROGRAMMING/stm/charge_dev_fimw/.git" key="GitSelectRepositoryPage.lastRepository"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/pbpelectronics/charge_dev_fimw/"/>
+		<item value="https://github.com/pbpelectronics/charge_dev_fimw/tree/master"/>
+		<item value="https://github.com/pbpelectronics/charge_dev_fimw"/>
+		<item value="https://github.com/pbpelectronics/charge_dev_fimw/tree/master/eclipse_project"/>
+	</list>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
+</section>

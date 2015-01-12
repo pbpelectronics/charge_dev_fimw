@@ -1,3 +1,7 @@
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>required files are added&\#x0A;</message>\n<message>eclipse project</message>\n<message>eclipse project&\#x0A;</message>\n</messages>
 eclipse.preferences.version=1
+resourcehistory_graph_split=500,500
+resourcehistory_rev_split=700,300
 show_git_prefix_warning=false
 show_home_drive_warning=false
+show_initial_config_dialog=false

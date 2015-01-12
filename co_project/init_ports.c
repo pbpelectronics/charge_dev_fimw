@@ -17,19 +17,19 @@ void initPorts() {
 }
 
 void initADC() {
-	RCC_ADCCLKConfig (RCC_PCLK2_Div6);
+	RCC_ADCCLKConfig (RCC_PCLK2_Div2);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
 
 	ADC_InitTypeDef adcInitStructure;
 	adcInitStructure.ADC_ContinuousConvMode = DISABLE;
 	adcInitStructure.ADC_DataAlign = ADC_DataAlign_Right;
 	adcInitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
-	adcInitStructure.ADC_Mode = ADC_Mode_Independent;
+	adcInitStructure.ADC_Mode = ADC_Mode_InjecSimult;
 	adcInitStructure.ADC_NbrOfChannel = 1;
 	adcInitStructure.ADC_ScanConvMode = DISABLE;
 	ADC_Init(ADC1, &adcInitStructure);
 
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_0, 1, ADC_SampleTime_1Cycles5);
+	ADC_InjectedChannelConfig(ADC1, 0, 1, ADC_SampleTime_1Cycles5);
 	ADC_Cmd(ADC1, ENABLE);
 
 	ADC_ResetCalibration(ADC1);
