@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;stm-discovery_test_project/src/constants&apos; to &apos;constants.h&apos;" description="Rename resource &apos;constants&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/constants" name="constants.h" stamp="1380569453132" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;stm-discovery_test_project/src/constants.h&apos; to &apos;common.h&apos;" description="Rename resource &apos;constants.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/constants.h" name="common.h" stamp="1380572029224" updateReferences="true"/>
-</session>

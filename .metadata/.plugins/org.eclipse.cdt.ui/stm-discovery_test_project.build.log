@@ -1,0 +1,396 @@
+22:21:28 **** Build of configuration Debug for project stm-discovery_test_project ****
+make all 
+'Building file: ../src/timers/timers.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/timers/timers.d" -MT"src/timers/timers.o" -c -o "src/timers/timers.o" "../src/timers/timers.c"
+'Finished building: ../src/timers/timers.c'
+' '
+'Building file: ../src/led/led.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/led/led.d" -MT"src/led/led.o" -c -o "src/led/led.o" "../src/led/led.c"
+../src/led/led.c: In function 'switchLed':
+../src/led/led.c:11:2: warning: implicit declaration of function 'clearLed' [-Wimplicit-function-declaration]
+  clearLed(led);
+  ^
+../src/led/led.c: At top level:
+../src/led/led.c:50:6: warning: conflicting types for 'clearLed'
+ void clearLed(TIM_TypeDef * led) {
+      ^
+../src/led/led.c:11:2: note: previous implicit declaration of 'clearLed' was here
+  clearLed(led);
+  ^
+'Finished building: ../src/led/led.c'
+' '
+'Building file: ../src/encoder/encoder.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/encoder/encoder.d" -MT"src/encoder/encoder.o" -c -o "src/encoder/encoder.o" "../src/encoder/encoder.c"
+'Finished building: ../src/encoder/encoder.c'
+' '
+'Building file: ../src/display/images_printing.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/display/images_printing.d" -MT"src/display/images_printing.o" -c -o "src/display/images_printing.o" "../src/display/images_printing.c"
+In file included from ../src/display/images_printing.c:7:0:
+../src/display/pictures.h:1726:2: warning: excess elements in array initializer
+  0x00, 0x00, 0x00, 0x00};
+  ^
+../src/display/pictures.h:1726:2: warning: (near initialization for 'menuISymbol')
+../src/display/pictures.h:1726:2: warning: excess elements in array initializer
+../src/display/pictures.h:1726:2: warning: (near initialization for 'menuISymbol')
+../src/display/pictures.h:1726:2: warning: excess elements in array initializer
+../src/display/pictures.h:1726:2: warning: (near initialization for 'menuISymbol')
+../src/display/pictures.h:1726:2: warning: excess elements in array initializer
+../src/display/pictures.h:1726:2: warning: (near initialization for 'menuISymbol')
+../src/display/pictures.h:1754:2: warning: excess elements in array initializer
+  0x00, 0x00, 0x00, 0x00};
+  ^
+../src/display/pictures.h:1754:2: warning: (near initialization for 'menuAmperageSymbol')
+../src/display/pictures.h:1754:2: warning: excess elements in array initializer
+../src/display/pictures.h:1754:2: warning: (near initialization for 'menuAmperageSymbol')
+../src/display/pictures.h:1754:2: warning: excess elements in array initializer
+../src/display/pictures.h:1754:2: warning: (near initialization for 'menuAmperageSymbol')
+../src/display/pictures.h:1754:2: warning: excess elements in array initializer
+../src/display/pictures.h:1754:2: warning: (near initialization for 'menuAmperageSymbol')
+../src/display/pictures.h:1820:5: warning: excess elements in array initializer
+     0x00, 0x7F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x00}};
+     ^
+../src/display/pictures.h:1820:5: warning: (near initialization for 'power_images')
+../src/display/pictures.h:1838:7: warning: excess elements in array initializer
+       0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x0F, 0x07, 0x00},
+       ^
+../src/display/pictures.h:1838:7: warning: (near initialization for 'additionalMenuDigitals[0]')
+../src/display/images_printing.c: In function 'bootMessage':
+../src/display/images_printing.c:23:19: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(0, 0, boot_image[i]);
+                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:16:6: warning: unused variable 'incPowerKoef' [-Wunused-variable]
+  int incPowerKoef = MAX_LED_POWER / 9;
+      ^
+../src/display/images_printing.c: In function 'printMainImageDigits':
+../src/display/images_printing.c:35:2: warning: implicit declaration of function 'printDigits' [-Wimplicit-function-declaration]
+  printDigits(xPosition, yPosition, val);
+  ^
+../src/display/images_printing.c: At top level:
+../src/display/images_printing.c:38:6: warning: conflicting types for 'printDigits'
+ void printDigits(int xPosition, int yPosition, double val) {
+      ^
+../src/display/images_printing.c:35:2: note: previous implicit declaration of 'printDigits' was here
+  printDigits(xPosition, yPosition, val);
+  ^
+../src/display/images_printing.c: In function 'printDigits':
+../src/display/images_printing.c:51:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs[1]]);
+   ^
+../src/display/images_printing.c:51:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs[1]]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:54:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs[0]]);
+   ^
+../src/display/images_printing.c:54:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs[0]]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:57:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, point);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:60:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs]);
+   ^
+../src/display/images_printing.c:60:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:69:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs]);
+   ^
+../src/display/images_printing.c:69:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[integerPartDigs]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:72:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, point);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:75:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs[1]]);
+   ^
+../src/display/images_printing.c:75:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs[1]]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:78:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs[0]]);
+   ^
+../src/display/images_printing.c:78:35: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, yPosition, digitals[fractionalPartDigs[0]]);
+                                   ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printAdditionalMenuDigits':
+../src/display/images_printing.c:95:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs[1]]);
+   ^
+../src/display/images_printing.c:95:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs[1]]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:98:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs[0]]);
+   ^
+../src/display/images_printing.c:98:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs[0]]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:104:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs]);
+   ^
+../src/display/images_printing.c:104:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:113:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs]);
+   ^
+../src/display/images_printing.c:113:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[integerPartDigs]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:119:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs[1]]);
+   ^
+../src/display/images_printing.c:119:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs[1]]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:122:3: warning: array subscript has type 'char' [-Wchar-subscripts]
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs[0]]);
+   ^
+../src/display/images_printing.c:122:59: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(xPosition, ADDITIONAL_MENU_DIGITS_TOP_MARGIN, additionalMenuDigitals[fractionalPartDigs[0]]);
+                                                           ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printAdditionalMenuAnimation':
+../src/display/images_printing.c:129:5: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+     additionalMenuRightAnimation[0]);
+     ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:131:5: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+     additionalMenuLeftAnimation[0]);
+     ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:135:5: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+     additionalMenuRightAnimation[animationIdx+1]);
+     ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:137:5: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+     additionalMenuLeftAnimation[animationIdx+1]);
+     ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printMainImageTemplate':
+../src/display/images_printing.c:144:80: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(POSITION_MAIN_IMAGE_FIRST_PART_X, POSITION_MAIN_IMAGE_FIRST_PART_Y, main_image_first_part);
+                                                                                ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:145:80: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(POSITION_MAIN_IMAGE_THIRD_PART_X, POSITION_MAIN_IMAGE_THIRD_PART_Y, main_image_third_part);
+                                                                                ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printBatteryWaitImage':
+../src/display/images_printing.c:149:18: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(0, 0, bat_not_conn_image);
+                  ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printBattaryImage':
+../src/display/images_printing.c:152:2: warning: array subscript has type 'char' [-Wchar-subscripts]
+  nlcd_Pict(POSITION_BATTERY_IMAGE_X, POSITION_MAIN_BATTERY_IMAGE_Y, battery_image[val]);
+  ^
+../src/display/images_printing.c:152:69: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(POSITION_BATTERY_IMAGE_X, POSITION_MAIN_BATTERY_IMAGE_Y, battery_image[val]);
+                                                                     ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printChangeAmperageImage':
+../src/display/images_printing.c:157:88: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(POWER_IMAGE_LEFT_INDENT + POWER_IMAGE_WIDTH * idx, POWER_IMAGE_Y_POSITION, power_images[idx]);
+                                                                                        ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:160:88: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+   nlcd_Pict(POWER_IMAGE_LEFT_INDENT + POWER_IMAGE_WIDTH * idx, POWER_IMAGE_Y_POSITION, power_images[0]);
+                                                                                        ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printInitChangeAmperageMenu':
+../src/display/images_printing.c:166:65: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(MENU_I_SYMBOL_LEFT_INDENT, MENU_I_SYMBOL_TOP_INDENT, menuISymbol);
+                                                                 ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c:167:79: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(MENU_AMPERAGE_SYMBOL_LEFT_INDENT, MENU_AMPERAGE_SYMBOL_TOP_INDENT, menuAmperageSymbol);
+                                                                               ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+../src/display/images_printing.c: In function 'printTestImage':
+../src/display/images_printing.c:179:18: warning: passing argument 3 of 'nlcd_Pict' discards 'const' qualifier from pointer target type
+  nlcd_Pict(1, 1, test_pict);
+                  ^
+In file included from ../src/display/images_printing.c:11:0:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:105:6: note: expected 'unsigned char *' but argument is of type 'const unsigned char *'
+ void nlcd_Pict  (unsigned char x, unsigned char y, unsigned char * picture);
+      ^
+In file included from ../src/display/images_printing.c:11:0:
+../src/display/images_printing.c: At top level:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:78:22: warning: 'nlcd_memory' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_memory[NLCD_X_RES-1][(NLCD_Y_RES/8)+1];
+                      ^
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:22: warning: 'nlcd_xcurr' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_xcurr, nlcd_ycurr;
+                      ^
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:34: warning: 'nlcd_ycurr' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_xcurr, nlcd_ycurr;
+                                  ^
+'Finished building: ../src/display/images_printing.c'
+' '
+'Building file: ../src/common/common.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/common/common.d" -MT"src/common/common.o" -c -o "src/common/common.o" "../src/common/common.c"
+../src/common/common.c: In function 'checkIfBattaryIsConnected':
+../src/common/common.c:39:2: warning: implicit declaration of function 'nlcd_Clear' [-Wimplicit-function-declaration]
+  nlcd_Clear();
+  ^
+'Finished building: ../src/common/common.c'
+' '
+'Building file: ../src/adc/adc.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/adc/adc.d" -MT"src/adc/adc.o" -c -o "src/adc/adc.o" "../src/adc/adc.c"
+'Finished building: ../src/adc/adc.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\CMSIS" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\StdPeripheralDriver\inc" -I"E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100" -std=gnu99 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'changeAmperageMenu':
+../src/main.c:26:2: warning: implicit declaration of function 'printChangeAmperageMenuDigits' [-Wimplicit-function-declaration]
+  printChangeAmperageMenuDigits(amperage);
+  ^
+../src/main.c:29:2: warning: implicit declaration of function 'isMenuEncoderPressed' [-Wimplicit-function-declaration]
+  while (!isMenuEncoderPressed() && time_ms - timeStampMenu < 5000) {
+  ^
+../src/main.c: In function 'additinalMenu':
+../src/main.c:69:3: warning: implicit declaration of function 'printAdditionalMenuAnimation' [-Wimplicit-function-declaration]
+   printAdditionalMenuAnimation(animationIdx);
+   ^
+../src/main.c: In function 'main':
+../src/main.c:88:2: warning: implicit declaration of function 'clearMeasuringBuffers' [-Wimplicit-function-declaration]
+  clearMeasuringBuffers();
+  ^
+In file included from ../src/main.c:9:0:
+../src/main.c: At top level:
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:78:22: warning: 'nlcd_memory' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_memory[NLCD_X_RES-1][(NLCD_Y_RES/8)+1];
+                      ^
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:22: warning: 'nlcd_xcurr' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_xcurr, nlcd_ycurr;
+                      ^
+E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\libs\lcd_1100/nokia1100_lcd_lib.h:82:34: warning: 'nlcd_ycurr' defined but not used [-Wunused-variable]
+ static unsigned char nlcd_xcurr, nlcd_ycurr;
+                                  ^
+'Finished building: ../src/main.c'
+' '
+'Building target: stm-discovery_test_project.elf'
+'Invoking: Cross ARM C Linker'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T "E:\PROGRAMMING\stm\New folder\charge_dev_fimw\eclipse_project\stm-discovery_test_project\build\stm32f100rb.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"stm-discovery_test_project.map" --specs=nano.specs -o "stm-discovery_test_project.elf"  ./src/timers/timers.o  ./src/led/led.o  ./src/encoder/encoder.o  ./src/display/images_printing.o  ./src/common/common.o  ./src/adc/adc.o  ./src/main.o   
+e:/programs/stm programs/gcc_4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol Reset_Handler; defaulting to 08000000
+'Finished building target: stm-discovery_test_project.elf'
+' '
+'Invoking: Cross ARM GNU Create Flash Image'
+arm-none-eabi-objcopy -O ihex "stm-discovery_test_project.elf"  "stm-discovery_test_project.hex"
+'Finished building: stm-discovery_test_project.hex'
+' '
+'Invoking: Cross ARM GNU Print Size'
+arm-none-eabi-size --format=berkeley "stm-discovery_test_project.elf"
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	    256	    256	    100	stm-discovery_test_project.elf
+'Finished building: stm-discovery_test_project.siz'
+' '
+
+22:21:33 Build Finished (took 5s.883ms)
+

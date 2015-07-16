@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;stm-discovery_test_project/src/timers/timers&apos; to &apos;timers.c&apos;" description="Rename resource &apos;timers&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/timers/timers" name="timers.c" stamp="1380830236870" updateReferences="true"/>
-</session>

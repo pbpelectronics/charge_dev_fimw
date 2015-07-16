@@ -1,0 +1,75 @@
+22:21:46 **** Build of configuration Debug for project tst ****
+make all 
+'Building file: ../system/src/stm32f1-stdperiph/misc.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/stm32f1-stdperiph/misc.d" -MT"system/src/stm32f1-stdperiph/misc.o" -c -o "system/src/stm32f1-stdperiph/misc.o" "../system/src/stm32f1-stdperiph/misc.c"
+'Finished building: ../system/src/stm32f1-stdperiph/misc.c'
+' '
+'Building file: ../system/src/stm32f1-stdperiph/stm32f10x_gpio.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/stm32f1-stdperiph/stm32f10x_gpio.d" -MT"system/src/stm32f1-stdperiph/stm32f10x_gpio.o" -c -o "system/src/stm32f1-stdperiph/stm32f10x_gpio.o" "../system/src/stm32f1-stdperiph/stm32f10x_gpio.c"
+'Finished building: ../system/src/stm32f1-stdperiph/stm32f10x_gpio.c'
+' '
+'Building file: ../system/src/stm32f1-stdperiph/stm32f10x_rcc.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/stm32f1-stdperiph/stm32f10x_rcc.d" -MT"system/src/stm32f1-stdperiph/stm32f10x_rcc.o" -c -o "system/src/stm32f1-stdperiph/stm32f10x_rcc.o" "../system/src/stm32f1-stdperiph/stm32f10x_rcc.c"
+'Finished building: ../system/src/stm32f1-stdperiph/stm32f10x_rcc.c'
+' '
+'Building file: ../system/src/diag/Trace.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/diag/Trace.d" -MT"system/src/diag/Trace.o" -c -o "system/src/diag/Trace.o" "../system/src/diag/Trace.c"
+'Finished building: ../system/src/diag/Trace.c'
+' '
+'Building file: ../system/src/diag/trace_impl.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/diag/trace_impl.d" -MT"system/src/diag/trace_impl.o" -c -o "system/src/diag/trace_impl.o" "../system/src/diag/trace_impl.c"
+'Finished building: ../system/src/diag/trace_impl.c'
+' '
+'Building file: ../system/src/cmsis/system_stm32f10x.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/cmsis/system_stm32f10x.d" -MT"system/src/cmsis/system_stm32f10x.o" -c -o "system/src/cmsis/system_stm32f10x.o" "../system/src/cmsis/system_stm32f10x.c"
+'Finished building: ../system/src/cmsis/system_stm32f10x.c'
+' '
+'Building file: ../system/src/cmsis/vectors_stm32f10x.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"system/src/cmsis/vectors_stm32f10x.d" -MT"system/src/cmsis/vectors_stm32f10x.o" -c -o "system/src/cmsis/vectors_stm32f10x.o" "../system/src/cmsis/vectors_stm32f10x.c"
+'Finished building: ../system/src/cmsis/vectors_stm32f10x.c'
+' '
+'Building file: ../src/BlinkLed.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"src/BlinkLed.d" -MT"src/BlinkLed.o" -c -o "src/BlinkLed.o" "../src/BlinkLed.c"
+'Finished building: ../src/BlinkLed.c'
+' '
+'Building file: ../src/Timer.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"src/Timer.d" -MT"src/Timer.o" -c -o "src/Timer.o" "../src/Timer.c"
+'Finished building: ../src/Timer.c'
+' '
+'Building file: ../src/_write.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"src/_write.d" -MT"src/_write.o" -c -o "src/_write.o" "../src/_write.c"
+'Finished building: ../src/_write.c'
+' '
+'Building file: ../src/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_ITM -DSTM32F10X_MD_VL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f1-stdperiph" -std=gnu11 -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: tst.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"tst.map" -o "tst.elf"  ./system/src/stm32f1-stdperiph/misc.o ./system/src/stm32f1-stdperiph/stm32f10x_gpio.o ./system/src/stm32f1-stdperiph/stm32f10x_rcc.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cmsis/system_stm32f10x.o ./system/src/cmsis/vectors_stm32f10x.o  ./src/BlinkLed.o ./src/Timer.o ./src/_write.o ./src/main.o   
+e:/programs/stm programs/gcc_4.9 2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 080001d4
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x4): undefined reference to `Reset_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x8): undefined reference to `NMI_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0xc): undefined reference to `HardFault_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x10): undefined reference to `MemManage_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x14): undefined reference to `BusFault_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x18): undefined reference to `UsageFault_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x2c): undefined reference to `SVC_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x30): undefined reference to `DebugMon_Handler'
+./system/src/cmsis/vectors_stm32f10x.o:(.isr_vector+0x38): undefined reference to `PendSV_Handler'
+collect2.exe: error: ld returned 1 exit status
+make: *** [tst.elf] Error 1
+
+22:21:52 Build Finished (took 5s.419ms)
+

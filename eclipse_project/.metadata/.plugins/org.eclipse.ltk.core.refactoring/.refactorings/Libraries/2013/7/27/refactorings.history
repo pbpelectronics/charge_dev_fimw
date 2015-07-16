@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move &apos;inc&apos; to &apos;StdPeripheralDrivers&apos;" description="Move &apos;inc&apos; to &apos;StdPeripheralDrivers&apos;" destination="/StdPeripheralDrivers" element1="/StdPeripheralDriver/StdPeripheralDriver/inc" element2="/StdPeripheralDriver/StdPeripheralDriver/src" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="2" stamp="1372763233389" updateReferences="true"/>
-</session>

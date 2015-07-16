@@ -1,0 +1,11 @@
+23:30:04 **** Incremental Build of configuration Debug for project sfsf ****
+make all 
+'Invoking: Cross ARM GNU Print Size'
+arm-none-eabi-size --format=berkeley "sfsf.elf"
+   text	   data	    bss	    dec	    hex	filename
+    364	   1076	    284	   1724	    6bc	sfsf.elf
+'Finished building: sfsf.siz'
+' '
+
+23:30:04 Build Finished (took 316ms)
+

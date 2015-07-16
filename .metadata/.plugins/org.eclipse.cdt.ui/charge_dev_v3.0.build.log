@@ -1,0 +1,6 @@
+18:16:10 **** Incremental Build of configuration Debug for project charge_dev_v3.0 ****
+make all 
+make: *** No rule to make target `charge_dev_v3.0.elf', needed by `all'.  Stop.
+
+18:16:10 Build Finished (took 305ms)
+

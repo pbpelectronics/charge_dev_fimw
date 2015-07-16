@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Extract (adcBufferVal / MEASURES_NUMBER)" description="Extract Local Variable Refactoring" fileName="file:/D:/PROGRAMMING/stm/stm-discovery_test_project/src/adc/adc.c" flags="4" id="org.eclipse.cdt.internal.ui.refactoring.extractlocalvariable.ExtractLocalVariableRefactoring" name="adcBufferVal0" selection="660,32" stamp="1393623198629"/>
-</session>

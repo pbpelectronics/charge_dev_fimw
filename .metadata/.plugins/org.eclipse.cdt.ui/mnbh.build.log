@@ -1,0 +1,11 @@
+16:11:33 **** Incremental Build of configuration Debug for project mnbh ****
+make all 
+'Invoking: Cross ARM GNU Print Size'
+arm-none-eabi-size --format=berkeley "mnbh.elf"
+   text	   data	    bss	    dec	    hex	filename
+  22728	   2200	    460	  25388	   632c	mnbh.elf
+'Finished building: mnbh.siz'
+' '
+
+16:11:33 Build Finished (took 488ms)
+
