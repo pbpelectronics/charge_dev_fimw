@@ -59,6 +59,8 @@
       <source file="..\..\..\src\common\common.h" lastModified="14fc3596e27">
          <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x.h"/>
       </source>
+      <source file="..\..\..\src\timers\timers.h" lastModified="14fc13fd239">
+      </source>
       <source file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_dac.h" lastModified="14fc13fd198">
          <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x.h"/>
       </source>
@@ -226,6 +228,13 @@
       </source>
       <source file="..\..\..\src\display\images_printing.h" lastModified="14fc174b293">
       </source>
+      <source file="..\..\..\src\display\images_printing.c" lastModified="14fc28b9107">
+         <include file="..\..\..\src\display\pictures.h"/>
+         <include file="..\..\..\src\common\common.h"/>
+         <include file="..\..\..\src\led\led.h"/>
+         <include file="..\..\..\src\display\images_printing.h"/>
+         <include file="..\..\..\src\lcd_1100\nokia1100_lcd_lib.h"/>
+      </source>
       <source file="..\..\..\src\encoder\encoder.c" lastModified="14fc280b9aa">
          <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_rcc.h"/>
          <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_gpio.h"/>
@@ -234,12 +243,21 @@
          <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\misc.h"/>
          <include file="..\..\..\src\common\common.h"/>
       </source>
-      <source file="..\..\..\src\display\images_printing.c" lastModified="14fc28b9107">
-         <include file="..\..\..\src\display\pictures.h"/>
-         <include file="..\..\..\src\common\common.h"/>
-         <include file="..\..\..\src\led\led.h"/>
-         <include file="..\..\..\src\display\images_printing.h"/>
+      <source file="..\..\..\src\main.c" lastModified="14fc36a01f8">
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_conf.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_rcc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_gpio.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_tim.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\stm32f10x_adc.h"/>
+         <include file="..\..\..\components\coocox-master\STM32F10x_HD_VL_STDLIB\source\misc.h"/>
          <include file="..\..\..\src\lcd_1100\nokia1100_lcd_lib.h"/>
+         <include file="..\..\..\src\display\images_printing.h"/>
+         <include file="..\..\..\src\common\common.h"/>
+         <include file="..\..\..\src\adc\adc.h"/>
+         <include file="..\..\..\src\timers\timers.h"/>
+         <include file="..\..\..\src\encoder\encoder.h"/>
+         <include file="..\..\..\src\led\led.h"/>
       </source>
       <source file="..\..\..\components\coocox-master\cmsis_core\source\core_cm3.h" lastModified="14fc13fd5e7">
          <include file="..\..\..\components\coocox-master\cmsis_core\source\core_cmInstr.h"/>
