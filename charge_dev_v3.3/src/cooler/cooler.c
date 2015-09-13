@@ -1,6 +1,7 @@
 #include "cooler.h"
 #include "stm32f10x_gpio.h"
 #include "../common/common.h"
+#include "../led/led.h"
 
 void initCooler() {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -25,5 +26,16 @@ void checkSystemTemperature() {
 	}
 	if (systemTemperature <= TEMPERATURE_FOR_DISABLING_COOL) {
 		disableCooler();
+	}
+	if (systemTemperature >= MAX_SYSTEM_TEMPERATURE) {
+		if (BATT_POWER_OUT > 0) {
+			BATT_POWER_OUT--;
+		}
+		ledSwitchOn(led1Red);
+	} else {
+		if (BATT_POWER_OUT < userEnteredBatteryPower) {
+			BATT_POWER_OUT++;
+		}
+		ledSwitchOff(led1Red);
 	}
 }

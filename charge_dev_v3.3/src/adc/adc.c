@@ -13,12 +13,10 @@
 #include "../led/led.h"
 
 double convertADCBufferToAmperageValue(uint32_t adcBufferVal) {
-	return adcBufferVal * AMPERAGE_ADC_CONVERSATION_COEFFICIENT
-			/ MEASURES_NUMBER;
+	return adcBufferVal * AMPERAGE_ADC_CONVERSATION_COEFFICIENT / MEASURES_NUMBER;
 }
 
-double convertADCBufferToVoltageValue(uint32_t adcBufferVal,
-		uint32_t measuresCount) {
+double convertADCBufferToVoltageValue(uint32_t adcBufferVal, uint32_t measuresCount) {
 	return adcBufferVal * VOLTAGE_ADC_CONVERSATION_COEFFICIENT / measuresCount;
 }
 
@@ -37,11 +35,20 @@ void clearMeasuringBuffers() {
 	currentMeasureNumber = 0;
 }
 
+void handleShortSircuit() {
+	ledErrorSwitchOn();
+	BATT_POWER_OUT = 0;
+}
+
 void ADC1_IRQHandler(void) {
+	if (ADC_GetITStatus(ADC1, ADC_IT_AWD) != RESET) {
+		ADC_ClearITPendingBit(ADC1, ADC_IT_AWD);
+		handleShortSircuit();
+		return;
+	}
 	ADC_ClearITPendingBit(ADC1, ADC_IT_JEOC);
 	ADC_SoftwareStartInjectedConvCmd(ADC1, ENABLE);
-	int currentVoltage = ADC_GetInjectedConversionValue(ADC1,
-			VOLTAGE_INJECTED_CHANNEL);
+	int currentVoltage = ADC_GetInjectedConversionValue(ADC1, VOLTAGE_INJECTED_CHANNEL);
 	if (currentVoltage > THRESHOLD_VOLTAGE) {
 		uToBatteryBuffer[0] += currentVoltage;
 		uToBatteryBuffer[1]++;
@@ -50,35 +57,29 @@ void ADC1_IRQHandler(void) {
 		uFromBatteryBuffer[1]++;
 	}
 
-	int currAmp = ADC_GetInjectedConversionValue(ADC1,
-			AMPERAGE_INJECTED_CHANNEL);
+	int currAmp = ADC_GetInjectedConversionValue(ADC1, AMPERAGE_INJECTED_CHANNEL);
 
-	amperageBuffer += ADC_GetInjectedConversionValue(ADC1,
-			AMPERAGE_INJECTED_CHANNEL);
-	systemTemperatureBuffer += ADC_GetInjectedConversionValue(ADC1,
-			TEMPERATURE_INJECTED_CHANNEL);
+	amperageBuffer += ADC_GetInjectedConversionValue(ADC1, AMPERAGE_INJECTED_CHANNEL);
+	systemTemperatureBuffer += ADC_GetInjectedConversionValue(ADC1, TEMPERATURE_INJECTED_CHANNEL);
 
 	if ((++currentMeasureNumber) > MEASURES_NUMBER) {
-		uFromBattery = convertADCBufferToVoltageValue(uFromBatteryBuffer[0],
-				uFromBatteryBuffer[1]);
+		uFromBattery = convertADCBufferToVoltageValue(uFromBatteryBuffer[0], uFromBatteryBuffer[1]);
 
-		uToBattery = convertADCBufferToVoltageValue(uToBatteryBuffer[0],
-				uToBatteryBuffer[1]);
+		uToBattery = convertADCBufferToVoltageValue(uToBatteryBuffer[0], uToBatteryBuffer[1]);
 		amperage = convertADCBufferToAmperageValue(amperageBuffer);
-		systemTemperature = convertADCBufferToTemperatureValue(
-				systemTemperatureBuffer);
+		systemTemperature = convertADCBufferToTemperatureValue(systemTemperatureBuffer);
 		clearMeasuringBuffers();
-		checkAmperage();
+//		checkAmperage();
 		checkSystemTemperature();
 	}
 }
 
-void checkAmperage() {
-	if (amperage > MAX_AMPERAGE) {
-		BATTARY_POWER_OUT = 0;
-		ledSwitchOn(led1Red);
-	}
-}
+//void checkAmperage() {
+//	if (amperage > MAX_AMPERAGE) {
+//		BATT_POWER_OUT = 0;
+//		ledSwitchOn(led1Red);
+//	}
+//}
 
 void initADC() {
 	uFromBattery = 0;
@@ -94,8 +95,7 @@ void initADC() {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
 
 	GPIO_InitTypeDef GPIO_InitStructure;
-	GPIO_InitStructure.GPIO_Pin = VOLTAGE_INPUT_PIN | AMPERAGE_INPUT_PIN
-			| TEMPERATURE_INPUT_PIN;
+	GPIO_InitStructure.GPIO_Pin = VOLTAGE_INPUT_PIN | AMPERAGE_INPUT_PIN | TEMPERATURE_INPUT_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
@@ -113,12 +113,9 @@ void initADC() {
 	ADC_InjectedSequencerLengthConfig(ADC1, 3);
 
 	/* ADC1 injected channel Configuration */
-	ADC_InjectedChannelConfig(ADC1, VOLTAGE_ADC_CHANNEL, 1,
-			ADC_SampleTime_28Cycles5);
-	ADC_InjectedChannelConfig(ADC1, AMPERAGE_ADC_CHANNEL, 3,
-			ADC_SampleTime_28Cycles5);
-	ADC_InjectedChannelConfig(ADC1, TEMPERATURE_ADC_CHANNEL, 2,
-			ADC_SampleTime_28Cycles5);
+	ADC_InjectedChannelConfig(ADC1, VOLTAGE_ADC_CHANNEL, 1, ADC_SampleTime_28Cycles5);
+	ADC_InjectedChannelConfig(ADC1, AMPERAGE_ADC_CHANNEL, 3, ADC_SampleTime_28Cycles5);
+	ADC_InjectedChannelConfig(ADC1, TEMPERATURE_ADC_CHANNEL, 2, ADC_SampleTime_28Cycles5);
 
 	/* ADC1 injected external trigger configuration */
 	ADC_ExternalTrigInjectedConvConfig(ADC1, ADC_ExternalTrigInjecConv_None);
@@ -133,6 +130,11 @@ void initADC() {
 		__NOP();
 	}
 
+	//enable watchdog to piling amperage
+	ADC_AnalogWatchdogSingleChannelConfig(ADC1, AMPERAGE_ADC_CHANNEL);
+	ADC_AnalogWatchdogThresholdsConfig(ADC1, 4023, 0);
+	ADC_AnalogWatchdogCmd(ADC1, ADC_AnalogWatchdog_SingleInjecEnable);
+
 	NVIC_InitTypeDef NVIC_InitStructure;
 
 	/* Enable ADC1_2 IRQChannel */
@@ -144,6 +146,7 @@ void initADC() {
 
 	/* Enable JEOC interrupt */
 	ADC_ITConfig(ADC1, ADC_IT_JEOC, ENABLE);
+	ADC_ITConfig(ADC1, ADC_IT_AWD, ENABLE);
 
 	/* Start ADC1 calibration */
 	ADC_StartCalibration(ADC1);

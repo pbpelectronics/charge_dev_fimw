@@ -1,8 +1,8 @@
 /*
  * encoder.c
  *
- *  Created on: 3 жовт. 2013
- *      Author: ќлекс≥й
+ *  Created on: 3 Ð¶Ð¾Ð²Ñ‚. 2013
+ *      Author: ÑœÐ»ÐµÐºÑ�â‰¥Ð¹
  */
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_gpio.h"
@@ -28,9 +28,11 @@ void TIM1_UP_TIM16_IRQHandler(void) {
 void initEncoder(void) {
 	capture_is_first = 1;
 	encoderIsActive = 0;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+
 	GPIO_InitTypeDef gpio_cfg;
 	GPIO_StructInit(&gpio_cfg);
-
 	gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
 	gpio_cfg.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9 | GPIO_Pin_10;
 	GPIO_Init(GPIOA, &gpio_cfg);
