@@ -17,5 +17,6 @@ struct Led{
 void initLeds();
 void ledSwitchOn(struct Led led);
 void ledSwitchOff(struct Led led);
-
+void ledErrorSwitchOn();
+void ledErrorSwitchOff();
 #endif /* LED_H_ */

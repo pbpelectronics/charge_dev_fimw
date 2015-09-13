@@ -1,6 +1,0 @@
-23:30:03 **** Incremental Build of configuration Debug for project stm32f100rb_stdperiph_lib ****
-make all 
-make: Nothing to be done for `all'.
-
-23:30:03 Build Finished (took 434ms)
-

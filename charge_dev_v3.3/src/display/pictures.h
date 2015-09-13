@@ -2,7 +2,7 @@
  * bootMessage.c
  *
  * Created: 20.01.2013 18:20:26
- *  Author: Олексій
+ *  Author: ÐžÐ»ÐµÐºÑ�Ñ–Ð¹
  */
 
 //first part of main message (U=  I=)
@@ -105,6 +105,7 @@ const unsigned char main_image_third_part[66] = { 8, 64, 0x00, 0x00, 0x00, 0x00,
 #define BUTTERY_IMAGE_REFRESH_PAUSE_MS	300
 #define POSITION_BATTERY_IMAGE_X			POSITION_MAIN_IMAGE_THIRD_PART_X+WIDTH_MAIN_IMAGE_THIRD_PART
 #define POSITION_MAIN_BATTERY_IMAGE_Y	0
+#define BATTERY_IMAGES_QTY 5
 const unsigned char battery_image[][194] = {
 //empty
 		{ 24, 64, 0x00, 0x00, 0xF8, 0xF8, 0x38, 0x18, 0x18, 0x9F, 0x1F, 0x9B,
@@ -1757,6 +1758,7 @@ const unsigned char menuAmperageSymbol[86] =
 #define POWER_IMAGE_LEFT_INDENT	0				//space in the left
 #define POWER_IMAGE_WIDTH		8				//width of image
 #define POWER_IMAGE_Y_POSITION	24				//upper border
+#define POWER_IMAGES_QTY 10
 const unsigned char power_images[11][42] = {
 		{
 		8, 40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,

@@ -59,6 +59,15 @@ void ledSwitchOff(struct Led led) {
 	GPIO_ResetBits(led.port, led.pin);
 }
 
+void ledErrorSwitchOn(){
+	ledSwitchOn(led2Red);
+}
+
+void ledErrorSwitchOff(){
+	ledSwitchOff(led2Red);
+}
+
+
 //void switchLed(TIM_TypeDef * led, int greenPower, int bluePower, int redPower) {
 //	clearLed(led);
 //	led->LED_BLUE = bluePower;

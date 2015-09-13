@@ -3,7 +3,7 @@
  *
  * Created: 20.01.2013 19:05:46
  */
-	#include "pictures.h"
+#include "pictures.h"
 #include "../common/common.h"
 #include "../led/led.h"
 #include "images_printing.h"
@@ -161,12 +161,18 @@ void printMainImageTemplate() {
 void printBatteryWaitImage() {
 	nlcd_Pict(0, 0, bat_not_conn_image);
 }
-void printBattaryImage(char val) {
+
+void printBatteryIsChargedImage() {
+	nlcd_Pict(0, 0, bat_is_charged_image);
+}
+void printBattaryChargingImage(double percentage) {
+	int imageNumber = percentage * BATTERY_IMAGES_QTY;
 	nlcd_Pict(POSITION_BATTERY_IMAGE_X, POSITION_MAIN_BATTERY_IMAGE_Y,
-			battery_image[val]);
+			battery_image[imageNumber]);
 }
 
-void printChangeAmperageImage(int imageIdx) {
+void printPowerValueImage(double percentage) {
+	int imageIdx = percentage * POWER_IMAGES_QTY;
 	int idx;
 	for (idx = 1; idx <= imageIdx; idx++) {
 		nlcd_Pict(POWER_IMAGE_LEFT_INDENT + POWER_IMAGE_WIDTH * idx,

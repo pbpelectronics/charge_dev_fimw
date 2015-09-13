@@ -25,3 +25,7 @@ void Int2Str(char *pStr, unsigned int value, int charCount) {
 	} while (charCount--);
 }
 
+double calculateRation(int input, int maxValue) {
+	double result = input / (double) maxValue;
+	return result > 0 ? result : 0;
+}

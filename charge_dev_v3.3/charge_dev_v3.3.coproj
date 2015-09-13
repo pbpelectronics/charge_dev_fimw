@@ -31,7 +31,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
-        <LocateLinkFile path="c:/users/olexi_000/appdata/roaming/coocox/coide/configuration/programdata/charge_dev_v3.3/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="c:/users/oleksiy/appdata/roaming/coocox/coide/configuration/programdata/charge_dev_v3.3/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -62,7 +62,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\olexi_000\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F1xx_MD_128K\STM32F10x_MD_128.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="C:\Users\OLeksiy\AppData\Roaming\CooCox\CoIDE\config\flash\CooCox-Flash\CoIDE_STM32F1xx_MD_128K\STM32F10x_MD_128.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
@@ -75,8 +75,8 @@
   <Files>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_dma.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_dma.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_can.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_can.c" type="1"/>
-    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_rtc.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_rtc.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_usart.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_usart.h" type="1"/>
+    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_rtc.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_rtc.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_flash.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_flash.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_spi.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_spi.h" type="1"/>
     <File name="src/timers" path="" type="2"/>
@@ -84,8 +84,8 @@
     <File name="components/cmsis_core/core_cmInstr.h" path="components/coocox-master/cmsis_core/source/core_cmInstr.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/startup_stm32f10x_hd_vl.s" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/startup_stm32f10x_hd_vl.s" type="1"/>
     <File name="src" path="" type="2"/>
-    <File name="components/cmsis_core" path="" type="2"/>
     <File name="components/cmsis_core/core_cmFunc.h" path="components/coocox-master/cmsis_core/source/core_cmFunc.h" type="1"/>
+    <File name="components/cmsis_core" path="" type="2"/>
     <File name="src/lcd_1100/nokia1100_lcd_font.h" path="src/lcd_1100/nokia1100_lcd_font.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_wwdg.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_wwdg.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_bkp.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_bkp.c" type="1"/>
@@ -97,8 +97,8 @@
     <File name="components/cmsis_core/core_sc300.h" path="components/coocox-master/cmsis_core/source/core_sc300.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_conf.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_conf.h" type="1"/>
     <File name="src/led" path="" type="2"/>
-    <File name="src/cooler" path="" type="2"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_spi.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_spi.c" type="1"/>
+    <File name="src/cooler" path="" type="2"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_tim.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_tim.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_pwr.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_pwr.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_gpio.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_gpio.c" type="1"/>
@@ -150,14 +150,14 @@
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_crc.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_crc.h" type="1"/>
     <File name="src/display/pictures.h" path="src/display/pictures.h" type="1"/>
     <File name="src/cooler/cooler.h" path="src/cooler/cooler.h" type="1"/>
-    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_fsmc.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_fsmc.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_dma.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_dma.c" type="1"/>
+    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_fsmc.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_fsmc.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_flash.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_flash.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_pwr.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_pwr.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/misc.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/misc.c" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_can.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_can.h" type="1"/>
-    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_sdio.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_sdio.h" type="1"/>
     <File name="src/lcd_1100" path="" type="2"/>
+    <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_sdio.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_sdio.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/system_stm32f10x.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/system_stm32f10x.h" type="1"/>
     <File name="components/cmsis_core/core_cm4.h" path="components/coocox-master/cmsis_core/source/core_cm4.h" type="1"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_dbgmcu.c" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_dbgmcu.c" type="1"/>
@@ -166,8 +166,8 @@
     <File name="src/common/common.h" path="src/common/common.h" type="1"/>
     <File name="src/common" path="" type="2"/>
     <File name="components/STM32F10x_HD_VL_STDLIB/stm32f10x_rtc.h" path="components/coocox-master/STM32F10x_HD_VL_STDLIB/source/stm32f10x_rtc.h" type="1"/>
-    <File name="main.c" path="src/main.c" type="1"/>
     <File name="src/timers/timers.h" path="src/timers/timers.h" type="1"/>
+    <File name="main.c" path="src/main.c" type="1"/>
     <File name="components/cmsis_core/arm_math.h" path="components/coocox-master/cmsis_core/source/arm_math.h" type="1"/>
   </Files>
   <Bookmarks/>
